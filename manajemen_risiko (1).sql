@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 25, 2019 at 02:53 AM
+-- Generation Time: Sep 25, 2019 at 08:32 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.3
 
@@ -21,6 +21,25 @@ SET time_zone = "+00:00";
 --
 -- Database: `manajemen_risiko`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `dampak`
+--
+
+CREATE TABLE `dampak` (
+  `id_dampak` int(11) NOT NULL,
+  `dampak` varchar(254) NOT NULL,
+  `id_risiko` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `dampak`
+--
+
+INSERT INTO `dampak` (`id_dampak`, `dampak`, `id_risiko`) VALUES
+(1, 'ada juga', 3);
 
 -- --------------------------------------------------------
 
@@ -73,7 +92,6 @@ CREATE TABLE `risiko` (
   `kejadian` varchar(255) NOT NULL,
   `id_kategori` int(11) NOT NULL,
   `penyebab` varchar(254) NOT NULL,
-  `dampak` varchar(254) NOT NULL,
   `level_kemungkinan` int(11) DEFAULT NULL,
   `level_dampak` int(11) DEFAULT NULL,
   `besaran_risiko` int(11) DEFAULT NULL,
@@ -86,8 +104,8 @@ CREATE TABLE `risiko` (
 -- Dumping data for table `risiko`
 --
 
-INSERT INTO `risiko` (`id_risiko`, `kejadian`, `id_kategori`, `penyebab`, `dampak`, `level_kemungkinan`, `level_dampak`, `besaran_risiko`, `level_risiko`, `prioritas_risiko`, `id_indikator_organisasi`) VALUES
-(3, 'a', 3, 'b', 'cc', NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `risiko` (`id_risiko`, `kejadian`, `id_kategori`, `penyebab`, `level_kemungkinan`, `level_dampak`, `besaran_risiko`, `level_risiko`, `prioritas_risiko`, `id_indikator_organisasi`) VALUES
+(3, 'a', 3, 'b', NULL, NULL, NULL, NULL, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -113,6 +131,12 @@ INSERT INTO `sasaran_organisasi` (`id_sasaran_organisasi`, `sasaran_organisasi`,
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `dampak`
+--
+ALTER TABLE `dampak`
+  ADD PRIMARY KEY (`id_dampak`);
 
 --
 -- Indexes for table `indikator_organisasi`
@@ -141,6 +165,12 @@ ALTER TABLE `sasaran_organisasi`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `dampak`
+--
+ALTER TABLE `dampak`
+  MODIFY `id_dampak` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `indikator_organisasi`

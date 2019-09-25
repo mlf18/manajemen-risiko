@@ -61,12 +61,6 @@
                                                 <input type="text" name="penyebab" class="form-control" placeholder="Penyebab" required="" pattern="{,254}">
                                             </div>
                                         </div>
-                                        <div class="form-group mt-lg">
-                                            <label class="col-sm-3 control-label">Dampak</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" name="dampak" class="form-control" placeholder="Dampak" required="" pattern="{,254}">
-                                            </div>
-                                        </div>
                                     
                                 </div>
                                 <footer class="panel-footer">
@@ -106,7 +100,7 @@
                                     <td><?php echo $value->kejadian;?></td>
                                     <td><?php echo $value->id_kategori;?></td>
                                     <td><?php echo $value->penyebab;?></td>
-                                    <td><?php echo $value->dampak;?></td>
+                                    <td class="text-center"><a href="<?php echo base_url();?>index.php/dampak_risiko/index/<?php echo $value->id_risiko;?>" class="mb-xs mt-xs mr-xs btn btn-circle btn-default"><i class="fa fa-search"></i></a></td>
                                     <td class="text-center">
                                         <a  class="modal-with-form mb-xs mt-xs mr-xs btn btn-warning" href="#editForm"><i class="fa fa-pencil"></i></a>
                                         <button type="button" class="mb-xs mt-xs mr-xs btn btn-danger"><i class="fa fa-trash-o"></i></button></td>
@@ -140,12 +134,6 @@
                                                                 <label class="col-sm-3 control-label">Penyebab</label>
                                                                 <div class="col-sm-9">
                                                                     <input type="text" name="penyebab" class="form-control" placeholder="Penyebab" required="" value="<?php echo $value->penyebab;?>">
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group mt-lg">
-                                                                <label class="col-sm-3 control-label">Dampak</label>
-                                                                <div class="col-sm-9">
-                                                                    <input type="text" name="dampak" class="form-control" placeholder="Dampak" required="" value="<?php echo $value->dampak;?>">
                                                                 </div>
                                                             </div>
                                                         
