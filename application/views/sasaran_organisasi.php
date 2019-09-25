@@ -33,24 +33,25 @@
                                 <header class="panel-heading">
                                     <h2 class="panel-title">Tambah Sasaran Organisasi</h2>
                                 </header>
+                                <form id="demo-form" class="form-horizontal mb-lg" action="<?php echo base_url();?>index.php/sasaran_organisasi/save" method="post" enctype="multipart/form-data">
+                                <input type="hidden" name="id_manajemen_risiko" value="<?php echo $id_manajemen_risiko;?>">
                                 <div class="panel-body">
-                                    <form id="demo-form" class="form-horizontal mb-lg" novalidate="novalidate">
                                         <div class="form-group mt-lg">
                                             <label class="col-sm-3 control-label">Nama Sasaran</label>
                                             <div class="col-sm-9">
-                                                <input type="text" name="name" class="form-control" placeholder="Nama Sasaran" required="">
+                                                <input type="text" name="sasaran_organisasi" class="form-control" placeholder="Nama Sasaran" pattern="{,254}" required="">
                                             </div>
                                         </div>
-                                    </form>
                                 </div>
                                 <footer class="panel-footer">
                                     <div class="row">
                                         <div class="col-md-12 text-right">
-                                            <button class="btn btn-primary modal-confirm">Submit</button>
+                                            <button class="btn btn-primary" type="submit">Submit</button>
                                             <button class="btn btn-default modal-dismiss">Cancel</button>
                                         </div>
                                     </div>
                                 </footer>
+                                </form>
                             </section>
                         </div>
                     </div>
@@ -68,7 +69,48 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+                            <?php
+                                foreach ($sasaran_model as $key => $value) {
+                                    # code...
+                            ?>
+                            <tr>
+                                <td><?php echo $key+1;?></td>
+                                <td><?php echo $value->sasaran_organisasi;?></td>
+                                <td><a href="<?php echo base_url();?>index.php/indikator_sasaran/index/<?php echo $value->id_sasaran_organisasi;?>" class="mb-xs mt-xs mr-xs btn btn-circle btn-default"><i class="fa fa-search"></i></a></td>
+                                <td>
+                                <a href="#editForm-<?php echo $value->id_sasaran_organisasi;?>" class="mb-xs mt-xs mr-xs btn btn-warning modal-with-form"><i class="fa fa-pencil"></i></a>
+                                        <div id="editForm-<?php echo $value->id_sasaran_organisasi;?>" class="modal-block modal-block-primary mfp-hide">
+                                            <section class="panel">
+                                                <header class="panel-heading">
+                                                    <h2 class="panel-title">Edit Sasaran Organisasi</h2>
+                                                </header>
+                                                <form id="demo-form" class="form-horizontal mb-lg" action="<?php echo base_url();?>index.php/sasaran_organisasi/update/<?php echo $value->id_sasaran_organisasi;?>"  method="post" enctype="multipart/form-data">
+                                                <div class="panel-body">
+                                                        <div class="form-group mt-lg">
+                                                            <label class="col-sm-3 control-label">Nama Sasaran</label>
+                                                            <div class="col-sm-9">
+                                                                <input type="text" name="sasaran_organisasi" class="form-control" placeholder="Nama Sasaran" pattern="{,254}" required="" value="<?php echo $value->sasaran_organisasi;?>">
+                                                            </div>
+                                                        </div>
+                                                </div>
+                                                <footer class="panel-footer">
+                                                    <div class="row">
+                                                        <div class="col-md-12 text-right">
+                                                            <button class="btn btn-primary" type="submit">Submit</button>
+                                                            <button class="btn btn-default modal-dismiss">Cancel</button>
+                                                        </div>
+                                                    </div>
+                                                </footer>
+                                                </form>
+                                            </section>
+                                        </div>
+                                        <button type="button" class="mb-xs mt-xs mr-xs btn btn-danger"><i class="fa fa-trash-o"></i></button>
+                                </td>
+                            </tr>
+                            <?php
+                                }
+                            ?>
+                                <!-- <tr>
                                     <td>1</td>
                                     <td>Efektifitas tindak lanjut hasil pengawasan</td>
                                     <td class="text-center"><a href="<?php echo base_url();?>index.php/manajemen_risiko/indikator_sasaran" class="mb-xs mt-xs mr-xs btn btn-circle btn-default"><i class="fa fa-search"></i></a></td>
@@ -100,7 +142,7 @@
                                             </section>
                                         </div>
                                         <button type="button" class="mb-xs mt-xs mr-xs btn btn-danger"><i class="fa fa-trash-o"></i></button></td>
-                                </tr>
+                                </tr> -->
                             </tbody>
                         </table>
                     </div>

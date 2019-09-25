@@ -33,24 +33,27 @@
                                 <header class="panel-heading">
                                     <h2 class="panel-title">Tambah Indikator</h2>
                                 </header>
+                                
                                 <div class="panel-body">
-                                    <form id="demo-form" class="form-horizontal mb-lg" novalidate="novalidate">
+                                <form id="demo-form" class="form-horizontal mb-lg" method="post" enctype="multipart/form-data" action="<?php echo base_url();?>index.php/indikator_sasaran/save">
+                                        <input type="hidden" name="id_sasaran_organisasi" value="<?php echo $id_sasaran_organisasi;?>">
                                         <div class="form-group mt-lg">
                                             <label class="col-sm-3 control-label">Indikator</label>
                                             <div class="col-sm-9">
-                                                <input type="text" name="name" class="form-control" placeholder="Indikator" required="">
+                                                <input type="text" name="indikator_organisasi" class="form-control" placeholder="Indikator" required="" pattern={,254}>
                                             </div>
                                         </div>
-                                    </form>
+                                    
                                 </div>
                                 <footer class="panel-footer">
                                     <div class="row">
                                         <div class="col-md-12 text-right">
-                                            <button class="btn btn-primary modal-confirm">Submit</button>
+                                            <button class="btn btn-primary" type="submit">Submit</button>
                                             <button class="btn btn-default modal-dismiss">Cancel</button>
                                         </div>
                                     </div>
                                 </footer>
+                                </form>
                             </section>
                         </div>
                     </div>
@@ -68,7 +71,47 @@
                                 </tr>
                             </thead>
                             <tbody>
+                            <?php
+                            foreach ($indikator as $key => $value) {
+                                # code...
+                            ?>
                                 <tr>
+                                    <td><?php echo $key+1;?></td>
+                                    <td><?php echo $value->indikator_organisasi;?></td>
+                                    <td class="text-center"><a href="<?php echo base_url();?>index.php/risiko_organisasi/index/<?php echo $value->id_indikator_organisasi;?>" class="mb-xs mt-xs mr-xs btn btn-circle btn-default"><i class="fa fa-search"></i></a></td>
+                                    <td class="text-center">
+                                        <a href="#editForm-<?php echo $value->id_indikator_organisasi;?>" class="modal-with-form mb-xs mt-xs mr-xs btn btn-warning"><i class="fa fa-pencil"></i></a>
+                                        <button type="button" class="mb-xs mt-xs mr-xs btn btn-danger"><i class="fa fa-trash-o"></i></button></td>
+                                        <div id="editForm-<?php echo $value->id_indikator_organisasi;?>" class="modal-block modal-block-primary mfp-hide">
+                                            <section class="panel">
+                                                <header class="panel-heading">
+                                                    <h2 class="panel-title">Edit Indikator</h2>
+                                                </header>
+                                                <form id="demo-form" class="form-horizontal mb-lg" method="post" action="<?php echo base_url();?>index.php/indikator_sasaran/update/<?php echo $value->id_indikator_organisasi;?>">
+                                                <div class="panel-body">
+                                                        <div class="form-group mt-lg">
+                                                            <label class="col-sm-3 control-label">Indikator</label>
+                                                            <div class="col-sm-9">
+                                                                <input type="text" name="indikator_organisasi" class="form-control" placeholder="Indikator" required="" value="<?php echo $value->indikator_organisasi;?>" pattern="{,254}">
+                                                            </div>
+                                                        </div>
+                                                </div>
+                                                <footer class="panel-footer">
+                                                    <div class="row">
+                                                        <div class="col-md-12 text-right">
+                                                            <button class="btn btn-primary" type="submit">Submit</button>
+                                                            <button class="btn btn-default modal-dismiss">Cancel</button>
+                                                        </div>
+                                                    </div>
+                                                </footer>
+                                                </form>
+                                            </section>
+                                        </div>
+                                </tr>
+                            <?php
+                            }
+                            ?>
+                                <!-- <tr>
                                     <td>1</td>
                                     <td>Persentase unit kerja yang menindaklanjuti rekomendasi BPK</td>
                                     <td class="text-center"><a href="<?php echo base_url();?>index.php/manajemen_risiko/risiko_organisasi" class="mb-xs mt-xs mr-xs btn btn-circle btn-default"><i class="fa fa-search"></i></a></td>
@@ -100,7 +143,7 @@
                                                 </footer>
                                             </section>
                                         </div>
-                                </tr>
+                                </tr> -->
                             </tbody>
                         </table>
                     </div>
