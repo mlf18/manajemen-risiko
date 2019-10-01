@@ -76,7 +76,7 @@ class Manajemen_risiko extends CI_Controller {
 
     public function rtp_risiko(){
         $data =array(
-            'content'=>'rtp_risiko.php'
+            'content'=>'rtp_risiko_2.php'
         );
 		$this->load->view('index',$data);
     }

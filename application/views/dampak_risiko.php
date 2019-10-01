@@ -41,7 +41,19 @@
                                         <div class="form-group mt-lg">
                                             <label class="col-sm-3 control-label">Dampak</label>
                                             <div class="col-sm-9">
-                                                <input type="text" name="dampak" class="form-control" placeholder="Dampak" required="" pattern="{,254}">
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <input type="text" name="dampak[]" class="form-control" placeholder="Dampak" required="" pattern="{1,254}">
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <div id="formTambahan"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12"><button class="btn btn-defult btn-sm" type="button" id="btnTDampak"><i class="fa fa-plus"></i></button></div>
+                                                </div>
                                             </div>
                                         </div>
                                     
@@ -66,7 +78,6 @@
                             <thead>
                                 <tr>
                                     <th class="text-center">No</th>
-                                    <th class="text-center">Risiko</th>
                                     <th class="text-center">Dampak</th>
                                     <th class="text-center">Aksi</th>
                                 </tr>
@@ -79,7 +90,6 @@
                             <tr>
                                     <td><?php echo $key+1;?></td>
                                     <td><?php echo $value->dampak;?></td>
-                                    <td><?php echo $value->id_risiko;?></td>
                                     <td class="text-center">
                                         <a  class="modal-with-form mb-xs mt-xs mr-xs btn btn-warning" href="#editForm"><i class="fa fa-pencil"></i></a>
                                         <button type="button" class="mb-xs mt-xs mr-xs btn btn-danger"><i class="fa fa-trash-o"></i></button></td>
@@ -125,3 +135,13 @@
 </div>
 
 <!-- end: page -->
+<?php 
+function custom_footer(){
+?>
+<script>
+    $("#btnTDampak").click(function(){
+        $("#formTambahan").append('<input type="text" name="dampak[]" class="form-control" placeholder="Dampak" pattern="{1,254}">');
+    })
+</script>
+<?php
+}?>

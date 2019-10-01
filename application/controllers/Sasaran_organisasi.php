@@ -16,7 +16,13 @@ class Sasaran_organisasi extends CI_Controller {
     public function save(){
         // $user_id = $_SESSION ['ses_userId'];
         $user_id =1;
-        $this->sasaranorganisasi_model->create(array('sasaran_organisasi'=>$this->input->post('sasaran_organisasi'),'user_id'=>$user_id,'id_manajemen_risiko'=>$this->input->post('id_manajemen_risiko')));
+        foreach ($this->input->post('sasaran_organisasi') as $key => $value) {
+            # code...
+            if(!empty($value)){
+                $this->sasaranorganisasi_model->create(array('sasaran_organisasi'=>$value,'user_id'=>$user_id,'id_manajemen_risiko'=>$this->input->post('id_manajemen_risiko')));
+            }
+        }
+        
         return redirect(base_url()."index.php/sasaran_organisasi/index/".$this->input->post('id_manajemen_risiko'));
     }
 

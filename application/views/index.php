@@ -234,5 +234,10 @@
 		<!-- Examples -->
 		<script src="<?php echo base_url();?>assets/javascripts/dashboard/examples.dashboard.js"></script>
         <script src="<?php echo base_url();?>assets/javascripts/ui-elements/examples.modals.js"></script>
+		<?php
+		if(function_exists("custom_footer")){
+			custom_footer();
+		}
+		?>
 	</body>
 </html>

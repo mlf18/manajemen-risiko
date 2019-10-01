@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 25, 2019 at 08:32 AM
+-- Generation Time: Oct 01, 2019 at 09:12 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.3
 
@@ -59,7 +59,9 @@ CREATE TABLE `indikator_organisasi` (
 --
 
 INSERT INTO `indikator_organisasi` (`id_indikator_organisasi`, `indikator_organisasi`, `id_sasaran_organisasi`, `user_id`) VALUES
-(1, 'sss', 1, 1);
+(1, 'sss', 1, 1),
+(2, 'cek 1', 2, 1),
+(3, 'cek', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -176,7 +178,7 @@ ALTER TABLE `dampak`
 -- AUTO_INCREMENT for table `indikator_organisasi`
 --
 ALTER TABLE `indikator_organisasi`
-  MODIFY `id_indikator_organisasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_indikator_organisasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `manajemen_risiko`

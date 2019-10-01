@@ -48,7 +48,7 @@
                                             <div class="col-sm-9">
                                                 <select name="id_kategori" id="" class="form-control" required="">
                                                     <option value="" selected disabled>Pilih Kategori</option>
-                                                    <option value="0">Risiko Kebijakan</option>
+                                                    <option value="0">Risiko Kebijakan/ Stratejik</option>
                                                     <option value="1">Risiko Operasional</option>
                                                     <option value="2">Risiko Kepatuhan</option>
                                                     <option value="3">Risiko Finansial</option>
@@ -58,7 +58,7 @@
                                         <div class="form-group mt-lg">
                                             <label class="col-sm-3 control-label">Penyebab</label>
                                             <div class="col-sm-9">
-                                                <input type="text" name="penyebab" class="form-control" placeholder="Penyebab" required="" pattern="{,254}">
+                                                <input type="text" name="penyebab" class="form-control" placeholder="Penyebab" required="" pattern="{1,254}">
                                             </div>
                                         </div>
                                     
@@ -98,7 +98,7 @@
                             <tr>
                                     <td><?php echo $key+1;?></td>
                                     <td><?php echo $value->kejadian;?></td>
-                                    <td><?php echo $value->id_kategori;?></td>
+                                    <td><?php echo kategoriRisiko($value->id_kategori);?></td>
                                     <td><?php echo $value->penyebab;?></td>
                                     <td class="text-center"><a href="<?php echo base_url();?>index.php/dampak_risiko/index/<?php echo $value->id_risiko;?>" class="mb-xs mt-xs mr-xs btn btn-circle btn-default"><i class="fa fa-search"></i></a></td>
                                     <td class="text-center">
@@ -123,7 +123,7 @@
                                                                 <div class="col-sm-9">
                                                                     <select name="id_kategori" id="" class="form-control">
                                                                         <option value="">Pilih Kategori</option>
-                                                                        <option value="0" <?php if ($value->id_kategori==0) echo 'selected';?>>Risiko Kebijakan</option>
+                                                                        <option value="0" <?php if ($value->id_kategori==0) echo 'selected';?>>Risiko Kebijakan/ Stratejik</option>
                                                                         <option value="1" <?php if ($value->id_kategori==1) echo 'selected';?>>Risiko Operasional</option>
                                                                         <option value="2" <?php if ($value->id_kategori==2) echo 'selected';?>>Risiko Kepatuhan</option>
                                                                         <option value="3" <?php if ($value->id_kategori==3) echo 'selected';?>>Risiko Finansial</option>
@@ -180,7 +180,7 @@
                                                                 <div class="col-sm-9">
                                                                     <select name="" id="" class="form-control">
                                                                         <option value="">Pilih Kategori</option>
-                                                                        <option value="">Risiko Kebijakan</option>
+                                                                        <option value="">Risiko Kebijakan/ Stratejik</option>
                                                                         <option value="">Risiko Operasional</option>
                                                                         <option value="">Risiko Kepatuhan</option>
                                                                         <option value="">Risiko Finansial</option>

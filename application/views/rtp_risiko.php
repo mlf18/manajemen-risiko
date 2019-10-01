@@ -64,7 +64,7 @@
                                             <option value="">Menerima Risiko</option>
                                         </select>
                                     </td>
-                                    <td class="text-center"><input type="text" name="" placeholder="Rencana Aksi" id="" class="form-control"><a href="http://"><i class="fa fa-plus"></i></a></td>
+                                    <td class="text-center"><a href="#"><i class="fa fa-plus"></i></a></td>
                                     <td><input type="text" name="" placeholder="Output" id="" class="form-control"></td>
                                     <td><input type="text" name="" placeholder="Target" id="" class="form-control"></td>
                                     <td><select name="" id="" class="form-control">
@@ -102,3 +102,4 @@
 </div>
 
 <!-- end: page -->
+

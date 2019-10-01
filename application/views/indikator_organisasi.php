@@ -22,7 +22,7 @@
     <div class="col-md-6 col-lg-12 col-xl-6">
         <section class="panel">
             <div class="panel-heading">
-                <h4>Indikator Sasaran Efektifitas tindak lanjut hasil pengawasan</h4>
+                <h4>Indikator Sasaran <?php echo $sasaran[0]->sasaran_organisasi;?></h4>
             </div>
             <div class="panel-body">
                 <div class="row">
@@ -40,7 +40,15 @@
                                         <div class="form-group mt-lg">
                                             <label class="col-sm-3 control-label">Indikator</label>
                                             <div class="col-sm-9">
-                                                <input type="text" name="indikator_organisasi" class="form-control" placeholder="Indikator" required="" pattern={,254}>
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <input type="text" name="indikator_organisasi[]" class="form-control" placeholder="Indikator" required="" pattern={1,254}>
+                                                        <div id="formTambahan"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12"><button class="btn btn-defult btn-sm" type="button" id="btnTIndikator"><i class="fa fa-plus"></i></button></div>
+                                                </div>
                                             </div>
                                         </div>
                                     
@@ -92,7 +100,7 @@
                                                         <div class="form-group mt-lg">
                                                             <label class="col-sm-3 control-label">Indikator</label>
                                                             <div class="col-sm-9">
-                                                                <input type="text" name="indikator_organisasi" class="form-control" placeholder="Indikator" required="" value="<?php echo $value->indikator_organisasi;?>" pattern="{,254}">
+                                                                <input type="text" name="indikator_organisasi" class="form-control" placeholder="Indikator" required="" value="<?php echo $value->indikator_organisasi;?>" pattern="{1,254}">
                                                             </div>
                                                         </div>
                                                 </div>
@@ -156,3 +164,13 @@
 </div>
 
 <!-- end: page -->
+<?php 
+function custom_footer(){
+?>
+<script>
+    $("#btnTIndikator").click(function(){
+        $("#formTambahan").append('<input type="text" name="indikator_organisasi[]" class="form-control" placeholder="Indikator" pattern="{1,254}">');
+    })
+</script>
+<?php
+}?>
