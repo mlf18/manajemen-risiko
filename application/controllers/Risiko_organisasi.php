@@ -15,6 +15,8 @@ class Risiko_organisasi extends CI_Controller {
 
     public function save(){
         $this->risiko_model->create($this->input->post());
+        $id_indikator = $this->input->post("id_indikator_organisasi");
+        redirect(base_url()."index.php/risiko_organisasi/index/".$id_indikator);
     }
     public function update($id){
         $this->risiko_model->update($id,$this->input->post());

@@ -22,9 +22,12 @@ class Manajemen_risiko extends CI_Controller {
 	{
         // $user_id = $_SESSION ['ses_userId'];
         $user_id =1;
-        $manajemen_risiko = $this->manajemenrisiko_model->get(array('user_id'=>$user_id));
+        //$manajemen_risiko = $this->manajemenrisiko_model->get(array('user_id'=>$user_id));
+				$manajemen_risiko = $this->manajemenrisiko_model->get();
+				$units = $this->unit_model->get_all_unit();
         $data =array(
             'content'=>'manajemen_risiko.php',
+						'units' => $units,
             'manajemen_risiko'=>$manajemen_risiko
         );
 		$this->load->view('index',$data);
@@ -35,17 +38,17 @@ class Manajemen_risiko extends CI_Controller {
         $user_id =1;
         // print_r($this->input->post());
         // exit;
-        $this->manajemenrisiko_model->create(array("nama_upr"=>$this->input->post("nama_upr"),"tahun"=>$this->input->post("tahun"),"user_id"=>$user_id));
+        $this->manajemenrisiko_model->create(array("id_upr"=>$this->input->post("id_upr"),"tahun"=>$this->input->post("tahun"),"user_id"=>$user_id));
         return redirect(base_url()."index.php/manajemen_risiko");
     }
 
     public function update($id){
         // $user_id = $_SESSION ['ses_userId'];
         $user_id =1;
-        $this->manajemenrisiko_model->update($id,array("nama_upr"=>$this->input->post("nama_upr"),"tahun"=>$this->input->post("tahun"),"user_id"=>$user_id));
+        $this->manajemenrisiko_model->update($id,array("id_upr"=>$this->input->post("id_upr"),"tahun"=>$this->input->post("tahun"),"user_id"=>$user_id));
         return redirect(base_url()."index.php/manajemen_risiko");
     }
-    
+
     public function sasaran_organisasi(){
         $data =array(
             'content'=>'sasaran_organisasi.php'

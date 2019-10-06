@@ -16,7 +16,11 @@ class Dampak_risiko extends CI_Controller {
     public function save(){
         // $user_id = $_SESSION ['ses_userId'];
         $user_id =1;
-        $this->dampak_model->create(array('dampak'=>$this->input->post("dampak"),'id_risiko'=>$this->input->post('id_risiko')));
+        foreach ($this->input->post("dampak") as $key => $value) {
+          if(!empty($value)){
+              $this->dampak_model->create(array('dampak'=>$value,'id_risiko'=>$this->input->post('id_risiko')));
+          }
+        }
         return redirect(base_url().'index.php/dampak_risiko/index/'.$this->input->post('id_risiko'));
     }
     public function update($id){
@@ -25,6 +29,6 @@ class Dampak_risiko extends CI_Controller {
             $this->dampak_model->update($id,array('dampak'=>$this->input->post("dampak")));
             return redirect(base_url().'index.php/dampak_risiko/index/'.$dampak[0]->id_risiko);
         }
-        
+
     }
 }

@@ -25,7 +25,9 @@ class Manajemenrisiko_model extends CI_Model {
         if(isset($data)){
             return $this->db->get_where($this->_table,$data)->result();
         }else{
-            // 
+            $this->db->select('*');
+            $this->db->join("unit","id_unit = id_upr","left");
+
             return $this->db->get($this->_table)->result();
         }
     }

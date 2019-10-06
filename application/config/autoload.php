@@ -132,4 +132,4 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-$autoload['model'] = array('manajemenrisiko_model','sasaranorganisasi_model','indikatororganisasi_model','risiko_model','dampak_model');
+$autoload['model'] = array('manajemenrisiko_model','sasaranorganisasi_model','indikatororganisasi_model','risiko_model','dampak_model', 'unit_model');

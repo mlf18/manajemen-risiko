@@ -38,9 +38,9 @@
                                 <input type="hidden" name="id_indikator_organisasi" value="<?php echo $id_indikator_organisasi;?>">
                                 <div class="panel-body">
                                         <div class="form-group mt-lg">
-                                            <label class="col-sm-3 control-label">Kejadian</label>
+                                            <label class="col-sm-3 control-label">Pernyataan Resiko</label>
                                             <div class="col-sm-9">
-                                                <input type="text" name="kejadian" class="form-control" placeholder="Nama Kejadian" required="">
+                                                <input type="text" name="kejadian" class="form-control" placeholder="Nama Kejadian Resiko" required="">
                                             </div>
                                         </div>
                                         <div class="form-group mt-lg">
@@ -61,7 +61,7 @@
                                                 <input type="text" name="penyebab" class="form-control" placeholder="Penyebab" required="" pattern="{1,254}">
                                             </div>
                                         </div>
-                                    
+
                                 </div>
                                 <footer class="panel-footer">
                                     <div class="row">
@@ -83,7 +83,7 @@
                             <thead>
                                 <tr>
                                     <th class="text-center">No</th>
-                                    <th class="text-center">Kejadian</th>
+                                    <th class="text-center">Pernyataan Resiko</th>
                                     <th class="text-center">Kategori Risiko</th>
                                     <th class="text-center">Penyebab</th>
                                     <th class="text-center">Dampak</th>
@@ -91,7 +91,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            <?php 
+                            <?php
                             foreach ($risiko as $key => $value) {
                                 # code...
                             ?>
@@ -111,7 +111,7 @@
                                                     </header>
                                                     <form id="demo-form" class="form-horizontal mb-lg" method="post" action="<?php echo base_url();?>index.php/risiko_organisasi/update/<?php echo $value->id_risiko;?>" enctype="multipart/form-data">
                                                     <div class="panel-body">
-                                                        
+
                                                             <div class="form-group mt-lg">
                                                                 <label class="col-sm-3 control-label">Kejadian</label>
                                                                 <div class="col-sm-9">
@@ -136,7 +136,7 @@
                                                                     <input type="text" name="penyebab" class="form-control" placeholder="Penyebab" required="" value="<?php echo $value->penyebab;?>">
                                                                 </div>
                                                             </div>
-                                                        
+
                                                     </div>
                                                     <footer class="panel-footer">
                                                         <div class="row">
@@ -220,7 +220,7 @@
             </div>
         </section>
     </div>
-    
+
 </div>
 
 <!-- end: page -->

@@ -6,6 +6,7 @@ class Dampak_model extends CI_Model {
     }
 
     public function create($data){
+        print_r($data);
         if ($this->db->insert($this->_table,$data)){
             return true;
         }else{
@@ -25,7 +26,7 @@ class Dampak_model extends CI_Model {
         if(isset($data)){
             return $this->db->get_where($this->_table,$data)->result();
         }else{
-            // 
+            //
             return $this->db->get($this->_table)->result();
         }
     }
