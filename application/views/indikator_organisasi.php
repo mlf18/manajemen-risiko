@@ -1,7 +1,7 @@
 <header class="page-header">
     <h2>Manajemen Risiko</h2>
 
-    <div class="right-wrapper pull-right">
+    <div class="right-wrapper pull-right" style="margin-right:12px;">
         <ol class="breadcrumbs">
             <li>
                 <a href="<?php echo base_url();?>">
@@ -9,9 +9,9 @@
                 </a>
             </li>
             <li><span>Dashboard</span></li>
-            <li><span>Manajemen Risiko</span></li>
-            <li><span>Sasaran Organisasi</span></li>
-            <li><span>Indikator Sasaran</span></li>
+            <li><a href="<?php echo base_url();?>index.php/manajemen_risiko"><span>Manajemen Risiko</span></a></li>
+            <li><a href="<?php echo base_url();?>index.php/sasaran_organisasi/index/<?php echo $sasaran[0]->id_manajemen_risiko;?>"><span>Sasaran Organisasi</span></a></li>
+            <li><a href="#"><span>Kegiatan</span></a></li>
         </ol>
 
     </div>
@@ -22,7 +22,7 @@
     <div class="col-md-6 col-lg-12 col-xl-6">
         <section class="panel">
             <div class="panel-heading">
-                <h4>Indikator Sasaran <?php echo $sasaran[0]->sasaran_organisasi;?></h4>
+                <h4>Kegiatan Sasaran <?php echo $sasaran[0]->sasaran_organisasi;?></h4>
             </div>
             <div class="panel-body">
                 <div class="row">
@@ -31,14 +31,14 @@
                         <div id="addForm" class="modal-block modal-block-primary mfp-hide">
                             <section class="panel">
                                 <header class="panel-heading">
-                                    <h2 class="panel-title">Tambah Indikator</h2>
+                                    <h2 class="panel-title">Tambah Kegiatan</h2>
                                 </header>
                                 
                                 <div class="panel-body">
                                 <form id="demo-form" class="form-horizontal mb-lg" method="post" enctype="multipart/form-data" action="<?php echo base_url();?>index.php/indikator_sasaran/save">
                                         <input type="hidden" name="id_sasaran_organisasi" value="<?php echo $id_sasaran_organisasi;?>">
                                         <div class="form-group mt-lg">
-                                            <label class="col-sm-3 control-label">Indikator</label>
+                                            <label class="col-sm-3 control-label">Kegiatan</label>
                                             <div class="col-sm-9">
                                                 <div class="row">
                                                     <div class="col-sm-12">
@@ -73,7 +73,7 @@
                             <thead>
                                 <tr>
                                     <th class="text-center">No</th>
-                                    <th class="text-center">Indikator</th>
+                                    <th class="text-center">Kegiatan</th>
                                     <th class="text-center">Risiko</th>
                                     <th class="text-center">Aksi</th>
                                 </tr>
@@ -89,16 +89,18 @@
                                     <td class="text-center"><a href="<?php echo base_url();?>index.php/risiko_organisasi/index/<?php echo $value->id_indikator_organisasi;?>" class="mb-xs mt-xs mr-xs btn btn-circle btn-default"><i class="fa fa-search"></i></a></td>
                                     <td class="text-center">
                                         <a href="#editForm-<?php echo $value->id_indikator_organisasi;?>" class="modal-with-form mb-xs mt-xs mr-xs btn btn-warning"><i class="fa fa-pencil"></i></a>
-                                        <button type="button" class="mb-xs mt-xs mr-xs btn btn-danger"><i class="fa fa-trash-o"></i></button></td>
+                                        <form action="<?php echo base_url();?>/index.php/indikator_sasaran/delete/<?php echo $value->id_indikator_organisasi;?>">
+                                            <button type="submit" class="mb-xs mt-xs mr-xs btn btn-danger"><i class="fa fa-trash-o"></i></button></td>
+                                        </form>
                                         <div id="editForm-<?php echo $value->id_indikator_organisasi;?>" class="modal-block modal-block-primary mfp-hide">
                                             <section class="panel">
                                                 <header class="panel-heading">
-                                                    <h2 class="panel-title">Edit Indikator</h2>
+                                                    <h2 class="panel-title">Edit Kegiatan</h2>
                                                 </header>
                                                 <form id="demo-form" class="form-horizontal mb-lg" method="post" action="<?php echo base_url();?>index.php/indikator_sasaran/update/<?php echo $value->id_indikator_organisasi;?>">
                                                 <div class="panel-body">
                                                         <div class="form-group mt-lg">
-                                                            <label class="col-sm-3 control-label">Indikator</label>
+                                                            <label class="col-sm-3 control-label">Kegiatan</label>
                                                             <div class="col-sm-9">
                                                                 <input type="text" name="indikator_organisasi" class="form-control" placeholder="Indikator" required="" value="<?php echo $value->indikator_organisasi;?>" pattern="{1,254}">
                                                             </div>
@@ -169,7 +171,7 @@ function custom_footer(){
 ?>
 <script>
     $("#btnTIndikator").click(function(){
-        $("#formTambahan").append('<input type="text" name="indikator_organisasi[]" class="form-control" placeholder="Indikator" pattern="{1,254}">');
+        $("#formTambahan").append('<input type="text" name="indikator_organisasi[]" class="form-control" placeholder="Kegiatan" pattern="{1,254}">');
     })
 </script>
 <?php

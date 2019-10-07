@@ -37,4 +37,12 @@ class Indikator_sasaran extends CI_Controller {
         }
         
     }
+
+    public function delete($id){
+        $indikator = $this->indikatororganisasi_model->get(array('id_indikator_organisasi'=>$id));
+        if (count($indikator) > 0){
+            $this->indikatororganisasi_model->delete($id);
+            return redirect(base_url().'index.php/indikator_sasaran/index/'.$indikator[0]->id_sasaran_organisasi);
+        }
+    }
 }

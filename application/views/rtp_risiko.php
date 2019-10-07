@@ -1,7 +1,7 @@
 <header class="page-header">
     <h2>Manajemen Risiko</h2>
 
-    <!-- <div class="right-wrapper pull-right">
+    <!-- <div class="right-wrapper pull-right" style="margin-right:12px;">
         <ol class="breadcrumbs">
             <li>
                 <a href="index.html">
@@ -12,6 +12,19 @@
         </ol>
 
     </div> -->
+    <div class="right-wrapper pull-right" style="margin-right:12px;">
+        <ol class="breadcrumbs">
+            <li>
+                <a href="<?php echo base_url();?>">
+                    <i class="fa fa-home"></i>
+                </a>
+            </li>
+            <li><span>Dashboard</span></li>
+            <li><a href="<?php echo base_url();?>index.php/manajemen_risiko"><span>Manajemen Risiko</span></a></li>
+            <li><a href="#"><span>Rencana Tindak Pengendalian</span></a></li>
+        </ol>
+
+    </div>
 </header>
 
 <!-- start: page -->

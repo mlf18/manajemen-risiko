@@ -1,7 +1,7 @@
 <header class="page-header">
     <h2>Manajemen Risiko</h2>
 
-    <div class="right-wrapper pull-right">
+    <div class="right-wrapper pull-right" style="margin-right:12px;">
         <ol class="breadcrumbs">
             <li>
                 <a href="<?php echo base_url();?>">
@@ -9,11 +9,9 @@
                 </a>
             </li>
             <li><span>Dashboard</span></li>
-            <li><span>Manajemen Risiko</span></li>
-            <li><span>Sasaran Organisasi</span></li>
+            <li><a href="<?php echo base_url();?>index.php/manajemen_risiko"><span>Manajemen Risiko</span></a></li>
+            <li><a href="#"><span>Sasaran Organisasi</span></a></li>
         </ol>
-
-        <a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>
     </div>
 </header>
 
@@ -112,7 +110,9 @@
                                                 </form>
                                             </section>
                                         </div>
-                                        <button type="button" class="mb-xs mt-xs mr-xs btn btn-danger"><i class="fa fa-trash-o"></i></button>
+                                        <form action="<?php echo base_url();?>/index.php/sasaran_organisasi/delete/<?php echo $value->id_sasaran_organisasi;?>">
+                                            <button type="submit" class="mb-xs mt-xs mr-xs btn btn-danger"><i class="fa fa-trash-o"></i></button>
+                                        </form>
                                 </td>
                             </tr>
                             <?php

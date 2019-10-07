@@ -40,5 +40,12 @@ class Sasaran_organisasi extends CI_Controller {
         }
         
     }
+    public function delete($id){
+        $sasaran = $this->sasaranorganisasi_model->get(array("id_sasaran_organisasi"=>$id));
+        if(count($sasaran) > 0){
+            $this->sasaranorganisasi_model->delete($id);
+            return redirect(base_url()."index.php/sasaran_organisasi/index/".$sasaran[0]->id_manajemen_risiko);
+        }
+    }
 
 }

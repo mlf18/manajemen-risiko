@@ -31,4 +31,12 @@ class Dampak_risiko extends CI_Controller {
         }
 
     }
+
+    public function delete(){
+        $dampak = $this->dampak_model->get(array('id_dampak'=>$id));
+        if (count($dampak) > 0){
+            $dampak = $this->dampak_model->delete($id);
+            return redirect(base_url().'index.php/dampak_risiko/index/'.$dampak[0]->id_risiko);
+        }
+    }
 }

@@ -1,7 +1,18 @@
 <header class="page-header">
     <h2>Manajemen Risiko</h2>
 
-    <!-- <div class="right-wrapper pull-right">
+    <div class="right-wrapper pull-right" style="margin-right:12px;">
+        <ol class="breadcrumbs">
+            <li>
+                <a href="<?php echo base_url();?>">
+                    <i class="fa fa-home"></i>
+                </a>
+            </li>
+            <li><span>Dashboard</span></li>
+            <li><span>Manajemen Risiko</span></li>
+        </ol>
+    </div>
+    <!-- <div class="right-wrapper pull-right" style="margin-right:12px;">
         <ol class="breadcrumbs">
             <li>
                 <a href="index.html">

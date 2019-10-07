@@ -1,7 +1,7 @@
 <header class="page-header">
     <h2>Manajemen Risiko</h2>
 
-    <div class="right-wrapper pull-right">
+    <div class="right-wrapper pull-right" style="margin-right:12px;">
         <ol class="breadcrumbs">
             <li>
                 <a href="<?php echo base_url();?>">
@@ -9,10 +9,10 @@
                 </a>
             </li>
             <li><span>Dashboard</span></li>
-            <li><span>Manajemen Risiko</span></li>
-            <li><span>Sasaran Organisasi</span></li>
-            <li><span>Indikator Sasaran</span></li>
-            <li><span>Risiko</span></li>
+            <li><a href="<?php echo base_url();?>index.php/manajemen_risiko"><span>Manajemen Risiko</span></a></li>
+            <li><a href="<?php echo base_url();?>index.php/sasaran_organisasi/index/<?php echo $sasaran[0]->id_manajemen_risiko;?>"><span>Sasaran Organisasi</span></a></li>
+            <li><a href="<?php echo base_url();?>index.php/risiko_organisasi/index/<?php echo $id_indikator_organisasi;?>"><span>Kegiatan</span></a></li>
+            <li><a href="#"><span>Risiko</span></a></li>
         </ol>
 
     </div>
@@ -86,7 +86,7 @@
                                     <th class="text-center">Pernyataan Resiko</th>
                                     <th class="text-center">Kategori Risiko</th>
                                     <th class="text-center">Penyebab</th>
-                                    <th class="text-center">Dampak</th>
+                                    <!-- <th class="text-center">Dampak</th> -->
                                     <th class="text-center">Aksi</th>
                                 </tr>
                             </thead>
@@ -100,10 +100,13 @@
                                     <td><?php echo $value->kejadian;?></td>
                                     <td><?php echo kategoriRisiko($value->id_kategori);?></td>
                                     <td><?php echo $value->penyebab;?></td>
-                                    <td class="text-center"><a href="<?php echo base_url();?>index.php/dampak_risiko/index/<?php echo $value->id_risiko;?>" class="mb-xs mt-xs mr-xs btn btn-circle btn-default"><i class="fa fa-search"></i></a></td>
+                                    <!-- <td class="text-center"><a href="<?php echo base_url();?>index.php/dampak_risiko/index/<?php echo $value->id_risiko;?>" class="mb-xs mt-xs mr-xs btn btn-circle btn-default"><i class="fa fa-search"></i></a></td> -->
                                     <td class="text-center">
                                         <a  class="modal-with-form mb-xs mt-xs mr-xs btn btn-warning" href="#editForm"><i class="fa fa-pencil"></i></a>
-                                        <button type="button" class="mb-xs mt-xs mr-xs btn btn-danger"><i class="fa fa-trash-o"></i></button></td>
+                                        <form action="<?php echo base_url();?>/index.php/risiko_organisasi/delete/<?php echo $value->id_risiko;?>">
+                                            <button type="submit" class="mb-xs mt-xs mr-xs btn btn-danger"><i class="fa fa-trash-o"></i></button>
+                                        <form>
+                                    </td>
                                             <div id="editForm" class="modal-block modal-block-primary mfp-hide">
                                                 <section class="panel">
                                                     <header class="panel-heading">
