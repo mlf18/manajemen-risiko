@@ -39,7 +39,7 @@
                                             <div class="col-sm-9">
                                                 <div class="row">
                                                     <div class="col-sm-12">
-                                                        <input type="text" name="sasaran_organisasi[]" class="form-control" placeholder="Nama Sasaran" pattern="{1,254}" required="">
+                                                        <input type="text" name="sasaran_organisasi[]" class="form-control" placeholder="Nama Sasaran" pattern=".{1,254}" required="">
                                                         <div id="formTambahan"></div>
                                                     </div>
                                                 </div>
@@ -95,7 +95,7 @@
                                                         <div class="form-group mt-lg">
                                                             <label class="col-sm-3 control-label">Nama Sasaran</label>
                                                             <div class="col-sm-9">
-                                                                <input type="text" name="sasaran_organisasi" class="form-control" placeholder="Nama Sasaran" pattern="{1,254}" required="" value="<?php echo $value->sasaran_organisasi;?>">
+                                                                <input type="text" name="sasaran_organisasi" class="form-control" placeholder="Nama Sasaran" pattern=".{1,254}" required="" value="<?php echo $value->sasaran_organisasi;?>">
                                                             </div>
                                                         </div>
                                                 </div>
@@ -168,7 +168,7 @@ function custom_footer(){
 ?>
 <script>
     $("#btnTSasaran").click(function(){
-        $("#formTambahan").append('<input type="text" name="sasaran_organisasi[]" class="form-control" placeholder="Nama Sasaran" pattern="{1,254}">');
+        $("#formTambahan").append('<input type="text" name="sasaran_organisasi[]" class="form-control" placeholder="Nama Sasaran" pattern=".{1,254}">');
     })
 </script>
 <?php

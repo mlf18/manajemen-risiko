@@ -234,6 +234,11 @@
 		<!-- Examples -->
 		<script src="<?php echo base_url();?>assets/javascripts/dashboard/examples.dashboard.js"></script>
         <script src="<?php echo base_url();?>assets/javascripts/ui-elements/examples.modals.js"></script>
+		<script>
+			$("button[type=submit] .btn-danger").click(function(){
+				return confirm("Apakah anda yakin ?");
+			})
+		</script>
 		<?php
 		if(function_exists("custom_footer")){
 			custom_footer();
