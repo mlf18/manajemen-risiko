@@ -47,7 +47,7 @@
                                                 <label class="col-sm-3 control-label">Nama UPR</label>
                                                 <div class="col-sm-9">
                                                     <!--<input type="text"  class="form-control" placeholder="Unit Pemilik Risiko" required="required">-->
-                                                    <select name="id_upr" style="width:90%">
+                                                    <select name="id_upr" class="form-control">
                                                       <?php foreach ($units as $key => $value){ ?>
                                                           <option value="<?= $value["id_unit"] ?>"><? print_r($value["nama_unit"]);?></option>
                                                       <?php }  ?>
@@ -104,8 +104,8 @@
                                         <td class="text-center"><a href="<?php echo base_url();?>index.php/rencana_tindak_lanjut/index/<?php echo $value->id_manajemen_risiko;?>" class="mb-xs mt-xs mr-xs btn btn-circle btn-default"><i class="fa fa-search"></i></a></td>
                                         <td class="text-center">
                                             <a class="mb-xs mt-xs mr-xs btn btn-info" href="<?php echo base_url();?>index.php/manajemen_risiko/info_risiko"><i class="fa fa-info"></i></a>
-                                            <a href="#editForm" class="mb-xs mt-xs mr-xs btn btn-warning modal-with-form"><i class="fa fa-pencil"></i></a>
-                                                <div id="editForm" class="modal-block modal-block-primary mfp-hide">
+                                            <a href="#editForm-<?php echo $value->id_manajemen_risiko;?>" class="mb-xs mt-xs mr-xs btn btn-warning modal-with-form"><i class="fa fa-pencil"></i></a>
+                                                <div id="editForm-<?php echo $value->id_manajemen_risiko;?>" class="modal-block modal-block-primary mfp-hide">
                                                     <section class="panel">
                                                         <header class="panel-heading">
                                                             <h2 class="panel-title">Edit Unit Pemilik Risiko</h2>
@@ -115,7 +115,11 @@
                                                                 <div class="form-group mt-lg">
                                                                     <label class="col-sm-3 control-label">Nama UPR</label>
                                                                     <div class="col-sm-9">
-                                                                        <input type="text" name="id_upr" class="form-control" placeholder="Unit Pemilik Risiko" required="required" value="<?php echo $value->nama_unit;?>">
+                                                                    <select name="id_upr" class="form-control">
+                                                                        <?php foreach ($units as $ukey => $uvalue){ ?>
+                                                                            <option value="<?= $uvalue["id_unit"] ?>" <?php if($uvalue["id_unit"]==$value->id_unit) { echo "selected";}?>><? print_r($uvalue["nama_unit"]);?></option>
+                                                                        <?php }  ?>
+                                                                    </select>
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-group mt-lg">
@@ -137,7 +141,9 @@
                                                         </form>
                                                     </section>
                                                 </div>
-                                            <button type="button" class="mb-xs mt-xs mr-xs btn btn-danger"><i class="fa fa-trash-o"></i></button></td>
+                                                <form method="post" action="<?php echo base_url();?>index.php/manajemen_risiko/delete/<?php echo $value->id_manajemen_risiko;?>">
+                                                    <button type="submit" class="mb-xs mt-xs mr-xs btn btn-danger"><i class="fa fa-trash-o"></i></button></td>
+                                                </form>
                                     </tr>
                                     <!-- <tr>
                                         <td>1</td>

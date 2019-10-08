@@ -33,6 +33,13 @@ class Manajemen_risiko extends CI_Controller {
         return redirect(base_url()."index.php/manajemen_risiko");
     }
 
+    public function delete($id){
+        // $user_id = $_SESSION ['ses_userId'];
+        $user_id =1;
+        $this->manajemenrisiko_model->delete($id);
+        return redirect(base_url()."index.php/manajemen_risiko");
+    }
+
     public function sasaran_organisasi(){
         $data =array(
             'content'=>'sasaran_organisasi.php'

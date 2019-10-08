@@ -98,7 +98,7 @@
                                                     <header class="panel-heading">
                                                         <h2 class="panel-title">Edit Dampak</h2>
                                                     </header>
-                                                    <form id="demo-form-<?php echo $value->id_sasaran_organisasi;?>" class="form-horizontal mb-lg" method="post" action="<?php echo base_url();?>index.php/dampak_risiko/update/<?php echo $value->id_dampak;?>" enctype="multipart/form-data">
+                                                    <form id="demo-form-<?php echo $value->id_dampak;?>" class="form-horizontal mb-lg" method="post" action="<?php echo base_url();?>index.php/dampak_risiko/update/<?php echo $value->id_dampak;?>" enctype="multipart/form-data">
                                                     <div class="panel-body">
                                                             <div class="form-group mt-lg">
                                                                 <label class="col-sm-3 control-label">Dampak</label>
