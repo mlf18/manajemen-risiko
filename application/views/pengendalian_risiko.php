@@ -91,14 +91,14 @@
                                     <td><?php echo $key+1;?></td>
                                     <td><?php echo $value->pengendalian;?></td>
                                     <td class="text-center">
-                                        <a  class="modal-with-form mb-xs mt-xs mr-xs btn btn-warning" href="#editForm"><i class="fa fa-pencil"></i></a>
+                                        <a  class="modal-with-form mb-xs mt-xs mr-xs btn btn-warning" href="#editForm-<?php echo $value->id_pengendalian;?>"><i class="fa fa-pencil"></i></a>
                                         <button type="button" class="mb-xs mt-xs mr-xs btn btn-danger"><i class="fa fa-trash-o"></i></button></td>
-                                            <div id="editForm" class="modal-block modal-block-primary mfp-hide">
+                                            <div id="editForm-<?php echo $value->id_pengendalian;?>" class="modal-block modal-block-primary mfp-hide">
                                                 <section class="panel">
                                                     <header class="panel-heading">
                                                         <h2 class="panel-title">Edit Pengendalian</h2>
                                                     </header>
-                                                    <form id="demo-form" class="form-horizontal mb-lg" method="post" action="<?php echo base_url();?>index.php/pengendalian_risiko/update/<?php echo $value->id_pengendalian;?>" enctype="multipart/form-data">
+                                                    <form id="demo-form-<?php echo $value->id_pengendalian;?>" class="form-horizontal mb-lg" method="post" action="<?php echo base_url();?>index.php/pengendalian_risiko/update/<?php echo $value->id_pengendalian;?>" enctype="multipart/form-data">
                                                     <div class="panel-body">
                                                             <div class="form-group mt-lg">
                                                                 <label class="col-sm-3 control-label">Pengendalian</label>

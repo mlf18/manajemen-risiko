@@ -97,7 +97,7 @@
                                                 <header class="panel-heading">
                                                     <h2 class="panel-title">Edit Kegiatan</h2>
                                                 </header>
-                                                <form id="demo-form" class="form-horizontal mb-lg" method="post" action="<?php echo base_url();?>index.php/indikator_sasaran/update/<?php echo $value->id_indikator_organisasi;?>">
+                                                <form id="demo-form-<?php echo $value->id_sasaran_organisasi;?>" class="form-horizontal mb-lg" method="post" action="<?php echo base_url();?>index.php/indikator_sasaran/update/<?php echo $value->id_indikator_organisasi;?>">
                                                 <div class="panel-body">
                                                         <div class="form-group mt-lg">
                                                             <label class="col-sm-3 control-label">Kegiatan</label>

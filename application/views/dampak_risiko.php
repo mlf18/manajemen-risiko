@@ -91,14 +91,14 @@
                                     <td><?php echo $key+1;?></td>
                                     <td><?php echo $value->dampak;?></td>
                                     <td class="text-center">
-                                        <a  class="modal-with-form mb-xs mt-xs mr-xs btn btn-warning" href="#editForm"><i class="fa fa-pencil"></i></a>
+                                        <a  class="modal-with-form mb-xs mt-xs mr-xs btn btn-warning" href="#editForm-<?php echo $value->id_dampak;?>"><i class="fa fa-pencil"></i></a>
                                         <button type="button" class="mb-xs mt-xs mr-xs btn btn-danger"><i class="fa fa-trash-o"></i></button></td>
-                                            <div id="editForm" class="modal-block modal-block-primary mfp-hide">
+                                            <div id="editForm-<?php echo $value->id_dampak;?>" class="modal-block modal-block-primary mfp-hide">
                                                 <section class="panel">
                                                     <header class="panel-heading">
                                                         <h2 class="panel-title">Edit Dampak</h2>
                                                     </header>
-                                                    <form id="demo-form" class="form-horizontal mb-lg" method="post" action="<?php echo base_url();?>index.php/dampak_risiko/update/<?php echo $value->id_dampak;?>" enctype="multipart/form-data">
+                                                    <form id="demo-form-<?php echo $value->id_sasaran_organisasi;?>" class="form-horizontal mb-lg" method="post" action="<?php echo base_url();?>index.php/dampak_risiko/update/<?php echo $value->id_dampak;?>" enctype="multipart/form-data">
                                                     <div class="panel-body">
                                                             <div class="form-group mt-lg">
                                                                 <label class="col-sm-3 control-label">Dampak</label>

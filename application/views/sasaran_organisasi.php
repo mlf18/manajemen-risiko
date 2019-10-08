@@ -90,7 +90,7 @@
                                                 <header class="panel-heading">
                                                     <h2 class="panel-title">Edit Sasaran Organisasi</h2>
                                                 </header>
-                                                <form id="demo-form" class="form-horizontal mb-lg" action="<?php echo base_url();?>index.php/sasaran_organisasi/update/<?php echo $value->id_sasaran_organisasi;?>"  method="post" enctype="multipart/form-data">
+                                                <form id="demo-form-<?php echo $value->id_sasaran_organisasi;?>" class="form-horizontal mb-lg" action="<?php echo base_url();?>index.php/sasaran_organisasi/update/<?php echo $value->id_sasaran_organisasi;?>"  method="post" enctype="multipart/form-data">
                                                 <div class="panel-body">
                                                         <div class="form-group mt-lg">
                                                             <label class="col-sm-3 control-label">Nama Sasaran</label>

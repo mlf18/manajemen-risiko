@@ -127,6 +127,7 @@
                                 </tr>
                             </thead>
                             <tbody>
+                            
                             <?php
                             foreach ($risiko as $key => $value) {
                                 # code...
@@ -143,14 +144,18 @@
                                     
                                     <td class="text-center"><?php echo $value->sisa_risiko;?></td>
                                     <td class="text-center">
-                                        <a  class="modal-with-form mb-xs mt-xs mr-xs btn btn-warning" href="#editForm-<?php echo $value->id_risiko;?>"><i class="fa fa-pencil"></i></a>
+                                        <a href="#editForm-<?php echo $value->id_risiko;?>" class="modal-with-form mb-xs mt-xs mr-xs btn btn-warning"><i class="fa fa-pencil"></i></a>
+                                        <form action="<?php echo base_url();?>/index.php/risiko_organisasi/delete/<?php echo $value->id_risiko;?>">
+                                            <button type="submit" class="mb-xs mt-xs mr-xs btn btn-danger"><i class="fa fa-trash-o"></i></button></td>
+                                        </form>
+                                        </td>
                                         <div id="editForm-<?php echo $value->id_risiko;?>" class="modal-block modal-block-primary mfp-hide">
                                         
                                                 <section class="panel">
                                                     <header class="panel-heading">
                                                         <h2 class="panel-title">Edit Risiko</h2>
                                                     </header>
-                                                    <form id="demo-form" class="form-horizontal mb-lg" method="post" action="" enctype="multipart/form-data">
+                                                    <form id="demo-form" class="form-horizontal mb-lg" method="post" action="<?php echo base_url();?>index.php/risiko_organisasi/update/<?php echo $value->id_risiko;?>" enctype="multipart/form-data">
                                                         <div class="panel-body">
                                                         
                                                                 <div class="form-group mt-lg">
@@ -209,7 +214,7 @@
                                                                 <div class="form-group mt-lg">
                                                                     <label class="col-sm-3 control-label">Sisa Risiko</label>
                                                                     <div class="col-sm-9">
-                                                                        <input type="text" name="sisa_risiko" class="form-control" placeholder="Sisa Risiko" required="">
+                                                                        <input type="text" name="sisa_risiko" class="form-control" placeholder="Sisa Risiko">
                                                                     </div>
                                                                 </div>
 
@@ -225,10 +230,7 @@
                                                     </form>
                                                 </section>
                                             </div>
-                                        <form action="<?php echo base_url();?>/index.php/risiko_organisasi/delete/<?php echo $value->id_risiko;?>">
-                                            <button type="submit" class="mb-xs mt-xs mr-xs btn btn-danger"><i class="fa fa-trash-o"></i></button>
-                                        <form>
-                                    </td>
+                                            
                                 </tr>
                             <?php
                             }
