@@ -40,17 +40,40 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+                              <form action="<?= base_url()?>index.php/rencana_tindak_lanjut/save" method="post">
+                              <?php
+                                $i=1;
+                                foreach ($risikos as $key => $value){
+                              ?>
+                                  <tr>
+                                    <td><?=$i?></td>
+                                    <td><?= $value->kejadian ?></td>
+                                    <td><?= $value->kategori_risiko ?></td>
+                                    <?php
+                                      if($value->besaran_risiko > 12){
+                                        echo '<td class="text-center" style="background:red;color:white">'.$value->besaran_risiko.'</td>';
+                                      }elseif($value->besaran_risiko > 4){
+                                        echo '<td class="text-center" style="background:yellow">'.$value->besaran_risiko.'</td>';
+                                      }elseif($value->besaran_risiko > 0){
+                                        echo '<td class="text-center" style="background:grey;color:white">'.$value->besaran_risiko.'</td>';
+                                      }else{
+                                        echo '<td class="text-center"> - </td>';
+                                      }
+                                    ?>
                                     <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
+                                    <td><textarea name="perbaikanPengendalian_<?= $value->id_resiko ?>"></textarea></td>
+                                    <td>
+                                      Dari : <input type="month" name="dari_<?= $value->id_resiko ?>" style="vertical-align:center;line-height: 20px;"><br>
+                                      Sampai : <input type="month" name="sampai_<?= $value->id_resiko ?>" style="vertical-align:center;line-height: 20px;">
+                                    </td>
+                                    <td><textarea name="pembiayaan_<?= $value->id_resiko ?>"></textarea></td>
+                                    <td><textarea name="keterangan_<?= $value->id_resiko ?>"></textarea></td>
+                                  </tr>
+                              <?php
+                                $i++;
+                                }
+                              ?>
+
                             </tbody>
                         </table>
                     </div>
@@ -64,7 +87,7 @@
             </div>
         </section>
     </div>
-    
+
 </div>
 
 <!-- end: page -->
