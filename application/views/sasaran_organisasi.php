@@ -1,7 +1,7 @@
 <header class="page-header">
     <h2>Manajemen Risiko</h2>
 
-    <div class="right-wrapper pull-right">
+    <div class="right-wrapper pull-right" style="margin-right:12px;">
         <ol class="breadcrumbs">
             <li>
                 <a href="<?php echo base_url();?>">
@@ -9,11 +9,9 @@
                 </a>
             </li>
             <li><span>Dashboard</span></li>
-            <li><span>Manajemen Risiko</span></li>
-            <li><span>Sasaran Organisasi</span></li>
+            <li><a href="<?php echo base_url();?>index.php/manajemen_risiko"><span>Manajemen Risiko</span></a></li>
+            <li><a href="#"><span>Sasaran Organisasi</span></a></li>
         </ol>
-
-        <a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>
     </div>
 </header>
 
@@ -41,7 +39,7 @@
                                             <div class="col-sm-9">
                                                 <div class="row">
                                                     <div class="col-sm-12">
-                                                        <input type="text" name="sasaran_organisasi[]" class="form-control" placeholder="Nama Sasaran" pattern="{1,254}" required="">
+                                                        <input type="text" name="sasaran_organisasi[]" class="form-control" placeholder="Nama Sasaran" pattern=".{1,254}" required="">
                                                         <div id="formTambahan"></div>
                                                     </div>
                                                 </div>
@@ -92,12 +90,12 @@
                                                 <header class="panel-heading">
                                                     <h2 class="panel-title">Edit Sasaran Organisasi</h2>
                                                 </header>
-                                                <form id="demo-form" class="form-horizontal mb-lg" action="<?php echo base_url();?>index.php/sasaran_organisasi/update/<?php echo $value->id_sasaran_organisasi;?>"  method="post" enctype="multipart/form-data">
+                                                <form id="demo-form-<?php echo $value->id_sasaran_organisasi;?>" class="form-horizontal mb-lg" action="<?php echo base_url();?>index.php/sasaran_organisasi/update/<?php echo $value->id_sasaran_organisasi;?>"  method="post" enctype="multipart/form-data">
                                                 <div class="panel-body">
                                                         <div class="form-group mt-lg">
                                                             <label class="col-sm-3 control-label">Nama Sasaran</label>
                                                             <div class="col-sm-9">
-                                                                <input type="text" name="sasaran_organisasi" class="form-control" placeholder="Nama Sasaran" pattern="{1,254}" required="" value="<?php echo $value->sasaran_organisasi;?>">
+                                                                <input type="text" name="sasaran_organisasi" class="form-control" placeholder="Nama Sasaran" pattern=".{1,254}" required="" value="<?php echo $value->sasaran_organisasi;?>">
                                                             </div>
                                                         </div>
                                                 </div>
@@ -112,7 +110,9 @@
                                                 </form>
                                             </section>
                                         </div>
-                                        <button type="button" class="mb-xs mt-xs mr-xs btn btn-danger"><i class="fa fa-trash-o"></i></button>
+                                        <form action="<?php echo base_url();?>/index.php/sasaran_organisasi/delete/<?php echo $value->id_sasaran_organisasi;?>">
+                                            <button type="submit" class="mb-xs mt-xs mr-xs btn btn-danger"><i class="fa fa-trash-o"></i></button>
+                                        </form>
                                 </td>
                             </tr>
                             <?php
@@ -168,7 +168,7 @@ function custom_footer(){
 ?>
 <script>
     $("#btnTSasaran").click(function(){
-        $("#formTambahan").append('<input type="text" name="sasaran_organisasi[]" class="form-control" placeholder="Nama Sasaran" pattern="{1,254}">');
+        $("#formTambahan").append('<input type="text" name="sasaran_organisasi[]" class="form-control" placeholder="Nama Sasaran" pattern=".{1,254}">');
     })
 </script>
 <?php
