@@ -11,7 +11,7 @@
             <li><span>Dashboard</span></li>
             <li><a href="<?php echo base_url();?>index.php/manajemen_risiko"><span>Manajemen Risiko</span></a></li>
             <li><a href="<?php echo base_url();?>index.php/sasaran_organisasi/index/<?php echo $sasaran[0]->id_manajemen_risiko;?>"><span>Sasaran Organisasi</span></a></li>
-            <li><a href="<?php echo base_url();?>index.php/risiko_organisasi/index/<?php echo $id_indikator_organisasi;?>"><span>Kegiatan</span></a></li>
+            <li><a href="<?php echo base_url();?>index.php/indikator_sasaran/index/<?php echo $sasaran[0]->id_sasaran_organisasi;?>"><span>Kegiatan</span></a></li>
             <li><a href="#"><span>Risiko</span></a></li>
         </ol>
 

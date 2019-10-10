@@ -188,6 +188,11 @@
     
 </div>
 <div class="row">
+    <div class="col-sm-12">
+        <canvas id="myChart" width="20" height="5"></canvas>
+    </div>
+</div>
+<div class="row">
     <div class="col-md-6 col-lg-12 col-xl-6 text-center">
         <a href="#" class="btn btn-default"><i class="fa fa-print"></i></a>
     </div>

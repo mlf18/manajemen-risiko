@@ -81,4 +81,25 @@ class Manajemen_risiko extends CI_Controller {
         );
 		$this->load->view('index',$data);
     }
+
+    public function getRisiko($id){
+
+        $risiko = [];
+        $sasaran = $this->sasaranorganisasi_model->get(array('id_manajemen_risiko'=>$id));
+        $i=0;
+        foreach ($sasaran as $key => $value) {
+            # code...
+            $kegiatan = $this->indikatororganisasi_model->get(array('id_sasaran_organisasi'=>$value->id_sasaran_organisasi));
+            foreach ($kegiatan as $kkey => $kvalue) {
+                # code...
+                $resiko=$this->risiko_model->get(array("id_indikator_organisasi"=>$kvalue->id_indikator_organisasi));
+                foreach ($resiko as $rkey => $rvalue) {
+                    # code...
+                    $risiko[$i]=$rvalue;
+                    $i++;
+                }
+            }
+        }
+        echo (json_encode($risiko));
+    }
 }

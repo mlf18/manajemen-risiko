@@ -36,7 +36,8 @@
 
 		<!-- Theme Custom CSS -->
 		<link rel="stylesheet" href="<?php echo base_url();?>assets/stylesheets/theme-custom.css">
-
+		
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.css">
 		<!-- Head Libs -->
 		<script src="<?php echo base_url();?>assets/vendor/modernizr/modernizr.js"></script>
 
@@ -183,6 +184,7 @@
 					</div>
 				</div>
 			</aside> -->
+			
 		</section>
 
 		<!-- Vendor -->
@@ -244,5 +246,185 @@
 			custom_footer();
 		}
 		?>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-annotation/0.5.7/chartjs-plugin-annotation.min.js"></script>
+		<script>
+			var randomScalingFactor = function() {
+				return (Math.random() > 0.5 ? 1.0 : -1.0) * Math.round(Math.random() * 100);
+			};
+			var randomColor = function(opacity) {
+				return 'rgba(' + Math.round(Math.random() * 255) + ',' + Math.round(Math.random() * 255) + ',' + Math.round(Math.random() * 255) + ',' + (opacity || '.3') + ')';
+			};
+			function setChart(dataI){
+			// console.log(dataI);
+			var data = {
+			datasets: dataI
+			};
+			data.datasets.forEach(function(dataset) {
+			// dataset.borderColor = randomColor(0.4);
+			// dataset.backgroundColor = randomColor(0.1);
+			// dataset.pointBorderColor = randomColor(0.7);
+			// dataset.pointBackgroundColor = randomColor(0.5);
+			dataset.pointRadius= 10;
+			dataset.pointHoverRadius= 10;
+			dataset.pointBorderWidth = 1;
+			});
+
+			var ctx = document.getElementById("myChart").getContext("2d");
+			window.myScatter = new Chart(ctx, {
+				type: 'scatter',
+			data: data,
+			options: {
+				scales: {
+				xAxes: [{
+					position: 'bottom',
+					gridLines: {
+					zeroLineColor: "rgba(0,255,0,1)"
+					},
+					scaleLabel: {
+					display: true,
+					labelString: 'x axis'
+					},
+					ticks: {
+						min: 1,
+						max: 5,
+						stepSize:1
+					}
+				}],
+				yAxes: [{
+					position: 'left',
+					gridLines: {
+					zeroLineColor: "rgba(0,255,0,1)"
+					},
+					scaleLabel: {
+					display: true,
+					labelString: 'y axis'
+					},
+					ticks: {
+						min: 1,
+						max: 5,
+						stepSize:1
+					}
+				}]
+				},
+				tooltips: {
+						callbacks: {
+							label: function(tooltipItem, data) {
+								var label = data.datasets[tooltipItem.datasetIndex].label || '';
+
+								if (label) {
+									label += ': ';
+								}
+								label += "("+tooltipItem.xLabel+","+tooltipItem.yLabel+")";
+								return label;
+							}
+						}
+					},
+				annotation: {
+				drawTime: "afterDraw",
+				events: ['dblclick'],
+				annotations: [{
+					id: 'q-iv',
+					type: 'box',
+					xScaleID: 'x-axis-1',
+					yScaleID: 'y-axis-1',
+					xMin: 3,
+					xMax: 5,
+					yMin: 0,
+					yMax: 3,
+					backgroundColor: 'rgba(235, 222, 52, 0.3)',
+					//borderColor: 'rgb(255, 0, 0)',
+					borderWidth: 1
+				},{
+					id: 'q-iii',
+					type: 'box',
+					xScaleID: 'x-axis-1',
+					yScaleID: 'y-axis-1',
+					xMin: 0,
+					xMax: 3,
+					yMin: 0,
+					yMax: 3,
+					backgroundColor: 'rgba(112, 112, 107, 0.3)',
+					//borderColor: 'rgb(255, 0, 0)',
+					borderWidth: 1
+				},
+				{
+					id: 'q-ii',
+					type: 'box',
+					xScaleID: 'x-axis-1',
+					yScaleID: 'y-axis-1',
+					xMin: 0,
+					xMax: 3,
+					yMin: 3,
+					yMax: 5,
+					backgroundColor: 'rgba(235, 222, 52, 0.3)',
+					//borderColor: 'rgb(255, 0, 0)',
+					borderWidth: 1
+				},{
+					id: 'q-i',
+					type: 'box',
+					xScaleID: 'x-axis-1',
+					yScaleID: 'y-axis-1',
+					xMin: 3,
+					xMax: 5,
+					yMin: 3,
+					yMax: 5,
+					backgroundColor: 'rgba(255, 0, 0, 0.1)',
+					//borderColor: 'rgb(255, 0, 0)',
+					borderWidth: 1
+				}]
+				}
+			}
+			});	
+			}
+			var risiko;
+			$(document).ready(function(){
+				$.ajax({
+					type: "POST",
+					url: 'http://localhost/manajemen-risiko/index.php/manajemen_risiko/getrisiko/3', // target element(s) to be updated with server response 
+					dataType:'json',
+					success : function(responses){ 
+						// console.log(responses);
+						var input= [];
+						var i =0;
+						var lanjut;
+						for(let response of responses){
+							ld=response.level_dampak;
+							lk=response.level_kemungkinan;
+							lanjut = true;
+							if (response.level_kemungkinan == null){
+								lanjut=false;
+							}
+							if (response.level_dampak == null){
+								lanjut=false;
+							}
+							if(lanjut){
+								var color = "rgba(255, 0, 0, 0.5)";
+								if(lk*ld <= 4){
+									color = "rgba(112, 112, 107, 0.5)";
+								}else if(lk*ld >4 && lk*ld <=12){
+									color = "rgba(235, 222, 52, 0.5)";
+								}
+								var obj = {
+									label : response.kejadian,
+									data : [{
+										x:ld,
+										y:lk
+									}],
+									borderColor : color,
+									backgroundColor : color,
+									pointBorderColor : color,
+									pointBackgroundColor : color
+								};
+								input[i]=obj;
+								i=i+1;
+							}
+						}
+						setChart(input);
+					}
+				});
+			})
+			
+		</script>
 	</body>
 </html>
