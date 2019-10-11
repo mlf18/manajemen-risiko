@@ -27,13 +27,13 @@ class Indikator_sasaran extends CI_Controller {
                 $this->indikatororganisasi_model->create(array('indikator_organisasi'=>$value,'id_sasaran_organisasi'=>$this->input->post('id_sasaran_organisasi'),'user_id'=>$user_id));
             }
         }
-        return redirect(base_url().'index.php/indikator_sasaran/index/'.$this->input->post('id_sasaran_organisasi'));
+        return redirect(base_url().'index.php/sasaran_organisasi/index/'.$this->input->post('id_manajemen_risiko'));
     }
     public function update($id){
         $indikator = $this->indikatororganisasi_model->get(array('id_indikator_organisasi'=>$id));
         if (count($indikator) > 0){
             $this->indikatororganisasi_model->update($id,array('indikator_organisasi'=>$this->input->post("indikator_organisasi")));
-            return redirect(base_url().'index.php/indikator_sasaran/index/'.$indikator[0]->id_sasaran_organisasi);
+            return redirect(base_url().'index.php/sasaran_organisasi/index/'.$this->input->post('id_manajemen_risiko'));
         }
         
     }
@@ -42,7 +42,7 @@ class Indikator_sasaran extends CI_Controller {
         $indikator = $this->indikatororganisasi_model->get(array('id_indikator_organisasi'=>$id));
         if (count($indikator) > 0){
             $this->indikatororganisasi_model->delete($id);
-            return redirect(base_url().'index.php/indikator_sasaran/index/'.$indikator[0]->id_sasaran_organisasi);
+            return redirect(base_url().'index.php/sasaran_organisasi/index/'.$this->input->post('id_manajemen_risiko'));
         }
     }
 }

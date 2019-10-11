@@ -21,14 +21,14 @@ class Risiko_organisasi extends CI_Controller {
     public function save(){
         $this->risiko_model->create($this->input->post());
         $id_indikator = $this->input->post("id_indikator_organisasi");
-        redirect(base_url()."index.php/risiko_organisasi/index/".$id_indikator);
+        redirect(base_url()."index.php/sasaran_organisasi/index/".$this->input->post('id_manajemen_risiko'));
     }
 
     public function update($id){
         $risiko = $this->risiko_model->get(array('id_risiko'=>$id));
         if(count($risiko)){
             $this->risiko_model->update($id,$this->input->post());
-            redirect(base_url()."index.php/risiko_organisasi/index/".$risiko[0]->id_indikator_organisasi);
+            redirect(base_url()."index.php/sasaran_organisasi/index/".$this->input->post('id_manajemen_risiko'));
         }
     }
 
@@ -36,7 +36,7 @@ class Risiko_organisasi extends CI_Controller {
         $risiko = $this->risiko_model->get(array("id_risiko"=>$id));
         if(count($risiko) > 0){
             $this->risiko_model->delete($id);
-            redirect(base_url()."index.php/risiko_organisasi/index/".$risiko[0]->id_indikator_organisasi);
+            redirect(base_url()."index.php/sasaran_organisasi/index/".$this->input->post('id_manajemen_risiko'));
         }
     }
 }

@@ -283,7 +283,7 @@
 					},
 					scaleLabel: {
 					display: true,
-					labelString: 'x axis'
+					labelString: 'level dampak'
 					},
 					ticks: {
 						min: 1,
@@ -298,7 +298,7 @@
 					},
 					scaleLabel: {
 					display: true,
-					labelString: 'y axis'
+					labelString: 'level kemungkinan'
 					},
 					ticks: {
 						min: 1,
@@ -403,7 +403,7 @@
 								if(lk*ld <= 4){
 									color = "rgba(112, 112, 107, 0.5)";
 								}else if(lk*ld >4 && lk*ld <=12){
-									color = "rgba(235, 222, 52, 0.5)";
+									color = "rgba(235, 222, 52, 0.8)";
 								}
 								var obj = {
 									label : response.kejadian,
@@ -424,7 +424,25 @@
 					}
 				});
 			})
-			
+			function toggleKegiatan(id) {
+				var x = document.getElementById(id);
+				if (x.style.display === "none") {
+					x.style.display = "";
+				} else {
+					x.style.display = "none";
+				}
+			}
+			function toggleRisiko(id) {
+				var x = document.getElementById(id);
+				if (x.style.display === "none") {
+					x.style.display = "";
+				} else {
+					x.style.display = "none";
+				}
+			}
+			function tmbhIndikator(id){
+				$("#"+id).append('<input type="text" name="indikator_organisasi[]" class="form-control" placeholder="Kegiatan" pattern=".{1,254}">');
+			}
 		</script>
 	</body>
 </html>
