@@ -279,14 +279,14 @@
 				xAxes: [{
 					position: 'bottom',
 					gridLines: {
-					zeroLineColor: "rgba(0,255,0,1)"
+					
 					},
 					scaleLabel: {
 					display: true,
 					labelString: 'level dampak'
 					},
 					ticks: {
-						min: 1,
+						min: 0,
 						max: 5,
 						stepSize:1
 					}
@@ -294,14 +294,14 @@
 				yAxes: [{
 					position: 'left',
 					gridLines: {
-					zeroLineColor: "rgba(0,255,0,1)"
+					
 					},
 					scaleLabel: {
 					display: true,
 					labelString: 'level kemungkinan'
 					},
 					ticks: {
-						min: 1,
+						min: 0,
 						max: 5,
 						stepSize:1
 					}
@@ -311,11 +311,12 @@
 						callbacks: {
 							label: function(tooltipItem, data) {
 								var label = data.datasets[tooltipItem.datasetIndex].label || '';
-
+								var x = tooltipItem.xLabel+0.5;
+								var y = tooltipItem.yLabel+0.5;
 								if (label) {
 									label += ': ';
 								}
-								label += "("+tooltipItem.xLabel+","+tooltipItem.yLabel+")";
+								label += "("+x+","+y+")";
 								return label;
 							}
 						}
@@ -323,56 +324,157 @@
 				annotation: {
 				drawTime: "afterDraw",
 				events: ['dblclick'],
-				annotations: [{
-					id: 'q-iv',
-					type: 'box',
-					xScaleID: 'x-axis-1',
-					yScaleID: 'y-axis-1',
-					xMin: 3,
-					xMax: 5,
-					yMin: 0,
-					yMax: 3,
-					backgroundColor: 'rgba(235, 222, 52, 0.3)',
-					//borderColor: 'rgb(255, 0, 0)',
-					borderWidth: 1
-				},{
-					id: 'q-iii',
-					type: 'box',
-					xScaleID: 'x-axis-1',
-					yScaleID: 'y-axis-1',
-					xMin: 0,
-					xMax: 3,
-					yMin: 0,
-					yMax: 3,
-					backgroundColor: 'rgba(112, 112, 107, 0.3)',
-					//borderColor: 'rgb(255, 0, 0)',
-					borderWidth: 1
-				},
-				{
-					id: 'q-ii',
-					type: 'box',
-					xScaleID: 'x-axis-1',
-					yScaleID: 'y-axis-1',
-					xMin: 0,
-					xMax: 3,
-					yMin: 3,
-					yMax: 5,
-					backgroundColor: 'rgba(235, 222, 52, 0.3)',
-					//borderColor: 'rgb(255, 0, 0)',
-					borderWidth: 1
-				},{
-					id: 'q-i',
-					type: 'box',
-					xScaleID: 'x-axis-1',
-					yScaleID: 'y-axis-1',
-					xMin: 3,
-					xMax: 5,
-					yMin: 3,
-					yMax: 5,
-					backgroundColor: 'rgba(255, 0, 0, 0.1)',
-					//borderColor: 'rgb(255, 0, 0)',
-					borderWidth: 1
-				}]
+				annotations: [
+					{
+						id: 'low-i',
+						type: 'box',
+						xScaleID: 'x-axis-1',
+						yScaleID: 'y-axis-1',
+						xMin: 0,
+						xMax: 4,
+						yMin: 0,
+						yMax: 1,
+						backgroundColor: 'rgba(112, 112, 107, 0.3)',
+						borderColor: 'rgba(112, 112, 107, 0.3)',
+						borderWidth: 1
+					},
+					{
+						id: 'low-ii',
+						type: 'box',
+						xScaleID: 'x-axis-1',
+						yScaleID: 'y-axis-1',
+						xMin: 0,
+						xMax: 2,
+						yMin: 1,
+						yMax: 2,
+						backgroundColor: 'rgba(112, 112, 107, 0.3)',
+						borderColor: 'rgba(112, 112, 107, 0.3)',
+						borderWidth: 1
+					},
+					{
+						id: 'low-iii',
+						type: 'box',
+						xScaleID: 'x-axis-1',
+						yScaleID: 'y-axis-1',
+						xMin: 0,
+						xMax: 1,
+						yMin: 2,
+						yMax: 4,
+						backgroundColor: 'rgba(112, 112, 107, 0.3)',
+						borderColor: 'rgba(112, 112, 107, 0.3)',
+						borderWidth: 1
+					}
+					,
+					{
+						id: 'mid-i',
+						type: 'box',
+						xScaleID: 'x-axis-1',
+						yScaleID: 'y-axis-1',
+						xMin: 4,
+						xMax: 5,
+						yMin: 0,
+						yMax: 2,
+						backgroundColor: 'rgba(245, 242, 66, 0.3)',
+						borderColor: 'rgba(245, 242, 66, 0.3)',
+						borderWidth: 1
+					}
+					,
+					{
+						id: 'mid-ii',
+						type: 'box',
+						xScaleID: 'x-axis-1',
+						yScaleID: 'y-axis-1',
+						xMin: 2,
+						xMax: 4,
+						yMin: 1,
+						yMax: 2,
+						backgroundColor: 'rgba(245, 242, 66, 0.3)',
+						borderColor: 'rgba(245, 242, 66, 0.3)',
+						borderWidth: 1
+					}	
+					,
+					{
+						id: 'mid-iii',
+						type: 'box',
+						xScaleID: 'x-axis-1',
+						yScaleID: 'y-axis-1',
+						xMin: 1,
+						xMax: 4,
+						yMin: 2,
+						yMax: 3,
+						backgroundColor: 'rgba(245, 242, 66, 0.3)',
+						borderColor: 'rgba(245, 242, 66, 0.3)',
+						borderWidth: 1
+					}
+					,
+					{
+						id: 'mid-iv',
+						type: 'box',
+						xScaleID: 'x-axis-1',
+						yScaleID: 'y-axis-1',
+						xMin: 1,
+						xMax: 3,
+						yMin: 3,
+						yMax: 4,
+						backgroundColor: 'rgba(245, 242, 66, 0.3)',
+						borderColor: 'rgba(245, 242, 66, 0.3)',
+						borderWidth: 1
+					},	
+					{
+						id: 'mid-v',
+						type: 'box',
+						xScaleID: 'x-axis-1',
+						yScaleID: 'y-axis-1',
+						xMin: 0,
+						xMax: 2,
+						yMin: 4,
+						yMax: 5,
+						backgroundColor: 'rgba(245, 242, 66, 0.3)',
+						borderColor: 'rgba(245, 242, 66, 0.3)',
+						borderWidth: 1
+					},
+					{
+						id: 'high-i',
+						type: 'box',
+						xScaleID: 'x-axis-1',
+						yScaleID: 'y-axis-1',
+						xMin: 4,
+						xMax: 5,
+						yMin: 2,
+						yMax: 3,
+						backgroundColor: 'rgba(255, 0, 0, 0.3)',
+						borderColor: 'rgba(255, 0, 0, 0.3)',
+						borderWidth: 1
+					}
+					,
+					{
+						id: 'high-ii',
+						type: 'box',
+						xScaleID: 'x-axis-1',
+						yScaleID: 'y-axis-1',
+						xMin: 3,
+						xMax: 5,
+						yMin: 3,
+						yMax: 4,
+						backgroundColor: 'rgba(255, 0, 0, 0.3)',
+						borderColor: 'rgba(255, 0, 0, 0.3)',
+						borderWidth: 1
+					}	
+					,
+					{
+						id: 'high-iii',
+						type: 'box',
+						xScaleID: 'x-axis-1',
+						yScaleID: 'y-axis-1',
+						xMin: 2,
+						xMax: 5,
+						yMin: 4,
+						yMax: 5,
+						backgroundColor: 'rgba(255, 0, 0, 0.3)',
+						borderColor: 'rgba(255, 0, 0, 0.3)',
+						borderWidth: 1
+					}					
+					]
 				}
 			}
 			});	
@@ -408,8 +510,8 @@
 								var obj = {
 									label : response.kejadian,
 									data : [{
-										x:ld,
-										y:lk
+										x:ld-0.5,
+										y:lk-0.5
 									}],
 									borderColor : color,
 									backgroundColor : color,
