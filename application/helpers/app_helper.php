@@ -60,3 +60,58 @@ function tipeRisiko($kat){
             break;
     }
 }
+function levelKemungkinan($lv){
+    switch ($lv) {
+        case '1':
+            # code...
+            return "Hampir Tidak Terjadi";
+            break;
+        case '2':
+            # code...
+            return "Jarang Terjadi";
+            break;
+        case '3':
+            # code...
+            return "Kadang Terjadi";
+            break;
+        case '4':
+            # code...
+            return "Sering Terjadi";
+            break;
+        case '5':
+            # code...
+           return "Hampir Pasti Terjadi"; 
+            break;
+        default:
+            # code...
+            break;
+    }
+}
+
+function levelDampak($lv){
+    switch ($lv) {
+        case '1':
+            # code...
+            return "Tidak Signifikan";
+            break;
+        case '2':
+            # code...
+            return "Minor";
+            break;
+        case '3':
+            # code...
+            return "Moderat";
+            break;
+        case '4':
+            # code...
+            return "Signifikan";
+            break;
+        case '5':
+            # code...
+           return "Sangat Signifikan"; 
+            break;
+        default:
+            # code...
+            break;
+    }
+}

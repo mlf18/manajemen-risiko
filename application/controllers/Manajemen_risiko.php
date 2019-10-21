@@ -75,9 +75,10 @@ class Manajemen_risiko extends CI_Controller {
 		$this->load->view('index',$data);
     }
 
-    public function info_risiko(){
+    public function info_risiko($id){
         $data =array(
-            'content'=>'info_risiko.php'
+            'content'=>'info_risiko.php',
+            'id_mr'=>$id
         );
 		$this->load->view('index',$data);
     }

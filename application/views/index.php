@@ -45,6 +45,10 @@
             .bg-disabled{
                 background-color:#d2d2d4;
             }
+			.bg-secondary {
+				background: #828181;
+				color: white;
+			}
         </style>
 	</head>
 	<body>
@@ -481,9 +485,11 @@
 			}
 			var risiko;
 			$(document).ready(function(){
+				var id_mr = $("input[name=id_mr]").val();
+				if(id_mr){
 				$.ajax({
 					type: "POST",
-					url: 'http://localhost/manajemen-risiko/index.php/manajemen_risiko/getrisiko/3', // target element(s) to be updated with server response 
+					url: 'http://localhost/manajemen-risiko/index.php/manajemen_risiko/getrisiko/'+id_mr, // target element(s) to be updated with server response 
 					dataType:'json',
 					success : function(responses){ 
 						// console.log(responses);
@@ -524,7 +530,7 @@
 						}
 						setChart(input);
 					}
-				});
+				})};
 			})
 			function toggleKegiatan(id) {
 				var x = document.getElementById(id);
