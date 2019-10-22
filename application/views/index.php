@@ -57,7 +57,7 @@
 			<!-- start: header -->
 			<header class="header">
 				<div class="logo-container">
-					<a href="#" class="logo">
+					<a href="http://inspektorat.menpan.go.id/isma/main.php" class="logo">
 						<img src="<?php echo base_url();?>assets/images/logo_isma.ico" height="35" alt="ISMA" /><span style="display:inline-block; font-size:25px; color:black">INSPEKTORAT SISTEM MANAJEMEN AUDIT</span>
 					</a>
 					<div class="visible-xs toggle-sidebar-left" data-toggle-class="sidebar-left-opened" data-target="html" data-fire-event="sidebar-left-opened">
@@ -532,8 +532,14 @@
 					}
 				})};
 			})
-			function toggleKegiatan(id) {
+			function toggleKegiatan(event,id) {
 				var x = document.getElementById(id);
+				// var icon = event.target.querySelector("i");
+				// console.log(event);
+				// if(icon.classList.contains("fa-plus")){
+					
+				// 	console.log(icon.classList);
+				// }
 				if (x.style.display === "none") {
 					x.style.display = "";
 				} else {
@@ -542,6 +548,7 @@
 			}
 			function toggleRisiko(id) {
 				var x = document.getElementById(id);
+				var b = document.getElementById("bTogKegiatan");
 				if (x.style.display === "none") {
 					x.style.display = "";
 				} else {

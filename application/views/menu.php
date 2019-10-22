@@ -12,7 +12,7 @@
         <nav id="menu" class="nav-main" role="navigation">
             <ul class="nav nav-main">
                 <li class="nav-active">
-                    <a href="index.html">
+                    <a href="http://inspektorat.menpan.go.id/isma/main.php">
                         <i class="fa fa-home" aria-hidden="true"></i>
                         <span>Dashboard</span>
                     </a>
@@ -27,7 +27,7 @@
                         <li><a href="<?php echo base_url();?>index.php/manajemen_risiko/benturan_kepentingan">Benturan Kepentingan</a></li>
                     </ul>
                 </li>
-                <li class="nav-parent">
+                <!-- <li class="nav-parent">
                     <a>
                         <i class="fa fa-check-circle" aria-hidden="true"></i>
                         <span>Manajemen Pengawasan</span>
@@ -69,7 +69,7 @@
                         <li><a href="<?php echo base_url();?>index.php/manajemen_pengawasan/">Pustaka Program Audit</a></li>
                         <li><a href="<?php echo base_url();?>index.php/manajemen_pengawasan/">Pustaka Referensi Audit</a></li>
                     </ul>
-                </li>
+                </li> -->
                 <!-- <li class="nav-parent">
                     <a>
                         <i class="fa fa-book" aria-hidden="true"></i>
@@ -80,7 +80,7 @@
                         <li><a href="<?php echo base_url();?>index.php/manajemen_pengawasan/"></a></li>
                     </ul>
                 </li> -->
-                <li class="nav-parent">
+                <!-- <li class="nav-parent">
                     <a>
                         <i class="fa fa-users" aria-hidden="true"></i>
                         <span>Manajemen Pengguna</span>
@@ -90,7 +90,7 @@
                         <li><a href="<?php echo base_url();?>index.php/manajemen_pengawasan/">Pengguna</a></li>
                         <li><a href="<?php echo base_url();?>index.php/manajemen_pengawasan/">Log Aktifitas</a></li>
                     </ul>
-                </li>
+                </li> -->
                 <!-- <li class="nav-parent">
                     <a>
                         <i class="fa fa-copy" aria-hidden="true"></i>

@@ -65,12 +65,12 @@
                 <div class="row">
                 <div class="col-md-12">
                     <div class="table-responsive">
-                        <table class="table table-bordered table-hover">
+                        <table class="table table-bordered">
                             <thead>
                                 <tr>
                                     <th class="text-center">No</th>
                                     <th class="text-center">Sasaran Organisasi</th>
-                                    <th class="text-center">Indikator</th>
+                                    
                                     <th class="text-center">Aksi</th>
                                 </tr>
                             </thead>
@@ -81,43 +81,11 @@
                             ?>
                             <tr>
                                 <td><?php echo $key+1;?></td>
-                                <td><?php echo $value->sasaran_organisasi;?></td>
-                                <!-- <td><a href="<?php echo base_url();?>index.php/indikator_sasaran/index/<?php echo $value->id_sasaran_organisasi;?>" class="mb-xs mt-xs mr-xs btn btn-circle btn-default"><i class="fa fa-search"></i></a></td> -->
-                                <td><button class="mb-xs mt-xs mr-xs btn btn-circle btn-default" type="button" onclick="toggleKegiatan('tableKegiatan-<?php echo $value->id_sasaran_organisasi;?>')"><i class="fa fa-search"></i></button></td>
                                 <td>
-                                <a href="#editForm-<?php echo $value->id_sasaran_organisasi;?>" class="mb-xs mt-xs mr-xs btn btn-warning modal-with-form"><i class="fa fa-pencil"></i></a>
-                                        <div id="editForm-<?php echo $value->id_sasaran_organisasi;?>" class="modal-block modal-block-primary mfp-hide">
-                                            <section class="panel">
-                                                <header class="panel-heading">
-                                                    <h2 class="panel-title">Edit Sasaran Organisasi</h2>
-                                                </header>
-                                                <form id="demo-form-<?php echo $value->id_sasaran_organisasi;?>" class="form-horizontal mb-lg" action="<?php echo base_url();?>index.php/sasaran_organisasi/update/<?php echo $value->id_sasaran_organisasi;?>"  method="post" enctype="multipart/form-data">
-                                                <div class="panel-body">
-                                                        <div class="form-group mt-lg">
-                                                            <label class="col-sm-3 control-label">Nama Sasaran</label>
-                                                            <div class="col-sm-9">
-                                                                <input type="text" name="sasaran_organisasi" class="form-control" placeholder="Nama Sasaran" pattern=".{1,254}" required="" value="<?php echo $value->sasaran_organisasi;?>">
-                                                            </div>
-                                                        </div>
-                                                </div>
-                                                <footer class="panel-footer">
-                                                    <div class="row">
-                                                        <div class="col-md-12 text-right">
-                                                            <button class="btn btn-primary" type="submit">Submit</button>
-                                                            <button class="btn btn-default modal-dismiss">Cancel</button>
-                                                        </div>
-                                                    </div>
-                                                </footer>
-                                                </form>
-                                            </section>
-                                        </div>
-                                        <form action="<?php echo base_url();?>/index.php/sasaran_organisasi/delete/<?php echo $value->id_sasaran_organisasi;?>">
-                                            <button type="submit" class="mb-xs mt-xs mr-xs btn btn-danger"><i class="fa fa-trash-o"></i></button>
-                                        </form>
-                                </td>
-                            </tr>
-                            <tr id="tableKegiatan-<?php echo $value->id_sasaran_organisasi;?>" style="display:none;">
-                                <td colspan="4">
+                                    <?php echo $value->sasaran_organisasi;?><br>
+                                    <button class="mb-xs mt-xs mr-xs btn btn-circle btn-default" type="button" onclick="toggleKegiatan(event,'tableKegiatan-<?php echo $value->id_sasaran_organisasi;?>')"><i class="fa fa-folder-open"></i></button>
+                                        
+                                    <div id="tableKegiatan-<?php echo $value->id_sasaran_organisasi;?>" style="display:none;">
                                     <div class="col-md-12 text-right" style="margin-bottom:12px;">
                                         <a class="modal-with-form btn btn-success" href="#raddForm-<?php echo $value->id_sasaran_organisasi;?>"><i class="fa fa-plus"></i></a>
                                         <div id="raddForm-<?php echo $value->id_sasaran_organisasi;?>" class="modal-block modal-block-primary mfp-hide">
@@ -158,12 +126,11 @@
                                             </section>
                                         </div>
                                     </div>
-                                    <table class="table table-bordered table-hover">
+                                    <table class="table table-bordered">
                                         <thead>
                                             <tr>
                                                 <th class="text-center">No</th>
                                                 <th class="text-center">Kegiatan</th>
-                                                <th class="text-center">Risiko</th>
                                                 <th class="text-center">Aksi</th>
                                             </tr>
                                         </thead>
@@ -175,43 +142,10 @@
                                             ?>
                                                 <tr>
                                                     <td><?php echo $ikey+1;?></td>
-                                                    <td><?php echo $ivalue->indikator_organisasi;?></td>
-                                                    <td class="text-center"><button class="mb-xs mt-xs mr-xs btn btn-circle btn-default" type="button" onclick="toggleRisiko('tableRisiko-<?php echo $ivalue->id_indikator_organisasi;?>')"><i class="fa fa-search"></i></button></td>
-                                                    <td class="text-center">
-                                                        <a href="#ieditForm-<?php echo $ivalue->id_indikator_organisasi;?>" class="modal-with-form mb-xs mt-xs mr-xs btn btn-warning"><i class="fa fa-pencil"></i></a>
-                                                        <form action="<?php echo base_url();?>/index.php/indikator_sasaran/delete/<?php echo $ivalue->id_indikator_organisasi;?>">
-                                                        <input type="hidden" name="id_manajemen_risiko" value="<?php echo $id_manajemen_risiko;?>">
-                                                            <button type="submit" class="mb-xs mt-xs mr-xs btn btn-danger"><i class="fa fa-trash-o"></i></button></td>
-                                                        </form>
-                                                        <div id="ieditForm-<?php echo $ivalue->id_indikator_organisasi;?>" class="modal-block modal-block-primary mfp-hide">
-                                                            <section class="panel">
-                                                                <header class="panel-heading">
-                                                                    <h2 class="panel-title">Edit Kegiatan</h2>
-                                                                </header>
-                                                                <form id="demo-form-<?php echo $ivalue->id_sasaran_organisasi;?>" class="form-horizontal mb-lg" method="post" action="<?php echo base_url();?>index.php/indikator_sasaran/update/<?php echo $ivalue->id_indikator_organisasi;?>">
-                                                                <input type="hidden" name="id_manajemen_risiko" value="<?php echo $id_manajemen_risiko;?>">
-                                                                <div class="panel-body">
-                                                                        <div class="form-group mt-lg">
-                                                                            <label class="col-sm-3 control-label">Kegiatan</label>
-                                                                            <div class="col-sm-9">
-                                                                                <input type="text" name="indikator_organisasi" class="form-control" placeholder="Indikator" required="" value="<?php echo $ivalue->indikator_organisasi;?>" pattern=".{1,254}">
-                                                                            </div>
-                                                                        </div>
-                                                                </div>
-                                                                <footer class="panel-footer">
-                                                                    <div class="row">
-                                                                        <div class="col-md-12 text-right">
-                                                                            <button class="btn btn-primary" type="submit">Submit</button>
-                                                                            <button class="btn btn-default modal-dismiss">Cancel</button>
-                                                                        </div>
-                                                                    </div>
-                                                                </footer>
-                                                                </form>
-                                                            </section>
-                                                        </div>
-                                                </tr>
-                                                <tr id="tableRisiko-<?php echo $ivalue->id_indikator_organisasi;?>" style="display:none;">
-                                    <td colspan="4">
+                                                    <td>
+                                                        <?php echo $ivalue->indikator_organisasi;?><br>
+                                                        <button class="mb-xs mt-xs mr-xs btn btn-circle btn-default" type="button" onclick="toggleRisiko('tableRisiko-<?php echo $ivalue->id_indikator_organisasi;?>')"><i class="fa fa-folder-open"></i></button>
+                                                        <div id="tableRisiko-<?php echo $ivalue->id_indikator_organisasi;?>" style="display:none;">
                                         <div class="col-md-12 text-right" style="margin-bottom:12px;">
                                             <a class="modal-with-form btn btn-success" href="#kaddForm--<?php echo $ivalue->id_indikator_organisasi;?>"><i class="fa fa-plus"></i></a>
                                                 <div id="kaddForm--<?php echo $ivalue->id_indikator_organisasi;?>" class="modal-block modal-block-primary mfp-hide">
@@ -290,7 +224,7 @@
                                                     </section>
                                                 </div>
                                             </div>
-                                    <table class="table table-bordered table-hover">
+                                    <table class="table table-bordered">
                                         <thead>
                                             <tr>
                                                 <th class="text-center" rowspan="2">No</th>
@@ -328,7 +262,7 @@
                                                 <td class="text-center"><?php echo $rvalue->sisa_risiko;?></td>
                                                 <td class="text-center">
                                                     <a href="#reditForm-<?php echo $rvalue->id_risiko;?>" class="modal-with-form mb-xs mt-xs mr-xs btn btn-warning"><i class="fa fa-pencil"></i></a>
-                                                    <form action="<?php echo base_url();?>/index.php/risiko_organisasi/delete/<?php echo $rvalue->id_risiko;?>">
+                                                    <form action="<?php echo base_url();?>index.php/risiko_organisasi/delete/<?php echo $rvalue->id_risiko;?>" method="post">
                                                     <input type="hidden" name="id_manajemen_risiko" value="<?php echo $id_manajemen_risiko;?>">
                                                         <button type="submit" class="mb-xs mt-xs mr-xs btn btn-danger"><i class="fa fa-trash-o"></i></button></td>
                                                     </form>
@@ -482,13 +416,82 @@
                                             </tr> -->
                                         </tbody>
                                     </table>
-                                </td>
-                            </tr>
+                            </div>
+                                                    </td>
+                                                    
+                                                    <td class="text-center">
+                                                        <a href="#ieditForm-<?php echo $ivalue->id_indikator_organisasi;?>" class="modal-with-form mb-xs mt-xs mr-xs btn btn-warning"><i class="fa fa-pencil"></i></a>
+                                                        <form action="<?php echo base_url();?>index.php/indikator_sasaran/delete/<?php echo $ivalue->id_indikator_organisasi;?>" method="post">
+                                                        <input type="hidden" name="id_manajemen_risiko" value="<?php echo $id_manajemen_risiko;?>">
+                                                            <button type="submit" class="mb-xs mt-xs mr-xs btn btn-danger"><i class="fa fa-trash-o"></i></button></td>
+                                                        </form>
+                                                        <div id="ieditForm-<?php echo $ivalue->id_indikator_organisasi;?>" class="modal-block modal-block-primary mfp-hide">
+                                                            <section class="panel">
+                                                                <header class="panel-heading">
+                                                                    <h2 class="panel-title">Edit Kegiatan</h2>
+                                                                </header>
+                                                                <form id="demo-form-<?php echo $ivalue->id_sasaran_organisasi;?>" class="form-horizontal mb-lg" method="post" action="<?php echo base_url();?>index.php/indikator_sasaran/update/<?php echo $ivalue->id_indikator_organisasi;?>">
+                                                                <input type="hidden" name="id_manajemen_risiko" value="<?php echo $id_manajemen_risiko;?>">
+                                                                <div class="panel-body">
+                                                                        <div class="form-group mt-lg">
+                                                                            <label class="col-sm-3 control-label">Kegiatan</label>
+                                                                            <div class="col-sm-9">
+                                                                                <input type="text" name="indikator_organisasi" class="form-control" placeholder="Indikator" required="" value="<?php echo $ivalue->indikator_organisasi;?>" pattern=".{1,254}">
+                                                                            </div>
+                                                                        </div>
+                                                                </div>
+                                                                <footer class="panel-footer">
+                                                                    <div class="row">
+                                                                        <div class="col-md-12 text-right">
+                                                                            <button class="btn btn-primary" type="submit">Submit</button>
+                                                                            <button class="btn btn-default modal-dismiss">Cancel</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </footer>
+                                                                </form>
+                                                            </section>
+                                                        </div>
+                                                </tr>
+                                                
                                             <?php
                                             }
                                             ?>
                                         </tbody>
                                     </table>
+                            </div>
+                                </td>
+                                <!-- <td><a href="<?php echo base_url();?>index.php/indikator_sasaran/index/<?php echo $value->id_sasaran_organisasi;?>" class="mb-xs mt-xs mr-xs btn btn-circle btn-default"><i class="fa fa-search"></i></a></td> -->
+                                <!-- <td></td> -->
+                                <td>
+                                <a href="#editForm-<?php echo $value->id_sasaran_organisasi;?>" class="mb-xs mt-xs mr-xs btn btn-warning modal-with-form"><i class="fa fa-pencil"></i></a>
+                                        <div id="editForm-<?php echo $value->id_sasaran_organisasi;?>" class="modal-block modal-block-primary mfp-hide">
+                                            <section class="panel">
+                                                <header class="panel-heading">
+                                                    <h2 class="panel-title">Edit Sasaran Organisasi</h2>
+                                                </header>
+                                                <form id="demo-form-<?php echo $value->id_sasaran_organisasi;?>" class="form-horizontal mb-lg" action="<?php echo base_url();?>index.php/sasaran_organisasi/update/<?php echo $value->id_sasaran_organisasi;?>"  method="post" enctype="multipart/form-data">
+                                                <div class="panel-body">
+                                                        <div class="form-group mt-lg">
+                                                            <label class="col-sm-3 control-label">Nama Sasaran</label>
+                                                            <div class="col-sm-9">
+                                                                <input type="text" name="sasaran_organisasi" class="form-control" placeholder="Nama Sasaran" pattern=".{1,254}" required="" value="<?php echo $value->sasaran_organisasi;?>">
+                                                            </div>
+                                                        </div>
+                                                </div>
+                                                <footer class="panel-footer">
+                                                    <div class="row">
+                                                        <div class="col-md-12 text-right">
+                                                            <button class="btn btn-primary" type="submit">Submit</button>
+                                                            <button class="btn btn-default modal-dismiss">Cancel</button>
+                                                        </div>
+                                                    </div>
+                                                </footer>
+                                                </form>
+                                            </section>
+                                        </div>
+                                        <form action="<?php echo base_url();?>index.php/sasaran_organisasi/delete/<?php echo $value->id_sasaran_organisasi;?>" method="post">
+                                            <button type="submit" class="mb-xs mt-xs mr-xs btn btn-danger"><i class="fa fa-trash-o"></i></button>
+                                        </form>
                                 </td>
                             </tr>
                             <?php
