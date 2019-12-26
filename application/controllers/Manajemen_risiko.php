@@ -76,8 +76,10 @@ class Manajemen_risiko extends CI_Controller {
     }
 
     public function info_risiko($id){
+        $risiko = $this->risiko_model->get_rtp_resiko_by_unit($id);
         $data =array(
             'content'=>'info_risiko.php',
+            'risikos'=>$risiko,
             'id_mr'=>$id
         );
 		$this->load->view('index',$data);

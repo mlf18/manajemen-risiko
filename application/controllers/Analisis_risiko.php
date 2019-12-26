@@ -36,6 +36,7 @@ class Analisis_risiko extends CI_Controller {
     }
 
     public function analisis_evaluasi(){
+		$data =[];
 		$this->load->view('index',$data);
     }
 }

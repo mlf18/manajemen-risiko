@@ -92,7 +92,10 @@
                                     <td><?php echo $value->dampak;?></td>
                                     <td class="text-center">
                                         <a  class="modal-with-form mb-xs mt-xs mr-xs btn btn-warning" href="#editForm-<?php echo $value->id_dampak;?>"><i class="fa fa-pencil"></i></a>
-                                        <button type="button" class="mb-xs mt-xs mr-xs btn btn-danger"><i class="fa fa-trash-o"></i></button></td>
+                                        <form action="<?php echo base_url();?>index.php/dampak_risiko/delete/<?php echo $value->id_dampak;?>" method="post">
+                                            <input type="hidden" name="id_dampak" value="<?php echo $value->id_dampak;?>">
+                                            <button type="submit" class="mb-xs mt-xs mr-xs btn btn-danger"><i class="fa fa-trash-o"></i></button></td>
+                                        </form>
                                             <div id="editForm-<?php echo $value->id_dampak;?>" class="modal-block modal-block-primary mfp-hide">
                                                 <section class="panel">
                                                     <header class="panel-heading">

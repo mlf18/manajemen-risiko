@@ -43,7 +43,7 @@
                                             <div class="col-sm-9">
                                                 <div class="row">
                                                     <div class="col-sm-12">
-                                                        <input type="text" name="pengendalian[]" class="form-control" placeholder="Pengendalian" required="" pattern=".{1,254}">
+                                                        <input type="text" name="pengendalian[]" class="form-control" placeholder="Pengendalian" required="" pattern=".{1,}">
                                                     </div>
                                                 </div>
                                                 <div class="row">
@@ -92,7 +92,10 @@
                                     <td><?php echo $value->pengendalian;?></td>
                                     <td class="text-center">
                                         <a  class="modal-with-form mb-xs mt-xs mr-xs btn btn-warning" href="#editForm-<?php echo $value->id_pengendalian;?>"><i class="fa fa-pencil"></i></a>
-                                        <button type="button" class="mb-xs mt-xs mr-xs btn btn-danger"><i class="fa fa-trash-o"></i></button></td>
+                                        <form action="<?php echo base_url();?>index.php/pengendalian_risiko/delete/<?php echo $value->id_pengendalian;?>" method="post">
+                                        <input type="hidden" name="id_pengendalian" value="<?php echo $value->id_pengendalian;?>">
+                                            <button type="submit" class="mb-xs mt-xs mr-xs btn btn-danger"><i class="fa fa-trash-o"></i></button></td>
+                                        </form>
                                             <div id="editForm-<?php echo $value->id_pengendalian;?>" class="modal-block modal-block-primary mfp-hide">
                                                 <section class="panel">
                                                     <header class="panel-heading">
@@ -140,7 +143,7 @@ function custom_footer(){
 ?>
 <script>
     $("#btnTDampak").click(function(){
-        $("#formTambahan").append('<input type="text" name="pengendalian[]" class="form-control" placeholder="Pengendalian" pattern=".{1,254}">');
+        $("#formTambahan").append('<input type="text" name="pengendalian[]" class="form-control" placeholder="Pengendalian" pattern=".{1,}">');
     })
 </script>
 <?php

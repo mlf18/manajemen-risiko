@@ -103,7 +103,7 @@
                                                             <div class="col-sm-9">
                                                                 <div class="row">
                                                                     <div class="col-sm-12">
-                                                                        <input type="text" name="indikator_organisasi[]" class="form-control" placeholder="Kegiatan" required="" pattern=.{1,254}>
+                                                                        <input type="text" name="indikator_organisasi[]" class="form-control" placeholder="Kegiatan" required="" pattern=.{1,799}>
                                                                         <div id="iformTambahan-<?php echo $value->id_sasaran_organisasi;?>"></div>
                                                                     </div>
                                                                 </div>
@@ -207,7 +207,7 @@
                                                                 <div class="form-group mt-lg">
                                                                     <label class="col-sm-3 control-label">Uraian</label>
                                                                     <div class="col-sm-9">
-                                                                        <input type="text" name="penyebab" class="form-control" placeholder="Penyebab" required="">
+                                                                        <textarea name="penyebab" class="form-control" placeholder="Penyebab" required=""></textarea>
                                                                     </div>
                                                                 </div>
 
@@ -255,7 +255,7 @@
                                                 <td><?php echo kategoriRisiko($rvalue->id_kategori);?></td>
                                                 <td><?php echo sumberRisiko($rvalue->sumber);?></td>
                                                 <td><?php echo tipeRisiko($rvalue->tipe);?></td>
-                                                <td><?php echo $rvalue->penyebab;?></td>
+                                                <td><?php echo nl2br($rvalue->penyebab);?></td>
                                                 <td class="text-center"><a href="<?php echo base_url();?>index.php/dampak_risiko/index/<?php echo $rvalue->id_risiko;?>" class="mb-xs mt-xs mr-xs btn btn-circle btn-default"><i class="fa fa-search"></i></a></td>
                                                 <td class="text-center"><a href="<?php echo base_url();?>index.php/pengendalian_risiko/index/<?php echo $rvalue->id_risiko;?>" class="mb-xs mt-xs mr-xs btn btn-circle btn-default"><i class="fa fa-search"></i></a></td>
                                                 
@@ -326,7 +326,7 @@
                                                                             <div class="form-group mt-lg">
                                                                                 <label class="col-sm-3 control-label">Uraian</label>
                                                                                 <div class="col-sm-9">
-                                                                                    <input type="text" name="penyebab" class="form-control" placeholder="Penyebab" required="" value="<?php echo $rvalue->penyebab;?>">
+                                                                                    <textarea name="penyebab" class="form-control" placeholder="Penyebab" required="" ><?php echo $rvalue->penyebab;?></textarea>
                                                                                 </div>
                                                                             </div>
 
@@ -436,7 +436,7 @@
                                                                         <div class="form-group mt-lg">
                                                                             <label class="col-sm-3 control-label">Kegiatan</label>
                                                                             <div class="col-sm-9">
-                                                                                <input type="text" name="indikator_organisasi" class="form-control" placeholder="Indikator" required="" value="<?php echo $ivalue->indikator_organisasi;?>" pattern=".{1,254}">
+                                                                                <input type="text" name="indikator_organisasi" class="form-control" placeholder="Indikator" required="" value="<?php echo $ivalue->indikator_organisasi;?>" pattern=".{1,799}">
                                                                             </div>
                                                                         </div>
                                                                 </div>

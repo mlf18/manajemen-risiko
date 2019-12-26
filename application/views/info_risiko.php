@@ -167,16 +167,12 @@
                                         <th class="text-center">Level Dampak</th>
                                         <th class="text-center">Besaran Risiko</th>
                                         <th class="text-center">Level Risiko</th>
-                                        <th class="text-center">Prioritas Risiko</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php 
-                                    $mr= $this->sasaranorganisasi_model->get(array('id_manajemen_risiko'=>$id_mr));
-                                    foreach ($mr as $key => $value) {
-                                        $kegiatan = $this->indikatororganisasi_model->get(array('id_sasaran_organisasi'=>$value->id_sasaran_organisasi));
-                                        foreach ($kegiatan as $ikey => $ivalue) {
-                                            $risiko = $this->risiko_model->get(array('id_indikator_organisasi'=>$ivalue->id_indikator_organisasi));
+                                    
+                                            $risiko = $this->analisis_risiko_model->get_risiko(array('manajemen_risiko.id_manajemen_risiko'=>$id_mr));
                                             foreach ($risiko as $rkey => $rvalue) {
                                     ?>
                                     <tr>
@@ -203,10 +199,9 @@
                                             echo '<td class="text-center bg-danger">Risiko Tinggi</td>';
                                         }
                                         ?>
-                                        <td class="text-center"><?php echo $rvalue->prioritas_risiko;?></td>
                                     </tr>
                                     <?php 
-                                    }}}?>
+                                    }?>
                                 </tbody>
                             </table>
                     </div>
@@ -232,6 +227,69 @@
                 <div class="col-md-12">
                     <div class="table-responsive">
                     <table class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Nomor Rangking</th>
+                                    <th>Pernyataan Risiko</th>
+                                    <th>Jenis Risiko</th>
+                                    <th>Nilai Risiko</th>
+                                    <th>Identifikasi Pengendalian</th>
+                                    <th>Perbaikan Pengendalian</th>
+                                    <th>Jadwal Waktu</th>
+                                    <th>Rencana Pembiayaan</th>
+                                    <th>Keterangan</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                              
+                              <?php
+                                $i=1;
+                                foreach ($risikos as $key => $value){
+                              ?>
+                              
+                                  <tr>
+                                    <td><?=$i?></td>
+                                    <td><?= $value->kejadian ?></td>
+                                    <td><?= $value->kategori_risiko ?></td>
+                                    <?php
+                                      if($value->besaran_risiko > 12){
+                                        echo '<td class="text-center" style="background:red;color:white">'.$value->besaran_risiko.'</td>';
+                                      }elseif($value->besaran_risiko > 4){
+                                        echo '<td class="text-center" style="background:yellow">'.$value->besaran_risiko.'</td>';
+                                      }elseif($value->besaran_risiko > 0){
+                                        echo '<td class="text-center" style="background:grey;color:white">'.$value->besaran_risiko.'</td>';
+                                      }else{
+                                        echo '<td class="text-center"> - </td>';
+                                      }
+                                    ?>
+                                    <td>
+                                    <?php 
+                                    $pengendalian = $this->pengendalian_model->get(array('id_risiko'=>$value->id_risiko));
+                                    foreach ($pengendalian as $key => $value) {
+                                        # code...
+                                        echo 1+$key.". ".$value->pengendalian."<br>";
+                                    }
+                                    ?>
+                                    </td>
+                                    <?php 
+                                        $rtl = $this->rtl_model->get(array('id_risiko'=>$value->id_risiko));
+                                    ?>
+                                    <td><?php echo count($rtl) > 0 ? $rtl[0]->perbaikan_pengendalian:'';?></td>
+                                    <td>
+                                      Dari : <?php echo count($rtl) > 0 ? $rtl[0]->mulai:'';?><br>
+                                      Sampai : <?php echo count($rtl) > 0 ? $rtl[0]->selesai:'';?>
+                                    </td>
+                                    <td><?php echo count($rtl) > 0 ? $rtl[0]->pembiayaan:'';?></td>
+                                    <td><?php echo count($rtl) > 0 ? $rtl[0]->ket:'';?></td>
+                                  </tr>
+                              <?php
+                                $i++;
+                                }
+                              ?>
+
+                            </tbody>
+                        </table>
+                    <!-- <table class="table table-bordered table-hover">
                             <thead>
                                 <tr>
                                     <th class="text-center" rowspan="2">No</th>
@@ -273,7 +331,7 @@
                                     <td class="bg-success">11</td>
                                 </tr>
                             </tbody>
-                        </table>
+                        </table> -->
                     </div>
                 </div>
                 </div>
@@ -284,7 +342,7 @@
 </div>
 <div class="row">
     <div class="col-sm-12">
-        <canvas id="myChart" width="20" height="5"></canvas>
+        <canvas id="myChart" width="20" height="13"></canvas>
     </div>
 </div>
 <div class="row">

@@ -19,7 +19,7 @@ class Risiko_organisasi extends CI_Controller {
     }
 
     public function save(){
-        $this->risiko_model->create($this->input->post());
+        $this->risiko_model->create(exceptArr($this->input->post(),"id_manajemen_risiko"));
         $id_indikator = $this->input->post("id_indikator_organisasi");
         redirect(base_url()."index.php/sasaran_organisasi/index/".$this->input->post('id_manajemen_risiko'));
     }
@@ -27,7 +27,7 @@ class Risiko_organisasi extends CI_Controller {
     public function update($id){
         $risiko = $this->risiko_model->get(array('id_risiko'=>$id));
         if(count($risiko)){
-            $this->risiko_model->update($id,$this->input->post());
+            $this->risiko_model->update($id,exceptArr($this->input->post(),"id_manajemen_risiko"));
             redirect(base_url()."index.php/sasaran_organisasi/index/".$this->input->post('id_manajemen_risiko'));
         }
     }

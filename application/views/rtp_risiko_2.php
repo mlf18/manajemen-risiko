@@ -29,7 +29,7 @@
 
 <!-- start: page -->
 <div class="row">
-    <div class="col-md-6 col-lg-12 col-xl-6">
+    <div class="col-lg-12 col-xl-12">
         <section class="panel">
             <div class="panel-heading">
                 <h4>Rencana Tindak Pengendalian Risiko</h4>
@@ -37,27 +37,30 @@
             <div class="panel-body">
                 <div class="row">
                 <div class="col-md-12">
-                    <div class="table-responsive">
-                        <table class="table table-bordered table-hover">
+                    <div style="overflow-x:auto;">
+                        <table class="table table-bordered table-hover" style="width:150%;max-width:150%;">
                             <thead>
                                 <tr>
                                     <th>Nomor Rangking</th>
                                     <th>Pernyataan Risiko</th>
                                     <th>Jenis Risiko</th>
                                     <th>Nilai Risiko</th>
-                                    <th>Identifikasi Pengendalian</th>
-                                    <th>Perbaikan Pengendalian</th>
-                                    <th>Jadwal Waktu</th>
+                                    <th width="30%">Identifikasi Pengendalian</th>
+                                    <th width="30%">Perbaikan Pengendalian</th>
+                                    <th width="20%">Jadwal Waktu</th>
                                     <th>Rencana Pembiayaan</th>
-                                    <th>Keterangan</th>
+                                    <th width="30%">Keterangan(progress RTP)</th>
+                                    <th>Pemilik Risiko</th>
                                 </tr>
                             </thead>
                             <tbody>
-                              <form action="<?= base_url()?>index.php/rencana_tindak_lanjut/save" method="post">
+                              <form action="<?= base_url()?>index.php/rencana_tindak_lanjut/save" method="post" enctype="multipart/form-data">
+                              <input type="hidden" name="id_mr" value="<?php echo $id_mr;?>">
                               <?php
                                 $i=1;
                                 foreach ($risikos as $key => $value){
                               ?>
+                              <input type="hidden" name="<?= $value->id_risiko ?>[id_risiko]" value="<?php echo $value->id_risiko;?>">
                                   <tr>
                                     <td><?=$i?></td>
                                     <td><?= $value->kejadian ?></td>
@@ -73,14 +76,26 @@
                                         echo '<td class="text-center"> - </td>';
                                       }
                                     ?>
-                                    <td></td>
-                                    <td><textarea name="perbaikanPengendalian_<?= $value->id_resiko ?>"></textarea></td>
                                     <td>
-                                      Dari : <input type="month" name="dari_<?= $value->id_resiko ?>" style="vertical-align:center;line-height: 20px;"><br>
-                                      Sampai : <input type="month" name="sampai_<?= $value->id_resiko ?>" style="vertical-align:center;line-height: 20px;">
+                                    <?php 
+                                    $pengendalian = $this->pengendalian_model->get(array('id_risiko'=>$value->id_risiko));
+                                    foreach ($pengendalian as $key => $value) {
+                                        # code...
+                                        echo 1+$key.". ".$value->pengendalian."<br>";
+                                    }
+                                    ?>
                                     </td>
-                                    <td><textarea name="pembiayaan_<?= $value->id_resiko ?>"></textarea></td>
-                                    <td><textarea name="keterangan_<?= $value->id_resiko ?>"></textarea></td>
+                                    <?php 
+                                        $rtl = $this->rtl_model->get(array('id_risiko'=>$value->id_risiko));
+                                    ?>
+                                    <td><textarea name="<?= $value->id_risiko ?>[perbaikanPengendalian]" class="form-control" rows="10" cols="30"><?php echo count($rtl) > 0 ? $rtl[0]->perbaikan_pengendalian:'';?></textarea></td>
+                                    <td>
+                                      Dari : <input type="month" name="<?= $value->id_risiko ?>[dari]" style="vertical-align:center;line-height: 20px;" class="form-control" value="<?php echo count($rtl) > 0 ? $rtl[0]->mulai:'';?>"><br>
+                                      Sampai : <input type="month" name="<?= $value->id_risiko ?>[sampai]" style="vertical-align:center;line-height: 20px;" class="form-control" value="<?php echo count($rtl) > 0 ? $rtl[0]->selesai:'';?>">
+                                    </td>
+                                    <td><textarea name="<?= $value->id_risiko ?>[pembiayaan]"  class="form-control"  rows="10" cols="30"><?php echo count($rtl) > 0 ? $rtl[0]->pembiayaan:'';?></textarea></td>
+                                    <td><textarea name="<?= $value->id_risiko ?>[keterangan]"  class="form-control"  rows="10" cols="30"><?php echo count($rtl) > 0 ? $rtl[0]->ket:'';?></textarea></td>
+                                    <td><textarea name="<?= $value->id_risiko ?>[keterangan]"  class="form-control"  rows="10" cols="30"><?php echo count($rtl) > 0 ? $rtl[0]->pemilik_risiko:'';?></textarea></td>
                                   </tr>
                               <?php
                                 $i++;
@@ -92,7 +107,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12 text-center">
-                            <button type="button" class="btn btn-success">Simpan</button>
+                            <button type="submit" class="btn btn-success">Simpan</button>
                         </div>
                     </div>
                 </div>

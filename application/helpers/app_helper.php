@@ -88,6 +88,17 @@ function levelKemungkinan($lv){
     }
 }
 
+function exceptArr($arr,$e){
+    $out=[];
+    foreach ($arr as $key => $value) {
+        # code...
+        if($key!=$e){
+            $out[$key]=$value;
+        }
+    }
+    return $out;
+}
+
 function levelDampak($lv){
     switch ($lv) {
         case '1':

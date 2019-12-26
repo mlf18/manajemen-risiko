@@ -30,10 +30,11 @@ class Pengendalian_risiko extends CI_Controller {
 
     }
 
-    public function delete(){
+    public function delete($id){
+        $id = $this->input->post('id_pengendalian');
         $pengendalian = $this->pengendalian_model->get(array('id_pengendalian'=>$id));
         if (count($pengendalian) > 0){
-            $pengendalian = $this->pengendalian_model->delete($id);
+            $p = $this->pengendalian_model->delete($id);
             return redirect(base_url().'index.php/pengendalian_risiko/index/'.$pengendalian[0]->id_risiko);
         }
     }

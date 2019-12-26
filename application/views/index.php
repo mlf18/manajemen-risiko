@@ -486,13 +486,14 @@
 			var risiko;
 			$(document).ready(function(){
 				var id_mr = $("input[name=id_mr]").val();
+				console.log(id_mr);
 				if(id_mr){
 				$.ajax({
 					type: "POST",
 					url: 'http://localhost/manajemen-risiko/index.php/manajemen_risiko/getrisiko/'+id_mr, // target element(s) to be updated with server response 
 					dataType:'json',
 					success : function(responses){ 
-						// console.log(responses);
+						console.log(responses);
 						var input= [];
 						var i =0;
 						var lanjut;
