@@ -38,19 +38,19 @@
                 <div class="row">
                 <div class="col-md-12">
                     <div style="overflow-x:auto;">
-                        <table class="table table-bordered table-hover" style="width:150%;max-width:150%;">
+                        <table class="table table-bordered table-hover" style="width:250%;max-width:250%;">
                             <thead>
                                 <tr>
                                     <th>Nomor Rangking</th>
                                     <th>Pernyataan Risiko</th>
                                     <th>Jenis Risiko</th>
                                     <th>Nilai Risiko</th>
-                                    <th width="30%">Identifikasi Pengendalian</th>
+                                    <th width="20%">Identifikasi Pengendalian</th>
                                     <th width="30%">Perbaikan Pengendalian</th>
-                                    <th width="20%">Jadwal Waktu</th>
-                                    <th>Rencana Pembiayaan</th>
-                                    <th width="30%">Keterangan(progress RTP)</th>
-                                    <th>Pemilik Risiko</th>
+                                    <th width="10%">Jadwal Waktu</th>
+                                    <th width="10%">Rencana Pembiayaan</th>
+                                    <th width="10%">Keterangan(progress RTP)</th>
+                                    <th width="20%">Pemilik Risiko</th>
                                 </tr>
                             </thead>
                             <tbody>
