@@ -37,4 +37,20 @@ class Sasaranorganisasi_model extends CI_Model {
             return false;
         }
     }
+
+    public function getSasaranIndikatorKegiatan($id_manajemen_risiko){
+        $this->db->select('*');
+        $this->db->from('sasaran_organisasi');
+        $this->db->join('indikator_organisasi', 'sasaran_organisasi.id_sasaran_organisasi=indikator_organisasi.id_sasaran_organisasi');
+        $this->db->join('risiko', 'indikator_organisasi.id_indikator_organisasi = risiko.id_indikator_organisasi');
+        $this->db->join('dampak','dampak.id_risiko=risiko.id_risiko');
+        $this->db->join('pengendalian','pengendalian.id_risiko=risiko.id_risiko');
+        $this->db->where(array('sasaran_organisasi.id_manajemen_risiko'=>$id_manajemen_risiko));
+        $query = $this->db->get();
+        if($query->num_rows() > 0){
+            return $query->result();
+        }else{
+            return [];
+        }
+    }
 }

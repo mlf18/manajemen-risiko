@@ -68,19 +68,19 @@
                                         <td><?= $value->penyebab ?></td>
                                         <td><select name="probabilitas_<?= $value->id_risiko ?>" id="" class="form-control">
                                             <option disabled="true" selected>Pilih Probabilitas</option>
-                                            <option value="1" <?php if($value->level_kemungkinan == 1){echo "selected";} ?>>Hampir Tidak Terjadi</option>
-                                            <option value="2" <?php if($value->level_kemungkinan == 2){echo "selected";} ?>>Jarang Terjadi</option>
-                                            <option value="3" <?php if($value->level_kemungkinan == 3){echo "selected";} ?>>Kadang Terjadi</option>
-                                            <option value="4" <?php if($value->level_kemungkinan == 4){echo "selected";} ?>>Sering Terjadi</option>
-                                            <option value="5" <?php if($value->level_kemungkinan == 5){echo "selected";} ?>>Hampir Pasti Terjadi</option>
+                                            <option value="1" <?php if($value->level_kemungkinan == 1){echo "selected";} ?>>Hampir Tidak Terjadi (1)</option>
+                                            <option value="2" <?php if($value->level_kemungkinan == 2){echo "selected";} ?>>Jarang Terjadi (2)</option>
+                                            <option value="3" <?php if($value->level_kemungkinan == 3){echo "selected";} ?>>Kadang Terjadi (3)</option>
+                                            <option value="4" <?php if($value->level_kemungkinan == 4){echo "selected";} ?>>Sering Terjadi (4)</option>
+                                            <option value="5" <?php if($value->level_kemungkinan == 5){echo "selected";} ?>>Hampir Pasti Terjadi (5)</option>
                                         </select></td>
                                         <td><select name="konsekuensi_<?= $value->id_risiko ?>" id="" class="form-control">
                                             <option disabled="true" selected>Pilih Konsekuensi</option>
-                                            <option value="1" <?php if($value->level_dampak == 1){echo "selected";} ?>>Tidak Signifikan</option>
-                                            <option value="2" <?php if($value->level_dampak == 2){echo "selected";} ?>>Minor</option>
-                                            <option value="3" <?php if($value->level_dampak == 3){echo "selected";} ?>>Moderat</option>
-                                            <option value="4" <?php if($value->level_dampak == 4){echo "selected";} ?>>Signifikan</option>
-                                            <option value="5" <?php if($value->level_dampak == 5){echo "selected";} ?>>Sangat Signifikan</option>
+                                            <option value="1" <?php if($value->level_dampak == 1){echo "selected";} ?>>Tidak Signifikan (1)</option>
+                                            <option value="2" <?php if($value->level_dampak == 2){echo "selected";} ?>>Minor (2)</option>
+                                            <option value="3" <?php if($value->level_dampak == 3){echo "selected";} ?>>Moderat (3)</option>
+                                            <option value="4" <?php if($value->level_dampak == 4){echo "selected";} ?>>Signifikan (4)</option>
+                                            <option value="5" <?php if($value->level_dampak == 5){echo "selected";} ?>>Sangat Signifikan (5)</option>
                                         </select></td>
                                         <td class="text-center"><?php $besaran_risiko = $value->level_dampak * $value->level_kemungkinan; echo $besaran_risiko ?></td>
                                         <?php
@@ -105,6 +105,7 @@
                         <div class="row">
                             <div class="col-md-12 text-center">
                                 <button class="btn btn-primary" type="submit">Submit</button>
+                                <a href="#" class="btn btn-default">Print</a>
                             </div>
                         </div>
                       </form>

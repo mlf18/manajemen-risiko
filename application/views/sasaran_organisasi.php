@@ -26,6 +26,7 @@
                 <div class="row">
                     <div class="col-md-12 text-right" style="margin-bottom:12px;">
                         <a class="modal-with-form btn btn-success" href="#addForm"><i class="fa fa-plus"></i></a>
+                        <a href="#" class="btn btn-default">Print</a>
                         <div id="addForm" class="modal-block modal-block-primary mfp-hide">
                             <section class="panel">
                                 <header class="panel-heading">

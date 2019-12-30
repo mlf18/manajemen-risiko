@@ -13,6 +13,20 @@ class Analisis_risiko extends CI_Controller {
             'content'=>'analisis_risiko.php'
         );
 		$this->load->view('index',$data);
+	}
+	
+	public function print_analisis($id_mr=null)
+	{
+				$risiko = $this->analisis_risiko_model->get_resiko_by_unit($id_mr);
+				// echo "<pre>";
+				// print_r($risiko);
+				// echo "</pre>";
+        $data =array(
+						'id_mr'=>$id_mr,
+						'risikos'=>$risiko,
+            'content'=>'analisis_risiko.php'
+        );
+		$this->load->view('print_analisis.php',$data);
     }
 
     public function save(){
