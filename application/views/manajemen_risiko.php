@@ -88,6 +88,7 @@
                                         <th class="text-center">Identifikasi</th>
                                         <th class="text-center">Analisis</th>
                                         <th class="text-center">RTP</th>
+                                        <th>Laporan</th>
                                         <th class="text-center">Aksi</th>
                                     </tr>
                                 </thead>
@@ -102,6 +103,7 @@
                                         <td class="text-center"><a href="<?php echo base_url();?>index.php/sasaran_organisasi/index/<?php echo $value->id_manajemen_risiko;?>" class="mb-xs mt-xs mr-xs btn btn-circle btn-default"><i class="fa fa-search"></i></a></td>
                                         <td class="text-center"><a href="<?php echo base_url();?>index.php/analisis_risiko/index/<?php echo $value->id_manajemen_risiko;?>" class="mb-xs mt-xs mr-xs btn btn-circle btn-default"><i class="fa fa-search"></i></a></td>
                                         <td class="text-center"><a href="<?php echo base_url();?>index.php/rencana_tindak_lanjut/index/<?php echo $value->id_manajemen_risiko;?>" class="mb-xs mt-xs mr-xs btn btn-circle btn-default"><i class="fa fa-search"></i></a></td>
+                                        <td class="text-center"><a href="<?php echo base_url();?>index.php/manajemen_risiko/laporan/<?php echo $value->id_manajemen_risiko;?>" class="mb-xs mt-xs mr-xs btn btn-circle btn-default"><i class="fa fa-book"></i></a></td>
                                         <td class="text-center">
                                             <a class="mb-xs mt-xs mr-xs btn btn-info" href="<?php echo base_url();?>index.php/manajemen_risiko/info_risiko/<?php echo $value->id_manajemen_risiko;?>"><i class="fa fa-info"></i></a>
                                             <a href="#editForm-<?php echo $value->id_manajemen_risiko;?>" class="mb-xs mt-xs mr-xs btn btn-warning modal-with-form"><i class="fa fa-pencil"></i></a>

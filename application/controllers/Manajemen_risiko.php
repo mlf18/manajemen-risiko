@@ -17,6 +17,40 @@ class Manajemen_risiko extends CI_Controller {
 		$this->load->view('index',$data);
     }
 
+    public function laporan($id_manajemen_risiko){
+        $laporan = $this->laporan_model->get(array('id_manajemen_risiko'=>$id_manajemen_risiko));
+        print_r($laporan);
+        $data = array(
+            'id_manajemen_risiko'=>$id_manajemen_risiko,
+            'laporan'=>$laporan,
+            'content'=>'laporan.php'
+        );
+        $this->load->view('index.php',$data);
+        // $this->load->view('print_laporan.php');
+    }
+
+    public function printlaporan($id_manajemen_risiko){
+        $laporan = $this->laporan_model->joinManajemenRisiko($id_manajemen_risiko);
+        
+        $data = array(
+            'id_manajemen_risiko'=>$id_manajemen_risiko,
+            'laporan'=>$laporan,
+            'content'=>'laporan.php'
+        );
+        // $this->load->view('index.php',$data);
+        $this->load->view('print_laporan.php',$data);
+    }
+
+    public function savelaporan(){
+        print_r($this->input->post());
+        // exit;
+        $laporan = $this->laporan_model->get(array('id_manajemen_risiko'=>$this->input->post('id_manajemen_risiko')));
+        if($laporan){
+            $this->laporan_model->update($this->input->post('id_manajemen_risiko'),$this->input->post());    
+        }else{
+            $this->laporan_model->create($this->input->post());
+        }
+    }
     public function save(){
         // $user_id = $_SESSION ['ses_userId'];
         $user_id =1;
