@@ -28,7 +28,7 @@
 
 <!-- start: page -->
 <div class="row">
-    <div class="col-md-6 col-lg-12 col-xl-6">
+    <div class="col-lg-12">
         <section class="panel">
             <div class="panel-heading">
                 <h4>Analisis dan Evaluasi Risiko Organisasi</h4>

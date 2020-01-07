@@ -17,7 +17,7 @@
 
 <!-- start: page -->
 <div class="row">
-    <div class="col-md-6 col-lg-12 col-xl-6">
+    <div class="col-lg-12">
         <section class="panel">
             <div class="panel-heading">
                 <h4>Sasaran Organisasi</h4>
@@ -26,7 +26,7 @@
                 <div class="row">
                     <div class="col-md-12 text-right" style="margin-bottom:12px;">
                         <a class="modal-with-form btn btn-success" href="#addForm"><i class="fa fa-plus"></i></a>
-                        <a href="#" class="btn btn-default">Print</a>
+                        <a href="<?php echo base_url();?>index.php/sasaran_organisasi/print_identifikasi/<?php echo $id_manajemen_risiko;?>" class="btn btn-default">Print</a>
                         <div id="addForm" class="modal-block modal-block-primary mfp-hide">
                             <section class="panel">
                                 <header class="panel-heading">

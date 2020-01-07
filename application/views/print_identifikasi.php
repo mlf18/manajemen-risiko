@@ -6,26 +6,22 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Print Identifikasi</title>
     <style>
-        @media print{@page {size: landscape}}
-        table { page-break-inside:auto }
+    @media print{@page {size: landscape}}
+    table { page-break-inside:auto }
     tr    { page-break-inside:avoid; page-break-after:auto }
     thead { display:table-header-group }
     tfoot { display:table-footer-group }
+    body{
+        font-family: "Times New Roman", Times, serif;
+        margin: 2.5cm;
+        font-size: 10pt;
+    }
     </style>
+    <script>
+    window.print();
+    </script>
 </head>
 <body>
-    <table width="100%">
-        <tr>
-            <td width="15%">Unit Kerja</td>
-            <td width="2%">:</td>
-            <td>Unitsss</td>
-        </tr>
-        <tr>
-            <td width="15%">Tahun</td>
-            <td width="2%">:</td>
-            <td>2020</td>
-        </tr>
-    </table>
     <table width="100%" border="1">
         <thead>
             <tr>

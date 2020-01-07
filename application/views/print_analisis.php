@@ -7,11 +7,19 @@
     <title>Document</title>
     <style>
     @media print{@page {size: landscape}}
-        table { page-break-inside:auto }
+    /* table { page-break-inside:auto }
     tr    { page-break-inside:avoid; page-break-after:auto }
     thead { display:table-header-group }
-    tfoot { display:table-footer-group }
+    tfoot { display:table-footer-group } */
+    body{
+        font-family: "Times New Roman", Times, serif;
+        margin: 2.5cm;
+        font-size: 10pt;
+    }
     </style>
+    <script>
+    window.print();
+    </script>
 </head>
 <body>
     <table width="100%" border=1>

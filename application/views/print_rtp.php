@@ -5,6 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+    @media print{@page {size: landscape}}
+    table { page-break-inside:auto }
+    tr    { page-break-inside:avoid; page-break-after:auto }
+    thead { display:table-header-group }
+    tfoot { display:table-footer-group }
+    body{
+        font-family: "Times New Roman", Times, serif;
+        margin: 2.5cm;
+        font-size: 10pt;
+    }
+    </style>
+    <script>
+    window.print();
+    </script>
 </head>
 <body>
     <table border="1" width="100%">

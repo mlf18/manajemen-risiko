@@ -72,6 +72,17 @@
                                 <textarea name="tujuan_sasaran" id="" cols="30" rows="10" class="form-control"><?php echo $laporan ? $laporan[0]->tujuan_sasaran:'';?></textarea>
                             </div>
                         </div>
+                        <div class="row form-group">
+                            <div class="col-sm-2">
+                                <label for="">Simpulan</label>
+                            </div>
+                            <div class="col-sm-1">
+                                :
+                            </div>
+                            <div class="col-sm-4">
+                                <textarea name="simpulan" id="" cols="30" rows="10" class="form-control"><?php echo $laporan ? $laporan[0]->simpulan:'';?></textarea>
+                            </div>
+                        </div>
                         <!-- <div class="row">
                             <div class="col-sm-3">
                                 <label for="">Lampiran</label>
@@ -108,7 +119,7 @@
                         <div class="row">
                             <div class="col-md-12 text-center">
                                 <button type="submit" class="btn btn-success">Simpan</button>
-                                <a href="#" class="btn btn-default">Print</a>
+                                <a href="<?php echo base_url();?>index.php/manajemen_risiko/printlaporan/<?php echo $id_manajemen_risiko;?>" class="btn btn-default">Print</a>
                             </div>
                         </div>
                         </form>
