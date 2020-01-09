@@ -17,7 +17,7 @@
 <!-- start: page -->
 <input type="hidden" name="id_mr" value="<?php echo $id_mr;?>">
 <div class="row">
-    <div class="col-md-6 col-lg-12 col-xl-6">
+    <div class="col-md-12 col-lg-12 col-xl-12">
         <section class="panel">
             <div class="panel-heading">
                 <h4>Identifikasi Risiko</h4>
@@ -67,7 +67,7 @@
                                                 if(count($risiko) < 1){
                                                     $jrisk = 1;
                                                 }
-                                                
+
                                                 $srow+=$jrisk;
                                             }
                                             if($srow <= 1){
@@ -82,10 +82,10 @@
                                                 $rrow = count($risiko);
                                                 if(count($risiko) < 1){
                                                     $rrow = 1;
-                                                }   
+                                                }
                                                 if($ikey > 0){
                                                     echo "<tr>";
-                                                } 
+                                                }
                                                 echo "<td rowspan='".$rrow."'>$ivalue->indikator_organisasi</td>";
                                                 if(count($risiko) < 1){
                                                     echo "<td colspan='10'></td>";
@@ -135,10 +135,10 @@
             </div>
         </section>
     </div>
-    
+
 </div>
 <div class="row">
-    <div class="col-md-6 col-lg-12 col-xl-6">
+    <div class="col-md-12 col-lg-12 col-xl-12">
         <section class="panel">
             <div class="panel-heading">
                 <h4>Analisis dan Evaluasi Risiko</h4>
@@ -170,8 +170,8 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php 
-                                    
+                                    <?php
+
                                             $risiko = $this->analisis_risiko_model->get_risiko(array('manajemen_risiko.id_manajemen_risiko'=>$id_mr));
                                             foreach ($risiko as $rkey => $rvalue) {
                                     ?>
@@ -200,7 +200,7 @@
                                         }
                                         ?>
                                     </tr>
-                                    <?php 
+                                    <?php
                                     }?>
                                 </tbody>
                             </table>
@@ -210,10 +210,10 @@
             </div>
         </section>
     </div>
-    
+
 </div>
 <div class="row">
-    <div class="col-md-6 col-lg-12 col-xl-6">
+    <div class="col-md-12 col-lg-12 col-xl-12">
         <section class="panel">
             <div class="panel-heading">
                 <h4>Rencana Tindak Pengendalian</h4>
@@ -241,12 +241,12 @@
                                 </tr>
                             </thead>
                             <tbody>
-                              
+
                               <?php
                                 $i=1;
                                 foreach ($risikos as $key => $value){
                               ?>
-                              
+
                                   <tr>
                                     <td><?=$i?></td>
                                     <td><?= $value->kejadian ?></td>
@@ -263,7 +263,7 @@
                                       }
                                     ?>
                                     <td>
-                                    <?php 
+                                    <?php
                                     $pengendalian = $this->pengendalian_model->get(array('id_risiko'=>$value->id_risiko));
                                     foreach ($pengendalian as $key => $value) {
                                         # code...
@@ -271,7 +271,7 @@
                                     }
                                     ?>
                                     </td>
-                                    <?php 
+                                    <?php
                                         $rtl = $this->rtl_model->get(array('id_risiko'=>$value->id_risiko));
                                     ?>
                                     <td><?php echo count($rtl) > 0 ? $rtl[0]->perbaikan_pengendalian:'';?></td>
@@ -338,7 +338,7 @@
             </div>
         </section>
     </div>
-    
+
 </div>
 <div class="row">
     <div class="col-sm-12">

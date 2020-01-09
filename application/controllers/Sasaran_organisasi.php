@@ -5,7 +5,9 @@ class Sasaran_organisasi extends CI_Controller {
 
     public function index($id){
         $sasaran_model = $this->sasaranorganisasi_model->get(array('id_manajemen_risiko'=>$id));
+        $unit = $this->manajemenrisiko_model->get(array('id_manajemen_risiko'=>$id));
         $data =array(
+            'unit' => $unit,
             'content'=>'sasaran_organisasi.php',
             'sasaran_model'=>$sasaran_model,
             'id_manajemen_risiko'=>$id
@@ -22,7 +24,7 @@ class Sasaran_organisasi extends CI_Controller {
                 $this->sasaranorganisasi_model->create(array('sasaran_organisasi'=>$value,'user_id'=>$user_id,'id_manajemen_risiko'=>$this->input->post('id_manajemen_risiko')));
             }
         }
-        
+
         return redirect(base_url()."index.php/sasaran_organisasi/index/".$this->input->post('id_manajemen_risiko'));
     }
 
@@ -38,7 +40,7 @@ class Sasaran_organisasi extends CI_Controller {
         }else{
             print ("data tidak ditemukan");
         }
-        
+
     }
     public function delete($id){
         $sasaran = $this->sasaranorganisasi_model->get(array("id_sasaran_organisasi"=>$id));

@@ -17,7 +17,7 @@
 <!-- start: page -->
 
 <div class="row">
-    <div class="col-md-6 col-lg-12 col-xl-6">
+    <div class="col-md-12 col-lg-12 col-xl-12">
         <section class="panel">
             <div class="panel-heading">
                 <h4>Perencanaan Anggota Tim</h4>

@@ -16,7 +16,7 @@
 
 <!-- start: page -->
 <div class="row">
-    <div class="col-md-6 col-lg-12 col-xl-6">
+    <div class="col-md-12 col-lg-12 col-xl-12">
         <section class="panel">
             <div class="panel-heading">
                 <h4>Perencanaan Pengawasan</h4>
@@ -52,7 +52,7 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-md-6 col-lg-12 col-xl-6">
+    <div class="col-md-12 col-lg-12 col-xl-12">
         <section class="panel">
             <div class="panel-heading">
                 <h4>Rencana Kegiatan Pengawasan</h4>
@@ -61,7 +61,7 @@
                 <div class="row">
                     <div class="col-md-12 text-right" style="margin-bottom:12px;">
                         <a class="modal-with-form btn btn-success" href="#addForm"><i class="fa fa-plus"></i></a>
-                        
+
                     </div>
                 </div>
                 <div class="row">
@@ -91,7 +91,7 @@
             </div>
         </section>
     </div>
-    
+
 </div>
 
 <!-- end: page -->

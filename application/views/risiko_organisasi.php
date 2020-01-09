@@ -20,7 +20,7 @@
 
 <!-- start: page -->
 <div class="row">
-    <div class="col-md-6 col-lg-12 col-xl-6">
+    <div class="col-md-12 col-lg-12 col-xl-12">
         <section class="panel">
             <div class="panel-heading">
                 <h4>Risiko Organisasi</h4>
@@ -127,7 +127,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            
+
                             <?php
                             foreach ($risiko as $key => $value) {
                                 # code...
@@ -141,7 +141,7 @@
                                     <td><?php echo $value->penyebab;?></td>
                                     <td class="text-center"><a href="<?php echo base_url();?>index.php/dampak_risiko/index/<?php echo $value->id_risiko;?>" class="mb-xs mt-xs mr-xs btn btn-circle btn-default"><i class="fa fa-search"></i></a></td>
                                     <td class="text-center"><a href="<?php echo base_url();?>index.php/pengendalian_risiko/index/<?php echo $value->id_risiko;?>" class="mb-xs mt-xs mr-xs btn btn-circle btn-default"><i class="fa fa-search"></i></a></td>
-                                    
+
                                     <td class="text-center"><?php echo $value->sisa_risiko;?></td>
                                     <td class="text-center">
                                         <a href="#editForm-<?php echo $value->id_risiko;?>" class="modal-with-form mb-xs mt-xs mr-xs btn btn-warning"><i class="fa fa-pencil"></i></a>
@@ -150,14 +150,14 @@
                                         </form>
                                         </td>
                                         <div id="editForm-<?php echo $value->id_risiko;?>" class="modal-block modal-block-primary mfp-hide">
-                                        
+
                                                 <section class="panel">
                                                     <header class="panel-heading">
                                                         <h2 class="panel-title">Edit Risiko</h2>
                                                     </header>
                                                     <form id="demo-form" class="form-horizontal mb-lg" method="post" action="<?php echo base_url();?>index.php/risiko_organisasi/update/<?php echo $value->id_risiko;?>" enctype="multipart/form-data">
                                                         <div class="panel-body">
-                                                        
+
                                                                 <div class="form-group mt-lg">
                                                                     <label class="col-sm-3 control-label">Kejadian</label>
                                                                     <div class="col-sm-9">
@@ -230,7 +230,7 @@
                                                     </form>
                                                 </section>
                                             </div>
-                                            
+
                                 </tr>
                             <?php
                             }

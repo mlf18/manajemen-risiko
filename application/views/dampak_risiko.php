@@ -21,7 +21,7 @@
 
 <!-- start: page -->
 <div class="row">
-    <div class="col-md-6 col-lg-12 col-xl-6">
+    <div class="col-md-12 col-lg-12 col-xl-12">
         <section class="panel">
             <div class="panel-heading">
                 <h4>Dampak Risiko</h4>
@@ -56,7 +56,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    
+
                                 </div>
                                 <footer class="panel-footer">
                                     <div class="row">
@@ -83,7 +83,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            <?php 
+                            <?php
                             foreach ($dampak as $key => $value) {
                                 # code...
                             ?>
@@ -109,7 +109,7 @@
                                                                     <input type="text" name="dampak" class="form-control" placeholder="Penyebab" required="" value="<?php echo $value->dampak;?>">
                                                                 </div>
                                                             </div>
-                                                        
+
                                                     </div>
                                                     <footer class="panel-footer">
                                                         <div class="row">
@@ -134,11 +134,11 @@
             </div>
         </section>
     </div>
-    
+
 </div>
 
 <!-- end: page -->
-<?php 
+<?php
 function custom_footer(){
 ?>
 <script>
