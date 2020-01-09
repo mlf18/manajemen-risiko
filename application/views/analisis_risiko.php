@@ -1,41 +1,66 @@
-<header class="page-header">
-    <h2>Analisis dan Evaluasi Risiko</h2>
-    <div class="right-wrapper pull-right" style="margin-right:12px;">
-        <ol class="breadcrumbs">
-            <li>
-                <a href="<?php echo base_url();?>">
-                    <i class="fa fa-home"></i>
-                </a>
-            </li>
-            <li><span>Dashboard</span></li>
-            <li><a href="<?php echo base_url();?>index.php/manajemen_risiko"><span>Manajemen Risiko</span></a></li>
-            <li><a href="#"><span>Analisis Risiko</span></a></li>
+<!-- Content Header (Page header) -->
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-8">
+        <h1 class="m-0 text-dark">Analisis dan Evaluasi Risiko</h1>
+      </div><!-- /.col -->
+      <div class="col-sm-4">
+        <ol class="breadcrumb float-sm-right">
+          <li>
+              <a class="breadcrumb-item" href="<?php echo base_url();?>">
+                  <i class="fa fa-home"> </i> /&nbsp;
+              </a>
+          </li>
+          <li class="breadcrumb-item"><a href="<?php echo base_url();?>index.php/manajemen_risiko"><span>Manajemen Risiko</span></a></li>
+          <li class="breadcrumb-item"><a href="#"><span>Analisis Risiko</span></a></li>
         </ol>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+  </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
 
-    </div>
-</header>
+
 
 <!-- start: page -->
-<div class="row">
-    <div class="col-md-12 col-lg-12 col-xl-12">
+<section class="content">
+
+  <div class="col-12 ">
+            <div class="card card-primary card-tabs">
+              <div class="card-header p-0 pt-1">
+                <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
+                  <li class="nav-item">
+                    <a class="nav-link " id="custom-tabs-one-home-tab"  href="<?php echo base_url('index.php/sasaran_organisasi/index/').$id_mr;?>" >Identifikasi Risiko</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" id="custom-tabs-one-profile-tab"  href="<?php echo base_url('index.php/analisis_risiko/index/').$id_mr;?>" >Analisis Risiko</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="custom-tabs-one-messages-tab"  href="<?php echo base_url("index.php/rencana_tindak_lanjut/index/").$id_mr;?>">Rencana Tindak Pengendalian</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="custom-tabs-one-settings-tab"  href="<?php echo base_url("index.php/manajemen_risiko/laporan/").$id_mr;?>" >Laporan</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="card-body">
+
         <section class="panel">
-            <div class="panel-heading">
-                <h4>Analisis dan Evaluasi Risiko Organisasi</h4>
-            </div>
             <div class="panel-body">
                 <div class="row">
                     <div class="col-md-12">
                       <form action="<?= base_url('index.php/analisis_risiko/save')?>" method="post">
                         <input type="hidden" value="<?= $id_mr ?>" name="id_mr">
                         <div class="table-responsive">
-                            <table class="table table-bordered table-hover">
+                            <table class="table table-bordered table-hover bg-info">
                                 <thead>
-                                    <tr>
+                                    <tr >
                                         <th class="text-center" rowspan="2">No</th>
                                         <th class="text-center" colspan="4">Identifikasi</th>
                                         <th class="text-center" colspan="5">Hasil Analisis</th>
                                     </tr>
-                                    <tr>
+                                    <tr >
                                         <th class="text-center">Pernyataan Risiko</th>
                                         <th class="text-center">Jenis Risiko</th>
                                         <th class="text-center">Penyebab Risiko</th>
@@ -78,7 +103,7 @@
                                           if($besaran_risiko > 12){
                                             echo '<td class="text-center" style="background:red;color:white">Risiko Tinggi</td>';
                                           }elseif($besaran_risiko > 4){
-                                            echo '<td class="text-center" style="background:yellow">Risiko Sedang</td>';
+                                            echo '<td class="text-center" style="background:yellow; color:black">Risiko Sedang</td>';
                                           }elseif($besaran_risiko > 0){
                                             echo '<td class="text-center" style="background:grey;color:white">Risiko Rendah</td>';
                                           }else{

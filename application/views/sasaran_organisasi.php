@@ -38,18 +38,7 @@
                 </ul>
               </div>
               <div class="card-body">
-                <div class="tab-content" id="custom-tabs-one-tabContent">
-                  <div class="tab-pane fade show active" id="custom-tabs-one-home" role="tabpanel" aria-labelledby="custom-tabs-one-home-tab">
-                  </div>
-                  <div class="tab-pane fade" id="custom-tabs-one-profile" role="tabpanel" aria-labelledby="custom-tabs-one-profile-tab">
-                  </div>
-                  <div class="tab-pane fade" id="custom-tabs-one-messages" role="tabpanel" aria-labelledby="custom-tabs-one-messages-tab">
-                  </div>
-                  <div class="tab-pane fade" id="custom-tabs-one-settings" role="tabpanel" aria-labelledby="custom-tabs-one-settings-tab">
-                  </div>
-                </div>
-
-        <div class="card-body">
+                
               <!-- start: page -->
               <div class="row">
                   <div class="col-md-12 col-lg-12 col-xl-12">
