@@ -108,7 +108,7 @@
                     <div class="row">
                         <div class="col-md-12 text-center">
                             <button type="submit" class="btn btn-success">Simpan</button>
-                            <a href="#" class="btn btn-default">Print</a>
+                            <a href="<?php echo base_url();?>index.php/rencana_tindak_lanjut/print_rtl/<?php echo $id_mr;?>" class="btn btn-default">Print</a>
                         </div>
                     </div>
                 </div>

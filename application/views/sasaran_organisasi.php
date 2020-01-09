@@ -47,6 +47,7 @@
                               <div class="row">
                                   <div class="col-md-12 text-right" style="margin-bottom:12px;">
                                       <a class="modal-with-form btn btn-success" data-toggle="modal" data-target="#addSasaran" style="color:white"><i class="fa fa-plus"></i> Tambah Sasaran Organisasi</a>
+                                      <a href="<?php echo base_url();?>index.php/sasaran_organisasi/print_identifikasi/<?php echo $id_manajemen_risiko;?>" class="btn btn-default">Print</a>
                                       <!-- modal tambah sasaran -->
                                       <div class="modal fade" id="addSasaran">
                                         <form id="demo-form" class="form-horizontal mb-lg" action="<?php echo base_url();?>index.php/sasaran_organisasi/save"  method="post" enctype="multipart/form-data">

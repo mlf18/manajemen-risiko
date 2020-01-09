@@ -121,7 +121,7 @@
                         <div class="row">
                             <div class="col-md-12 text-center">
                                 <button class="btn btn-primary" type="submit">Submit</button>
-                                <a href="#" class="btn btn-default">Print</a>
+                                <a href="<?php echo base_url();?>index.php/analisis_risiko/print_analisis/<?php echo $id_manajemen_risiko;?>" class="btn btn-default">Print</a>
                             </div>
                         </div>
                       </form>
