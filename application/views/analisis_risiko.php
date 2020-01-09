@@ -13,17 +13,6 @@
         </ol>
 
     </div>
-    <!-- <div class="right-wrapper pull-right" style="margin-right:12px;">
-        <ol class="breadcrumbs">
-            <li>
-                <a href="index.html">
-                    <i class="fa fa-home"></i>
-                </a>
-            </li>
-            <li><span>Dashboard</span></li>
-        </ol>
-
-    </div> -->
 </header>
 
 <!-- start: page -->
@@ -82,7 +71,7 @@
                                             <option value="2" <?php if($value->level_dampak == 2){echo "selected";} ?>>Minor (2)</option>
                                             <option value="3" <?php if($value->level_dampak == 3){echo "selected";} ?>>Moderat (3)</option>
                                             <option value="4" <?php if($value->level_dampak == 4){echo "selected";} ?>>Signifikan (4)</option>
-                                            <option value="5" <?php if($value->level_dampak == 5){echo "selected";} ?>>Sangat Signifikan(5)</option>
+                                            <option value="5" <?php if($value->level_dampak == 5){echo "selected";} ?>>Sangat Signifikan (5)</option>
                                         </select></td>
                                         <td class="text-center"><?php $besaran_risiko = $value->level_dampak * $value->level_kemungkinan; echo $besaran_risiko ?></td>
                                         <?php
@@ -107,6 +96,7 @@
                         <div class="row">
                             <div class="col-md-12 text-center">
                                 <button class="btn btn-primary" type="submit">Submit</button>
+                                <a href="#" class="btn btn-default">Print</a>
                             </div>
                         </div>
                       </form>

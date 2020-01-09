@@ -52,7 +52,11 @@
     </div>
 </div>
 <div class="row">
+<<<<<<< HEAD
     <div class="col-md-12 col-lg-12 col-xl-12">
+=======
+    <div class="col-lg-12">
+>>>>>>> 5d38f4b702f84fae17d080c171d440ca061fe304
         <section class="panel">
             <div class="panel-heading">
                 <h4>Rencana Kegiatan Pengawasan</h4>

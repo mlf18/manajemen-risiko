@@ -108,6 +108,7 @@
                     <div class="row">
                         <div class="col-md-12 text-center">
                             <button type="submit" class="btn btn-success">Simpan</button>
+                            <a href="#" class="btn btn-default">Print</a>
                         </div>
                     </div>
                 </div>

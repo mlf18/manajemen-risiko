@@ -138,7 +138,11 @@
 
 </div>
 <div class="row">
+<<<<<<< HEAD
     <div class="col-md-12 col-lg-12 col-xl-12">
+=======
+    <div class="col-lg-12">
+>>>>>>> 5d38f4b702f84fae17d080c171d440ca061fe304
         <section class="panel">
             <div class="panel-heading">
                 <h4>Analisis dan Evaluasi Risiko</h4>
@@ -213,7 +217,11 @@
 
 </div>
 <div class="row">
+<<<<<<< HEAD
     <div class="col-md-12 col-lg-12 col-xl-12">
+=======
+    <div class="col-lg-12">
+>>>>>>> 5d38f4b702f84fae17d080c171d440ca061fe304
         <section class="panel">
             <div class="panel-heading">
                 <h4>Rencana Tindak Pengendalian</h4>
@@ -346,7 +354,7 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-md-6 col-lg-12 col-xl-6 text-center">
+    <div class="col-lg-12 text-center">
         <a href="#" class="btn btn-default"><i class="fa fa-print"></i></a>
     </div>
 </div>
