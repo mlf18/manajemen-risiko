@@ -1,43 +1,56 @@
-<header class="page-header">
-    <h2>Manajemen Risiko</h2>
-
-    <!-- <div class="right-wrapper pull-right" style="margin-right:12px;">
-        <ol class="breadcrumbs">
-            <li>
-                <a href="index.html">
-                    <i class="fa fa-home"></i>
-                </a>
-            </li>
-            <li><span>Dashboard</span></li>
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-8">
+        <h1 class="m-0 text-dark">Laporan</h1>
+      </div><!-- /.col -->
+      <div class="col-sm-4">
+        <ol class="breadcrumb float-sm-right">
+          <li>
+              <a class="breadcrumb-item" href="<?php echo base_url();?>">
+                  <i class="fa fa-home"> </i> /&nbsp;
+              </a>
+          </li>
+          <li class="breadcrumb-item"><a href="<?php echo base_url();?>index.php/manajemen_risiko"><span>Manajemen Risiko</span></a></li>
+          <li class="breadcrumb-item active"><a href="#"><span>Laporan</span></a></li>
         </ol>
-
-    </div> -->
-    <div class="right-wrapper pull-right" style="margin-right:12px;">
-        <ol class="breadcrumbs">
-            <li>
-                <a href="<?php echo base_url();?>">
-                    <i class="fa fa-home"></i>
-                </a>
-            </li>
-            <li><span>Dashboard</span></li>
-            <li><a href="<?php echo base_url();?>index.php/manajemen_risiko"><span>Manajemen Risiko</span></a></li>
-            <li><a href="#"><span>Laporan</span></a></li>
-        </ol>
-
-    </div>
-</header>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+  </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
 
 <!-- start: page -->
-<div class="row">
-    <div class="col-lg-12 col-xl-12">
-        <section class="panel">
-            <div class="panel-heading">
-                <h4>Laporan</h4>
-            </div>
-            <div class="panel-body">
+<section class="content">
+
+  <div class="col-12 ">
+            <div class="card card-primary card-tabs">
+              <div class="card-header p-0 pt-1">
+                <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
+                  <li class="nav-item">
+                    <a class="nav-link " id="custom-tabs-one-home-tab"  href="<?php echo base_url('index.php/sasaran_organisasi/index/').$id_manajemen_risiko;?>" >Identifikasi Risiko</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " id="custom-tabs-one-profile-tab"  href="<?php echo base_url('index.php/analisis_risiko/index/').$id_manajemen_risiko;?>" >Analisis Risiko</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="custom-tabs-one-messages-tab"  href="<?php echo base_url("index.php/rencana_tindak_lanjut/index/").$id_manajemen_risiko;?>">Rencana Tindak Pengendalian</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" id="custom-tabs-one-settings-tab"  href="<?php echo base_url("index.php/manajemen_risiko/laporan/").$id_manajemen_risiko;?>" >Laporan</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="card-body">
                 <div class="row">
+                </div>
                     <div class="col-md-12">
+
                     <form action="<?php echo base_url();?>index.php/manajemen_risiko/savelaporan" method="post">
+                      <div class="col-md-12 text-right">
+                          <button type="submit" class="btn btn-success">Simpan</button>
+                          <a href="<?php echo base_url();?>index.php/manajemen_risiko/printlaporan/<?php echo $id_manajemen_risiko;?>" class="btn btn-warning" target="_blank">Print</a>
+                      </div>
                     <input type="hidden" name="id_manajemen_risiko" value="<?php echo $id_manajemen_risiko;?>">
                         <div class="row form-group">
                             <div class="col-sm-2">
@@ -115,11 +128,11 @@
                             <div class="col-sm-12">Di Jakarta</div>
                         </div>
                         <br> -->
-                        
+
                         <div class="row">
                             <div class="col-md-12 text-center">
                                 <button type="submit" class="btn btn-success">Simpan</button>
-                                <a href="<?php echo base_url();?>index.php/manajemen_risiko/printlaporan/<?php echo $id_manajemen_risiko;?>" class="btn btn-default">Print</a>
+                                <a href="<?php echo base_url();?>index.php/manajemen_risiko/printlaporan/<?php echo $id_manajemen_risiko;?>" class="btn btn-warning">Print</a>
                             </div>
                         </div>
                         </form>

@@ -8,7 +8,7 @@
       <div class="col-sm-4">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="<?= base_url()?>">Home</a></li>
-          <li class="breadcrumb-item active">Dashboard v1</li>
+          <li class="breadcrumb-item active">Identifikasi Risiko</li>
         </ol>
       </div><!-- /.col -->
     </div><!-- /.row -->
@@ -38,7 +38,7 @@
                 </ul>
               </div>
               <div class="card-body">
-                
+
               <!-- start: page -->
               <div class="row">
                   <div class="col-md-12 col-lg-12 col-xl-12">
@@ -47,7 +47,7 @@
                               <div class="row">
                                   <div class="col-md-12 text-right" style="margin-bottom:12px;">
                                       <a class="modal-with-form btn btn-success" data-toggle="modal" data-target="#addSasaran" style="color:white"><i class="fa fa-plus"></i> Tambah Sasaran Organisasi</a>
-                                      <a href="<?php echo base_url();?>index.php/sasaran_organisasi/print_identifikasi/<?php echo $id_manajemen_risiko;?>" class="btn btn-default">Print</a>
+                                      <a class="btn btn-primary" href="<?php echo base_url();?>index.php/sasaran_organisasi/print_identifikasi/<?php echo $id_manajemen_risiko;?>" class="btn btn-default" target="_blank">Print</a>
                                       <!-- modal tambah sasaran -->
                                       <div class="modal fade" id="addSasaran">
                                         <form id="demo-form" class="form-horizontal mb-lg" action="<?php echo base_url();?>index.php/sasaran_organisasi/save"  method="post" enctype="multipart/form-data">
@@ -110,7 +110,7 @@
                                               <td><?php echo $key+1;?></td>
                                               <td>
                                                   <?php echo $value->sasaran_organisasi;?><br>
-                                                  <button class="mb-xs mt-xs mr-xs btn btn-circle btn-default" type="button" onclick="toggleKegiatan(event,'tableKegiatan-<?php echo $value->id_sasaran_organisasi;?>')"><i class="fa fa-folder-open"></i></button>
+                                                  <button class="mb-xs mt-xs mr-xs btn btn-circle btn-default" type="button" onclick="toggleKegiatan(event,'tableKegiatan-<?php echo $value->id_sasaran_organisasi;?>')"><i class="fa fa-folder-open"></i> show/hide Kegiatan</button>
 
                                                   <div id="tableKegiatan-<?php echo $value->id_sasaran_organisasi;?>" style="display:none;">
                                                   <div class="col-md-12 text-right" style="margin-bottom:12px;">
@@ -171,7 +171,7 @@
                                                                   <td><?php echo $ikey+1;?></td>
                                                                   <td>
                                                                       <?php echo $ivalue->indikator_organisasi;?><br>
-                                                                      <button class="mb-xs mt-xs mr-xs btn btn-circle btn-default" type="button" onclick="toggleRisiko('tableRisiko-<?php echo $ivalue->id_indikator_organisasi;?>')"><i class="fa fa-folder-open"></i></button>
+                                                                      <button class="mb-xs mt-xs mr-xs btn btn-circle btn-default" type="button" onclick="toggleRisiko('tableRisiko-<?php echo $ivalue->id_indikator_organisasi;?>')"><i class="fa fa-folder-open"> </i>Show/Hide Penyebab</button>
                                                                       <div id="tableRisiko-<?php echo $ivalue->id_indikator_organisasi;?>" style="display:none;">
                                                                                   <div class="col-md-12 text-right" style="margin-bottom:12px;">
                                                                                       <a class="modal-with-form btn btn-success" data-toggle="modal" data-target="#kaddForm--<?php echo $ivalue->id_indikator_organisasi;?>"><i class="fa fa-plus"></i></a>
