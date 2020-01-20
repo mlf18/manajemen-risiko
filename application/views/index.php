@@ -24,6 +24,8 @@
   <link rel="stylesheet" href="<?= base_url("assets/AdminLTE-master/")?>plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
   <link rel="stylesheet" href="<?= base_url("assets/AdminLTE-master/")?>plugins/summernote/summernote-bs4.css">
+  <link rel="stylesheet" href="<?= base_url("assets/AdminLTE-master/")?>plugins/summernote/summernote-bs4.css">
+  <link rel="stylesheet" href="<?= base_url("assets/vendor/")?>jquery-datatables/media/css/jquery.dataTables.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
@@ -291,6 +293,7 @@
 <!-- overlayScrollbars -->
 <script src="<?= base_url("assets/AdminLTE-master/")?>plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <!-- AdminLTE App -->
+<script src="<?= base_url("assets/AdminLTE-master/")?>plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="<?= base_url("assets/AdminLTE-master/")?>dist/js/adminlte.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="<?= base_url("assets/AdminLTE-master/")?>dist/js/pages/dashboard.js"></script>

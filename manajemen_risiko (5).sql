@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 06, 2020 at 02:32 AM
+-- Generation Time: Jan 20, 2020 at 03:12 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.3
 
@@ -21,6 +21,75 @@ SET time_zone = "+00:00";
 --
 -- Database: `manajemen_risiko`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `benturan_kepentingan`
+--
+
+CREATE TABLE `benturan_kepentingan` (
+  `id_benturan_kepentingan` int(11) NOT NULL,
+  `tahun` varchar(255) NOT NULL,
+  `uraian` text NOT NULL,
+  `pelaku` varchar(255) NOT NULL,
+  `penyebab` text NOT NULL,
+  `rencana_aksi` text NOT NULL,
+  `tindak_lanjut` text NOT NULL,
+  `id_unit` int(11) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `benturan_kepentingan`
+--
+
+INSERT INTO `benturan_kepentingan` (`id_benturan_kepentingan`, `tahun`, `uraian`, `pelaku`, `penyebab`, `rencana_aksi`, `tindak_lanjut`, `id_unit`, `created_at`) VALUES
+(1, '2019', 'Penggunaan fasilitas kantor di luar jam kerja dan bukan untuk kepentingan dinas (telepon, kendaraan dinas, dsb)', 'Pejabat/Pegawai yang terkait', 'Kurangnya kesadaran pejabat/pegawai ybs dan tidak adanya sanksi atas pelanggaran tersebut', 'Penerbitan aturan mengenai pembatasan penggunaan fasilitas disertai dengan sanksi hukuman apabila terbukti dilakukan	', '', 7, '2020-01-13 07:50:37'),
+(2, '2019', 'Penetapan komposisi Tim dalam penugasan  yang relatif tetap dan secara terus menerus', 'Pejabat dan Staf terkait', 'Vested interest, hubungan afiliasi, dan keterbatasan SDM, belum adanya SOP Penugasan Tim	', '1. Penetapan SOP Penugasan Tim\r\n2. Standarisasi pengetahuan pegawai melalui media Presentation Corner secara rutin/berkala', '', 3, '2020-01-13 07:53:18'),
+(3, '2019', 'Penetapan Tim Evaluasi dan Tim Panel Independen dalam pelaksanaan Kompetisi Inovasi Pelayanan Publik Nasional', 'Pejabat dan Tim Pelaksana Kegiatan', 'Vested interest, hubungan afiliasi, rekan sejawat, belum adanya SOP Penunjukkan Tim Evaluasi dan Tim Panel Independen', '1. Penetapan SOP Penunjukkan Tim Evaluasi dan Tim Panel Independen\r\n2. Penandatanganan Pakta Integritas dan Komitmen terhadap SOP antara Penyelenggara 3. dengan Tim yang ditetapkan\r\nPelaksanaan Monitoring dan Evaluasi setiap tahapan kegiatan', '', 3, '2020-01-13 07:53:51'),
+(4, '2019', 'Pejabat/Pegawai yang melakukan pembinaan dan evaluasi pada daerah/ institusi yang sama', 'Pejabat dan Staf terkait', 'Vested interest, hubungan afiliasi, dan keterbatasan SDM', '1. Penguatan supervisi, reviu dan penelaahan penugasan tim yang transparan\r\n2. Adanya sistem evaluasi dan quality assurance terhadap pejabat/pegawai yang telah melakukan pembinaan dan evaluasi\r\n3. Adanya mekanisme pemberian apresiasi dan punishment bagi pegawai yang melaksanakan tugas sesuai hasil evaluasi', '', 3, '2020-01-13 07:54:26'),
+(5, '2019', 'Pemberian layanan konsultasi kepada tamu dinas yang mengarah pada favoritisme', 'Pejabat dan Staf terkait', 'Vested interest, hubungan afiliasi, rekan sejawat, dan belum adanya SOP Penerimaan Tamu Dinas	 	', 'Penetapan SOP Penerimaan Tamu Dinas\r\nAdanya pembagian tugas yang jelas kepada pejabat/staf dalam penerimaan tamu dinas', '', 3, '2020-01-13 07:55:06'),
+(6, '2019', 'Tugas dan fungsi Asisten Deputi Perumusan dan Koordinasi Pelaksanaan E-Government Kementerian PANRB berpotensi tumpang tindih dengan tugas fungsi Direktur e-Gov pada Kementerian KOMINFO', 'Pejabat/Pegawai yang terkait', 'Tugas dan fungsi kedua unit organisasi tersebut memiliki kemiripan', 'Pembagian kewenangan dua instansi tersebut:\r\na. Asdep e-Gov Kementerian PANRB menangani penyusunan kebijakan dan kelembagaan e-Gov\r\nb. Direktur e-Gov Kementerian KOMINFO menangani Pengembangan infrastruktur e-Gov', '', 2, '2020-01-13 07:55:54'),
+(7, '2019', 'Penataan/Audit Organisasi belum ditindaklanjuti secara optimal oleh K/L yang bersangkutan', 'Pejabat/Pegawai yang terkait', 'Belum adanya standarisasi yang menjadi acuan serta, Belum adanya komitmen dan konsistensi dari K/L untuk melaksanakan', 'Penyusunan dasar hukum sebagai landasan agar dapat memaksa secara optimal pelaksanaan penataan/audit Organisasi K/L	\r\n	', '', 2, '2020-01-13 07:57:02'),
+(8, '2019', 'Bisnis Proses belum ditindaklanjuti secara konsisten oleh K/L dan Pemda', 'Pejabat/Pegawai yang terkait', 'Penyusunan organisasi belum melalui bisnis proses, Belum adanya komitmen dan konsistensi penerapan bisnis proses', 'a. Kejelasan pedoman penyusunan bisnis proses (sedang dilakukan revisi Permenpan 12 Tahun 2011)\r\nb. Dimilikinya bisnis proses setiap K/L dan Pemda', '', 2, '2020-01-13 07:57:47'),
+(9, '2019', 'Penempatan pegawai baru (pindahan/sementara) yang ditempatkan di unit kerja tertentu karena memiliki hubungan pertemanan/kekerabatan dengan pimpinan unit kerja tersebut', 'Pejabat yang terkait', 'Adanya kepentingan sepihak dari pejabat pimpinan unit kerja	', 'Perlu ditetapkan SOP/aturan penerimaan dan/atau penempatan pegawai secara tugas	', '', 7, '2020-01-13 08:07:56'),
+(10, '2019', 'Penepatan Sasaran dan target lebih rendah dari yang seharusnya', 'Pimpinan dan pejabat terkait ', 'Tekanan pimpinan	', 'Pemutakhiran SOP	', '', 7, '2020-01-13 08:09:35'),
+(11, '2019', 'Penetapan alokasi anggaran tidak berdasarkan kebutuhan riil dari unit kerja\r\n', 'Pimpinan dan pejabat terkait ', 'Vested interest, gratifikasi, hubungan afiliasi	 	', 'a. penilaian kinerja anggaran\r\nb. Penilaian kebutuhan anggaran dari KAK', '', 7, '2020-01-13 08:09:53'),
+(12, '2019', 'Melakukan evaluasi kinerja tidak sesuai dengan kebutuhan\r\n', 'Pimpinan dan pejabat terkait ', 'Hubungan afiliasi	 	', 'a. Quality Assurance atas hasil Monev\r\nb. Pemutakhiran SOP', '', 7, '2020-01-13 08:10:11'),
+(13, '2019', 'Usulan dan revisi anggaran, serta distribusi anggaran dengan mengistimewakan unit kerja/bidang tertentu', 'Pimpinan dan pejabat terkait ', 'Hubungan afiliasi	 	', 'Analisa kebutuhan anggaran sesuai dengan KAK	', '', 7, '2020-01-13 08:20:59'),
+(14, '2019', 'Penugasan pegawai dalam mengikuti diklat, tugas belajar dan penugasan lainnya yang tidak sesuai', 'Pimpinan dan pegawai terkait ', 'Hubungan afiliasi, kepentingan pribadi	', 'Standar/aturan dalam mengikuti diklat dan penugasan	', '', 7, '2020-01-13 08:22:03'),
+(15, '2019', 'Pemberian atau penerimaan hadiah/cenderamata dalam memfasilitasi pennadatanganan perjanjian kerja sama dengan mitra kerja sama', 'Pimpinan, pejabat/pegawai terkait ', 'Hubungan afiliasi, kepentingan golongan, tekanan pimpinan, tekanan politis	', 'Pemutakhiran SOP kerja sama	', '', 7, '2020-01-13 08:22:58'),
+(16, '2019', 'Pembiayaan perjalanan dinas luar negeri oleh mitra kerja sama kepada pimpinan/pejabat', 'Pimpinan dan pejabat terkait ', 'Hubungan afiliasi, kepentingan golongan, tekanan pimpinan, tekanan politis	', 'Konteks perjalanan dinas yang dibiayai oleh mitra kerja sama harus jelas serta merupakan bagian yang telah disusun dalam rencana kegiatan tahunan (bukan perjalanan dinas yang tiba-tiba)	', '', 7, '2020-01-13 08:24:24'),
+(17, '2019', 'Permintaan Surat dari instansi lain permohonan Narasumber yang menunjuk langsung (personel) ditugaskan', 'Pimpinan/pribadi', 'Kepentingan Pribadi,Faktor kedekatan,Penyalahgunaan wewenang, Tidak adanya kode etik, Karena pertemanan, KKN', 'a. Perlu dibuat mekanismeyang jelas dalam hal permintaan sebagai narasumber\r\nb. Keteladanan pimpinan\r\nc. Perlu dibuat kode etik, atau penegakkan adanya kode etik bila sudah ada\r\nd. Memberikan sanksi yang tegas terhadap pelanggar\r\ne. Klarifikasi urgensi kegiatan dan korelasinya dengan tugas dan fungsi\r\n', '', 6, '2020-01-13 08:28:46'),
+(18, '2019', 'Penunjukan Media Surat Kabar (media tertentu) untuk memasang iklan (advertorial)\r\n', 'Pimpinan/pribadi', 'Kepentingan pribadi/golongan, Kepentingan publikasi', 'a. Perlu dilakukan penilaian yang jelas (standarisasi pekerjaan)\r\nb. Membuat analisis manfaatnya', '', 6, '2020-01-13 08:28:58'),
+(19, '2019', 'Titipan rekanan untuk mendapat pekerjaan', 'Pimpinan/ dan pejabat terkait', 'Kepentingan pribadi, hubungan afiliasi, keterbatasan SDM, potensi gratifikasi, penyalahgunaan wewenang	 	', 'a. Pengadaan barang dan jasa harus sesuai ketentuan\r\nb. Memberikan sanksi yang tegas terhadap pelanggaran dalam rangka menimbulkan efek jera', '', 6, '2020-01-13 08:29:14'),
+(20, '2019', 'Pemberian uang saku kepada wartawan', 'Pimpinan/pribadi', 'Kepentingan pimpinan/pribadi, Pemaksaan dari wartawan yang meminta uang saku, Tradisi yang selama ini berlaku, Permohonan untuk pemuatan berita, Kepentingan publikasi', 'a. Komitmen pimpinan\r\nb. Membangun kedekatan yang bertujuan untuk saling membutuhkan\r\nc. Memberikan pemahaman dan penjelasan\r\n\r\n', '', 6, '2020-01-13 08:29:30'),
+(21, '2019', 'Penggunaan asset (sarana prasarana) untuk kepentingan pribadi\r\n\r\n\r\n', 'Pimpinan, pejabat, pribadi terkait ', 'Kepentingan pribadi, penyalahgunaan wewenang	 	 	 	', 'a. Pemutakhiran SOP pemanfaatan aset\r\nb. Keteladanan pimpinan\r\nc. Diberikan pemahaman dan penjelasan\r\nd. Memberikan sanksi kepada pelanggar supaya timbul efek jera', '', 6, '2020-01-13 08:29:48'),
+(22, '2019', 'Permintaan dari unit lain menunjuk nama personil langsung dalam peliputan\r\n\r\n', 'Pimpinan/pejabat yang terkait', 'Kepercayaan pimpinan, Kepentingan pribadi, Kepercayaan subyektif', 'Penyempurnaan SOP\r\nPeningkatan kapasitas\r\nDiberikan pemahaman dan penjelasan', '', 6, '2020-01-13 08:30:10'),
+(23, '2019', 'Pinjam uang kepada pihak ketiga dengan memberikan janji untuk mendapat pekerjaan\r\n\r\n\r\n', 'Pimpinan/pribadi', 'Kepentingan pribadi, Pekerjaan mendesak, Kegiatan tidak direncanakan, Tidak tersedianya pos anggaran', 'a. Perencanaan kegiatan yang matang\r\nb. Kegiatan tidak direncanakan sebelumnya\r\nc. Menunda kegiatan, disesuaikan dengan ketersediaan pembiayaan\r\n', '', 6, '2020-01-13 08:30:45'),
+(24, '2019', 'Pejabat Fungsional Auditor (PFA) melaksanakan tugas sebagai pengelola keuangan di unit kerja\r\n\r\n', 'PFA, pimpinan', 'Kekurangan SDM pengelola keuangan yang handal', 'a. Program diklat SDM pengelolaan keuangan (optimalisasi kapasitas SDM unit kerja ybs)\r\nb. Pemisahan fungsi antara PFA yang ditugaskan sebagai pengelola keuangan dengan auditor yang mengaudit keuangan unit kerja ybs\r\nc. Deklarasi PFA yang diperbantukan', '', 8, '2020-01-13 08:31:22'),
+(25, '2019', 'Melaksanakan kegiatan lain di luar tugas pada waktu menjalankan dinas luar\r\n\r\n', 'PFA, pimpinan', 'Ketiadaan kode etik pegawai yang mengatur outside employment', 'a. Menyempurnakan kode etik yang mengatur outside employment\r\nb. Internalisasi kode etik dan aturan perilaku pegawai\r\nc. Pemberian sanksi dalam rangka menimbulkan efek jera', '', 8, '2020-01-13 08:31:29'),
+(26, '2019', 'Melakukan pengawasan tidak sesuai dengan norma, standar dan prosedur', 'PFA, pimpinan', 'Hubungan afiliasi (pertemanan)', 'Deklarasi PFA adanya potensi benturan kepentingan karena pertemanan	', '', 8, '2020-01-13 09:46:42'),
+(27, '2019', 'Rekomendasi dengan dipengaruhi hubungan afiliasi\r\n', 'Pimpinan', 'Hubungan afiliasi (pertemanan)', 'a. Piagam Audit (Audit Charter)\r\nb. Komitmen pimpinan', '', 8, '2020-01-13 09:46:44'),
+(28, '2019', 'Penetapan daerah tujuan perjalanan dinas dan pelaksanaan RDK yang didasarkan kepentingan pribadi/golongan tanpa ada pertimbangan professional\r\n', 'PFA, pimpinan', 'Kepentingan Pribadi, Alasan penyerapan anggaran', 'Perencanaan perjalanan dinas dan RDK yang akuntabel	\r\n	', '', 8, '2020-01-13 09:46:48'),
+(29, '2019', 'Pembiaran tidak melaksanakan kewajiban tindak lanjut hasil pengawasan\r\n\r\n', 'Pimpinan', 'Hubungan afiliasi (pertemanan), Tekanan pimpinan', 'a. Penyempurnaan aturan dan SOP pengawasan tindak lanjut hasil pengawasan\r\nb. Internalisasi nilai-nilai organisasi\r\nc. Menciptakan keteladanan, budaya komunikasi terbuka dan penegakan integritas', '', 8, '2020-01-13 09:47:38'),
+(30, '2019', 'Pengabaian integritas dalam pengelolaan internal karena pengaruh kepentingan lain\r\n\r\n', 'PFA, pimpinan', 'Kepentingan golongan', 'a. Kebijakan pendanaan kegiatan non-budgeter yang transparan dan akuntabel \r\nb. Internalisasi nilai-nilai organisasi\r\nc. Menciptakan keteladanan, budaya komunikasi terbuka dan penegakan integritas', '', 8, '2020-01-13 09:47:43'),
+(31, '2019', 'Pejabat/pegawai yang melakukan pembinaan, juga melakukan evaluasi pada institusi yang sama (evaluasi jabatan utk job grading, pembentukan jabatan fungsional baru, ke depan seleksi ASN Award dan JPT Teladan, sistem penilaian kinerja dll)', 'Pejabat Eselon dan Pejabat Fungsional terkait', 'Keterbatasan SDM, Hubungan afiliasi, vested interest dan/atau penyalahgunaan wewenang	', 'Pemberian sanksi yang jelas terhadap pelaksana penugasan dalam rangka menimbulkan efek jera (apabila terbukti bahwa telah terjadi benturan kepentingan yang menimbulkan dampak buruk terhadap hasil penugasan)	', '', 1, '2020-01-13 09:48:33'),
+(32, '2019', 'Evaluasi yang tidak obyektif yang dipengaruhi target kinerja pimpinan\r\n\r\n\r\n', 'Pejabat Eselon, Pejabat Fungsional dan Staf terkait', 'Vested interest, penyalahgunaan wewenang	 	 	 	', 'a. Meningkatkan kualitas Quality Assurance\r\nb. Reviu secara berjenjang\r\nc. Panel yang melibatkan seluruh Tim Evaluasi\r\nd. Keteladanan Pimpinan', '', 1, '2020-01-13 09:56:35'),
+(33, '2019', 'Pemberian layanan atas tamu dinas yang mengarah pada favoritisme (pilih-pilih pejabat/petugas tempat konsultasi)\r\n', 'Pejabat Eselon, Pejabat Fungsional dan Staf terkait', 'Hubungan afiliasi, belum adanya prosedur baku (SOP) dan tidak adanya petugas front office seperti yang diharapkan	 	', 'a. Ditetapkannya petugas front office yang dapat mengarahkan tamu dinas agar mematuhi SOP\r\nb. Ditetapkan SOP Layanan Penerimaan Tamu Dinas untuk menghindari: tamu membawa gratifikasi, tamu nyelonong begitu saja, tidak didaftar dengan tertib, tidak dapat dilayanani dengan baik, dll', '', 1, '2020-01-13 09:56:38'),
+(34, '2019', 'Tertib Administrasi dan Penggunaan Anggaran untuk menghadiri undangan sebagai Narasumber/Peserta', 'Pejabat Eselon dan Pejabat Fungsional terkait', 'Hubungan afiliasi, belum adanya prosedur baku (SOP), vested interest	', 'Ditetapkan SOP dan kebijakan penugasan harus melalui Nota Dinas Deputi	', '', 1, '2020-01-13 09:57:46'),
+(35, '2019', 'Panitia Seleksi dan Tim Penilai Kompetensi dalam proses seleksi terbuka jabatan pimpinan tinggi madya dan/atau pratama tidak independen\r\n\r\n\r\n', 'Pimpinan', '&quot;Vested interest,  hubungan afiliasi,  SOP tidak memadai, integritas buruk, kepentingan kelompok, gratifikasi&quot;	 	 	 	', 'a. Standar kompetensi Panitia Seleksi dan Tim Penilai Kompetensi\r\nb. Mengembangkan metode dan instrumen serta prosedur seleksi/ujian yang dapat mendukung untuk penggalian hal-hal substantif terkait kompetensi dan kemampuan manajerial\r\nc. Deklarasi Panitia Seleksi dan Tim Penilai Kompetensi\r\nd. Membangun sistem integritas', '', 5, '2020-01-13 09:58:40'),
+(36, '2019', 'Pemilihan rekanan assessor, penyelenggara pendidikan pelatihan tidak transparan\r\n\r\n', 'Bagian SDM', 'Hubungan afiliasi (pertemanan)	 	 	', 'a. Menyempurnakan kode etik yang mengatur masalah independensi dan profesionalitas\r\nb. Internalisasi kode etik dan aturan perilaku pegawai\r\nc. Pemberian sanksi dalam rangka menimbulkan efek jera', '', 5, '2020-01-13 09:58:46'),
+(37, '2019', 'Pengusulan peserta diklatpim tidak sesuai dengan DUK', 'Pejabat, Pimpinan', '&quot;Hubungan afiliasi (pertemanan),  pejabat ybs menunda, pimpinan tidak mengijinkan dengan alasan sedang sibuk&quot;	', 'Reviu implementasi SOP dan persyaratan mengikuti diklatpim, bilamana perlu dimutakhirkan	', '', 5, '2020-01-13 09:59:00'),
+(38, '2019', 'Pemberian uang muka kerja kepada unit kerja dipengaruhi subyektifitas\r\n\r\n', 'Bendahara Pengeluaran pada Bagian Keuangan', '&quot;Hubungan afiliasi (pertemanan),  intervensi pimpinan&quot;	 	 	', 'Sosialisasi pengajuan TUP\r\nVerifikasi pemanfaatan TUP\r\nDukungan komitmen pimpinan', '', 5, '2020-01-13 09:59:03'),
+(39, '2019', 'Penetapan daerah tujuan perjalanan dinas dan pelaksanaan RDK yang didasarkan kepentingan pribadi/golongan tanpa ada pertimbangan profesional', 'Pejabat struktural dan staf', 'Kepentingan pribadi, alasan penyerapan anggaran	', 'Perencanaan Perjalanan Dinas dan RDK yang Akuntabel	', '', 5, '2020-01-13 09:59:06'),
+(40, '2019', 'Pembiaran atas tindakan pengabaian kewajiban menindaklanjuti temuan hasil pengawasan\r\n\r\n', 'Pimpinan', 'Hubungan afiliasi (pertemanan), Kelemahan penegakan integritas dan disiplin pegawai khususnya dalam pengenaan sanksi', 'a. Penyempurnaan aturan dan SOP monitoring tindak lanjut hasil pengawasan\r\nb. Internalisasi Nilai-Nilai Organisasi\r\nc. Menciptakan keteladanan, budaya komunikasi terbuka, serta penegakan integritas dan displin pegawai', '', 5, '2020-01-13 09:59:08'),
+(41, '2019', 'Pengabaian integritas dalam pertanggungjawaban keuangan karena pengaruh kepentingan lain\r\n\r\n', 'Bagian Perlengkapan &amp; RT, Bagian Protokol &amp; TU Pimpinan', 'Intervensi Pimpinan	 	 	', 'a. Kebijakan pendanaan kegiatan non-budgeter  yang transparan dan akuntabel\r\nb. Internalisasi Nilai-Nilai Organisasi\r\nc. Menciptakan keteladanan, budaya komunikasi terbuka dan penegakan integritas', '', 5, '2020-01-13 09:59:47'),
+(42, '2019', 'Pejabat / pegawai yang melakukan pembinaan, juga melakukan evaluasi pada institusi yang sama\r\n\r\n\r\n\r\n', 'Pejabat Eselon dan Pejabat Fungsional terkait', 'Keterbatasan SDM, Hubungan Afiliasi, vested interest dan/atau penyalahgunaan wewenang	 	 	 	 	', 'a. Pemutakhiran SOP penugasan, baik tugas pembinaan maupun tugas evaluasi\r\nb. Penguatan supervisi, reviu dan penelaahan tim panel yang transparan\r\nc. Keteladan Pimpinan\r\nd. Mendorong pejabat/pegawai yang berpotensi mempunyai benturan kepentingan e. melaporkan ketidakindependensiannya.\r\ne. Pemberian sanksi yang jelas terhadap pelaksana penugasan dalam rangka menimbulkan efek jera (apabila terbukti bahwa telah terjadi benturan kepentingan yang menimbulkan dampak buruk terhadap hasil penugasan)', '', 4, '2020-01-13 10:01:05'),
+(43, '2019', 'Evaluasi yang tidak obyektif yang dipengaruhi target kinerja pimpinan\r\n\r\n\r\n', 'Pejabat Eselon dan Pejabat Fungsional dan staf terkait', 'Vested interest, penyalahgunaan wewenang dan tekanan politik	 	 	 	', 'a. Meningkatkan kualitas Quality Assurance\r\nb. Reviu secara berjenjang\r\nc. Panel yang melibatkan seluruh tim evaluasi \r\nd. Keteladanan pimpinan', '', 4, '2020-01-13 10:01:13'),
+(44, '2019', 'Penunjukan komposisi Tim yang relatif tetap secara terus menerus\r\n', 'Pejabat Eselon dan Pejabat Fungsional dan staf terkait', 'Vested interest, hubungan afiliasi	 	', 'a. Penetapan kebijakan tentang penyusunan tim\r\nb. Pemutakhiran SOP perencanaan penugasan', '', 4, '2020-01-13 10:01:16'),
+(45, '2019', 'Pemberian layanan atas tamu dinas yang mengarah pada favoritisme\r\n', 'Pejabat Eselon dan Pejabat Fungsional dan staf terkait', 'Hubungan afiliasi, belum adanya prosedur baku (SOP) dan tidak adanya petugas front office seperti yang diharapkan	 	', 'a. Ditetapkannya petugas front office yang dapat mengarahkan tamu dinas agar mematuhi SOP\r\nb. Ditetapkan SOP Layanan Penerimaan Tamu Dinas agar; misalnya: tamu tidak membawa gratifikasi, tidak nyelonong begitu saja, tidak didaftar dengan tertib, dapat dilayani dengan baik dll', '', 4, '2020-01-13 10:01:18');
 
 -- --------------------------------------------------------
 
@@ -435,6 +504,7 @@ CREATE TABLE `laporan` (
   `nomor` varchar(255) NOT NULL,
   `tanggal` date NOT NULL,
   `tujuan_sasaran` text NOT NULL,
+  `simpulan` text NOT NULL,
   `id_manajemen_risiko` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -442,9 +512,8 @@ CREATE TABLE `laporan` (
 -- Dumping data for table `laporan`
 --
 
-INSERT INTO `laporan` (`id_laporan`, `nomor`, `tanggal`, `tujuan_sasaran`, `id_manajemen_risiko`) VALUES
-(2, '123', '2020-01-05', 'ada', 3),
-(3, 'ada', '2020-01-05', 'aja', 8);
+INSERT INTO `laporan` (`id_laporan`, `nomor`, `tanggal`, `tujuan_sasaran`, `simpulan`, `id_manajemen_risiko`) VALUES
+(3, '123', '2020-01-05', 'ada', 'Simpulan x', 8);
 
 -- --------------------------------------------------------
 
@@ -1165,6 +1234,12 @@ INSERT INTO `unit` (`id_unit`, `nama_unit`) VALUES
 --
 
 --
+-- Indexes for table `benturan_kepentingan`
+--
+ALTER TABLE `benturan_kepentingan`
+  ADD PRIMARY KEY (`id_benturan_kepentingan`);
+
+--
 -- Indexes for table `dampak`
 --
 ALTER TABLE `dampak`
@@ -1227,6 +1302,12 @@ ALTER TABLE `unit`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `benturan_kepentingan`
+--
+ALTER TABLE `benturan_kepentingan`
+  MODIFY `id_benturan_kepentingan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `dampak`
