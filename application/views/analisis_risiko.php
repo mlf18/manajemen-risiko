@@ -52,7 +52,15 @@
                     <div class="col-md-12">
                       <form action="<?= base_url('index.php/analisis_risiko/save')?>" method="post">
                         <input type="hidden" value="<?= $id_mr ?>" name="id_mr">
+                        <div class="row">
+                            <div class="col-md-12 text-right">
+                                <button class="btn btn-success" type="submit">Submit</button>
+                                <a href="<?php echo base_url();?>index.php/analisis_risiko/print_analisis/<?php echo $id_mr;?>" class="btn btn-primary" target="_blank">Print</a>
+
+                            </div>
+                        </div>
                         <div class="table-responsive">
+                            <br/>
                             <table class="table table-bordered table-hover bg-info">
                                 <thead>
                                     <tr >
@@ -120,8 +128,8 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12 text-center">
-                                <button class="btn btn-primary" type="submit">Submit</button>
-                                <a href="<?php echo base_url();?>index.php/analisis_risiko/print_analisis/<?php echo $id_manajemen_risiko;?>" class="btn btn-default">Print</a>
+                                <button class="btn btn-success" type="submit">Submit</button>
+                                <a href="<?php echo base_url();?>index.php/analisis_risiko/print_analisis/<?php echo $id_mr;?>" class="btn btn-primary">Print</a>
                             </div>
                         </div>
                       </form>

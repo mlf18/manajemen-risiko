@@ -1,3 +1,28 @@
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-8">
+        <h1 class="m-0 text-dark">Rencana Tindak Pengendalian</h1>
+      </div><!-- /.col -->
+      <div class="col-sm-4">
+        <ol class="breadcrumb float-sm-right">
+          <li>
+              <a class="breadcrumb-item" href="<?php echo base_url();?>">
+                  <i class="fa fa-home"> </i> /&nbsp;
+              </a>
+          </li>
+          <li class="breadcrumb-item"><a href="<?php echo base_url();?>index.php/manajemen_risiko"><span>Manajemen Risiko</span></a></li>
+          <li><a class="breadcrumb-item active" href="#"><span>Rencana Tindak Pengendalian</span></a></li>
+        </ol>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+  </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+
+
+
+
 <header class="page-header">
     <h2>Manajemen Risiko</h2>
 

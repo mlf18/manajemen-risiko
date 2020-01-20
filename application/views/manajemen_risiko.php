@@ -30,6 +30,7 @@
                           <th class="text-center">Unit Kerja</th>
                           <th class="text-center">Tahun</th>
                           <th class="text-center">Lihat</th>
+                          <th class="text-center">Rangkuman</th>
                           <th class="text-center">Edit</th>
                           <th class="text-center">Hapus</th>
                       </tr>
@@ -42,12 +43,8 @@
                           <td><?php echo $key+1;?></td>
                           <td width="50%"><?php echo $value->nama_unit?></td>
                           <td><?php echo $value->tahun;?></td>
-                          <!--
-                          <td class="text-center"><a href="<?php echo base_url();?>index.php/sasaran_organisasi/index/<?php echo $value->id_manajemen_risiko;?>" class="mb-xs mt-xs mr-xs btn btn-circle btn-default"><i class="fa fa-search"></i></a></td>
-                          <td class="text-center"><a href="<?php echo base_url();?>index.php/analisis_risiko/index/<?php echo $value->id_manajemen_risiko;?>" class="mb-xs mt-xs mr-xs btn btn-circle btn-default"><i class="fa fa-search"></i></a></td>
-                          <td class="text-center"><a href="<?php echo base_url();?>index.php/rencana_tindak_lanjut/index/<?php echo $value->id_manajemen_risiko;?>" class="mb-xs mt-xs mr-xs btn btn-circle btn-default"><i class="fa fa-search"></i></a></td>
-                          -->
                           <td class="text-center"><a href="<?php echo base_url();?>index.php/sasaran_organisasi/index/<?php echo $value->id_manajemen_risiko;?>" class="btn btn-sm btn-success"><i class="fa fa-search"></i> Lihat</a></td>
+                          <td> <a href="<?php echo base_url('index.php/manajemen_risiko/info_risiko/').$value->id_manajemen_risiko; ?>" class="btn btn-sm btn-primary"><i class="fa fa-list"></i> Rangkuman</a>  </td>
                           <td class="text-center"><a href="#" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modal-edit-<?php echo $value->id_manajemen_risiko;?>"><i class="nav-icon fas fa-edit"></i> Edit</a></td>
                           <td class="text-center"><a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal-hapus-<?php echo $value->id_manajemen_risiko;?>"><i class="fa fa-exclamation-triangle"></i> Hapus</a></td>
                           <!-- modal Edit -->

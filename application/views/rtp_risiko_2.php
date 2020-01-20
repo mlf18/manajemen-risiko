@@ -1,44 +1,59 @@
-<header class="page-header">
-    <h2>Manajemen Risiko</h2>
-
-    <!-- <div class="right-wrapper pull-right" style="margin-right:12px;">
-        <ol class="breadcrumbs">
-            <li>
-                <a href="index.html">
-                    <i class="fa fa-home"></i>
-                </a>
-            </li>
-            <li><span>Dashboard</span></li>
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-8">
+        <h1 class="m-0 text-dark">Rencana Tindak Pengendalian</h1>
+      </div><!-- /.col -->
+      <div class="col-sm-4">
+        <ol class="breadcrumb float-sm-right">
+          <li>
+              <a class="breadcrumb-item" href="<?php echo base_url();?>">
+                  <i class="fa fa-home"> </i> /&nbsp;
+              </a>
+          </li>
+          <li class="breadcrumb-item"><a href="<?php echo base_url();?>index.php/manajemen_risiko"><span>Manajemen Risiko</span></a></li>
+          <li class="breadcrumb-item active"><a  href="#"><span>RTP</span></a></li>
         </ol>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+  </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
 
-    </div> -->
-    <div class="right-wrapper pull-right" style="margin-right:12px;">
-        <ol class="breadcrumbs">
-            <li>
-                <a href="<?php echo base_url();?>">
-                    <i class="fa fa-home"></i>
-                </a>
-            </li>
-            <li><span>Dashboard</span></li>
-            <li><a href="<?php echo base_url();?>index.php/manajemen_risiko"><span>Manajemen Risiko</span></a></li>
-            <li><a href="#"><span>Rencana Tindak Pengendalian</span></a></li>
-        </ol>
 
-    </div>
-</header>
 
-<!-- start: page -->
-<div class="row">
-    <div class="col-lg-12 col-xl-12">
-        <section class="panel">
-            <div class="panel-heading">
-                <h4>Rencana Tindak Pengendalian Risiko</h4>
-            </div>
-            <div class="panel-body">
-                <div class="row">
+
+
+  <div class="col-12 ">
+            <div class="card card-primary card-tabs">
+              <div class="card-header p-0 pt-1">
+                <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
+                  <li class="nav-item">
+                    <a class="nav-link " id="custom-tabs-one-home-tab"  href="<?php echo base_url('index.php/sasaran_organisasi/index/').$id_mr;?>" >Identifikasi Risiko</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " id="custom-tabs-one-profile-tab"  href="<?php echo base_url('index.php/analisis_risiko/index/').$id_mr;?>" >Analisis Risiko</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" id="custom-tabs-one-messages-tab"  href="<?php echo base_url("index.php/rencana_tindak_lanjut/index/").$id_mr;?>">Rencana Tindak Pengendalian</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="custom-tabs-one-settings-tab"  href="<?php echo base_url("index.php/manajemen_risiko/laporan/").$id_mr;?>" >Laporan</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="card-body">
+
+
                 <div class="col-md-12">
                     <div style="overflow-x:auto;">
-                        <table class="table table-bordered table-hover" style="width:250%;max-width:250%;">
+                      <form action="<?= base_url()?>index.php/rencana_tindak_lanjut/save" method="post" enctype="multipart/form-data">
+                      <div class="col-md-12 text-right">
+                          <button type="submit" class="btn btn-success">Simpan</button>
+                          <a href="<?php echo base_url();?>index.php/rencana_tindak_lanjut/print_rtl/<?php echo $id_mr;?>" class="btn btn-primary" target="_blank">Print</a>
+                      </div>
+                        <br/>
+                        <table class="table table-bordered table-hover bg-info" style="width:250%;max-width:250%;">
                             <thead>
                                 <tr>
                                     <th>Nomor Rangking</th>
@@ -54,7 +69,6 @@
                                 </tr>
                             </thead>
                             <tbody>
-                              <form action="<?= base_url()?>index.php/rencana_tindak_lanjut/save" method="post" enctype="multipart/form-data">
                               <input type="hidden" name="id_mr" value="<?php echo $id_mr;?>">
                               <?php
                                 $i=1;
@@ -77,7 +91,7 @@
                                       }
                                     ?>
                                     <td>
-                                    <?php 
+                                    <?php
                                     $pengendalian = $this->pengendalian_model->get(array('id_risiko'=>$value->id_risiko));
                                     foreach ($pengendalian as $key => $value) {
                                         # code...
@@ -85,7 +99,7 @@
                                     }
                                     ?>
                                     </td>
-                                    <?php 
+                                    <?php
                                         $rtl = $this->rtl_model->get(array('id_risiko'=>$value->id_risiko));
                                     ?>
                                     <td><textarea name="<?= $value->id_risiko ?>[perbaikanPengendalian]" class="form-control" rows="10" cols="30"><?php echo count($rtl) > 0 ? $rtl[0]->perbaikan_pengendalian:'';?></textarea></td>
@@ -108,7 +122,7 @@
                     <div class="row">
                         <div class="col-md-12 text-center">
                             <button type="submit" class="btn btn-success">Simpan</button>
-                            <a href="<?php echo base_url();?>index.php/rencana_tindak_lanjut/print_rtl/<?php echo $id_mr;?>" class="btn btn-default">Print</a>
+                            <a href="<?php echo base_url();?>index.php/rencana_tindak_lanjut/print_rtl/<?php echo $id_mr;?>" class="btn btn-primary">Print</a>
                         </div>
                     </div>
                 </div>
