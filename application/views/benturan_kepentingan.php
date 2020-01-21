@@ -43,7 +43,7 @@
                             <tbody>
                             <?php
                             foreach ($bks as $key => $value) {
-                              if ($value->id_unit == $this->session->userdata('ses_id_unit')) {?>
+                              if ($value->id_unit == $this->session->userdata('ses_id_unit') or $this->session->userdata('ses_id_unit') == 8) {?>
                                 <tr>
                                     <td><?=$key+1?></td>
                                     <td><?=$value->tahun?></td>

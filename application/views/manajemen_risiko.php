@@ -40,7 +40,7 @@
                       foreach ($manajemen_risiko as $key => $value) {
                   ?>
                       <?php
-                      if ($value->id_unit == $this->session->userdata('ses_id_unit')) {?>
+                      if ($value->id_unit == $this->session->userdata('ses_id_unit') or $this->session->userdata('ses_id_unit') == 8 ) {?>
                       <tr>
                           <td><?php echo $key+1;?> </td>
                           <td width="50%"><?php echo $value->nama_unit?></td>

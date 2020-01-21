@@ -33,7 +33,7 @@ class Dampak_risiko extends CI_Controller {
     }
 
     public function delete($id){
-        $id = $this->input->post('id_dampak');
+        echo $id;
         $dampak = $this->dampak_model->get(array('id_dampak'=>$id));
         print_r($dampak);
         if (count($dampak) > 0){

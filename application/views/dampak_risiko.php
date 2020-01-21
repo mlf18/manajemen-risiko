@@ -1,74 +1,73 @@
-<header class="page-header">
-    <h2>Manajemen Risiko</h2>
-
-    <div class="right-wrapper pull-right" style="margin-right:12px;">
-        <ol class="breadcrumbs">
-            <li>
-                <a href="<?php echo base_url();?>">
-                    <i class="fa fa-home"></i>
-                </a>
-            </li>
-            <li><span>Dashboard</span></li>
-            <li><span>Manajemen Risiko</span></li>
-            <li><span>Sasaran Organisasi</span></li>
-            <li><span>Indikator Sasaran</span></li>
-            <li><span>Risiko</span></li>
-            <li><span>Dampak</span></li>
+<!-- Content Header (Page header) -->
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1 class="m-0 text-dark">Dampak Risiko</h1>
+      </div><!-- /.col -->
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="<?= base_url()?>">Home</a></li>
+          <li class="breadcrumb-item active">Dampak Risiko</li>
         </ol>
-
-    </div>
-</header>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+  </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
 
 <!-- start: page -->
-<div class="row">
-    <div class="col-md-12 col-lg-12 col-xl-12">
-        <section class="panel">
-            <div class="panel-heading">
-                <h4>Dampak Risiko</h4>
-            </div>
-            <div class="panel-body">
+<div class="content">
+    <div class="container-fluid">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-body">
                 <div class="row">
                     <div class="col-md-12 text-right" style="margin-bottom:12px;">
-                    <a class="modal-with-form btn btn-success" href="#addForm"><i class="fa fa-plus"></i></a>
-                        <div id="addForm" class="modal-block modal-block-primary mfp-hide">
-                            <section class="panel">
-                                <header class="panel-heading">
-                                    <h2 class="panel-title">Tambah Dampak</h2>
-                                </header>
-                                <form id="demo-form" class="form-horizontal mb-lg" method="post" action="<?php echo base_url();?>index.php/dampak_risiko/save" enctype="multipart/form-data">
-                                <input type="hidden" name="id_risiko" value="<?php echo $id_risiko;?>">
-                                <div class="panel-body">
-                                        <div class="form-group mt-lg">
-                                            <label class="col-sm-3 control-label">Dampak</label>
-                                            <div class="col-sm-9">
-                                                <div class="row">
-                                                    <div class="col-sm-12">
-                                                        <input type="text" name="dampak[]" class="form-control" placeholder="Dampak" required="" pattern=".{1,254}">
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-sm-12">
-                                                        <div id="formTambahan"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-sm-12"><button class="btn btn-defult btn-sm" type="button" id="btnTDampak"><i class="fa fa-plus"></i></button></div>
-                                                </div>
-                                            </div>
-                                        </div>
+                    <a class="modal-with-form btn btn-success"  data-toggle="modal" data-target="#modal-tambah" href="#"><i class="fa fa-plus"></i></a>
+                    <div class="modal fade" id="modal-tambah">
+                      <form id="demo-form" class="form-horizontal mb-lg" method="post" action="<?php echo base_url();?>index.php/dampak_risiko/save" enctype="multipart/form-data">
+                        <input type="hidden" name="id_risiko" value="<?php echo $id_risiko;?>">
+                        <div class="modal-dialog">
+                          <div class="modal-content bg-info">
+                            <div class="modal-header">
+                              <h4 class="modal-title">Tambah Dampak</h4>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span></button>
+                            </div>
+                            <div class="modal-body">
+                                      <div class="form-group mt-lg">
+                                          <div class="col-sm-12">
+                                              <div class="row">
+                                                  <div class="col-sm-12">
+                                                      Dampak : <input type="text" name="dampak[]" class="form-control" placeholder="Dampak" required="" pattern=".{1,254}">
+                                                  </div>
+                                              </div>
+                                              <div class="row">
+                                                  <div class="col-sm-12">
+                                                      <div id="formTambahan"></div>
+                                                  </div>
+                                              </div>
+                                              <div class="row">
+                                                  <div class="col-sm-12"><button class="btn btn-defult btn-sm" type="button" id="btnTDampak"><i class="fa fa-plus"></i></button></div>
+                                              </div>
+                                          </div>
+                                      </div>
 
-                                </div>
-                                <footer class="panel-footer">
-                                    <div class="row">
-                                        <div class="col-md-12 text-right">
-                                            <button class="btn btn-primary">Submit</button>
-                                            <button class="btn btn-default modal-dismiss">Cancel</button>
-                                        </div>
-                                    </div>
-                                </footer>
-                                </form>
-                            </section>
+                              </div>
+                            <div class="modal-footer justify-content-between">
+                              <button type="button" class="btn btn-outline-light" data-dismiss="modal">Close</button>
+                              <button type="submit" class="btn btn-outline-light">Save changes</button>
+                            </div>
+                          </div>
+                          <!-- /.modal-content -->
                         </div>
+                        <!-- /.modal-dialog -->
+                      </form>
+                    </div>
+
+
+
                     </div>
                 </div>
                 <div class="row">
@@ -91,37 +90,76 @@
                                     <td><?php echo $key+1;?></td>
                                     <td><?php echo $value->dampak;?></td>
                                     <td class="text-center">
-                                        <a  class="modal-with-form mb-xs mt-xs mr-xs btn btn-warning" href="#editForm-<?php echo $value->id_dampak;?>"><i class="fa fa-pencil"></i></a>
-                                        <form action="<?php echo base_url();?>index.php/dampak_risiko/delete/<?php echo $value->id_dampak;?>" method="post">
-                                            <input type="hidden" name="id_dampak" value="<?php echo $value->id_dampak;?>">
-                                            <button type="submit" class="mb-xs mt-xs mr-xs btn btn-danger"><i class="fa fa-trash-o"></i></button></td>
-                                        </form>
-                                            <div id="editForm-<?php echo $value->id_dampak;?>" class="modal-block modal-block-primary mfp-hide">
-                                                <section class="panel">
-                                                    <header class="panel-heading">
-                                                        <h2 class="panel-title">Edit Dampak</h2>
-                                                    </header>
-                                                    <form id="demo-form-<?php echo $value->id_dampak;?>" class="form-horizontal mb-lg" method="post" action="<?php echo base_url();?>index.php/dampak_risiko/update/<?php echo $value->id_dampak;?>" enctype="multipart/form-data">
-                                                    <div class="panel-body">
-                                                            <div class="form-group mt-lg">
-                                                                <label class="col-sm-3 control-label">Dampak</label>
-                                                                <div class="col-sm-9">
-                                                                    <input type="text" name="dampak" class="form-control" placeholder="Penyebab" required="" value="<?php echo $value->dampak;?>">
-                                                                </div>
-                                                            </div>
+                                        <a  class="modal-with-form mb-xs mt-xs mr-xs btn btn-warning" data-toggle="modal" data-target="#modal-edit-<?php echo $value->id_dampak;?>"><i class="nav-icon fas fa-edit"></i></a>
+                                        <a  class="modal-with-form mb-xs mt-xs mr-xs btn btn-danger" data-toggle="modal" data-target="#modal-hapus-<?php echo $value->id_dampak;?>" style="color:white"><i class="fa fa-exclamation-triangle"></i></a>
 
-                                                    </div>
-                                                    <footer class="panel-footer">
+                                        <div class="modal fade" id="modal-edit-<?php echo $value->id_dampak;?>">
+                                          <form id="demo-form-<?php echo $value->id_dampak;?>" class="form-horizontal mb-lg" method="post" action="<?php echo base_url();?>index.php/dampak_risiko/update/<?php echo $value->id_dampak;?>" enctype="multipart/form-data">
+                                            <div class="modal-dialog">
+                                              <div class="modal-content bg-info">
+                                                <div class="modal-header">
+                                                  <h4 class="modal-title">Edit</h4>
+                                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                  <div class="form-group mt-lg">
+                                                      <label class="col-sm-3 control-label">Dampak</label>
+                                                      <div class="col-sm-9">
+                                                          <input type="text" name="dampak" class="form-control" placeholder="Penyebab" required="" value="<?php echo $value->dampak;?>">
+                                                      </div>
+                                                  </div>
+                                                </div>
+                                                <div class="modal-footer justify-content-between">
+                                                  <button type="button" class="btn btn-outline-light" data-dismiss="modal">Close</button>
+                                                  <button type="submit" class="btn btn-outline-light">Edit</button>
+                                                </div>
+                                              </div>
+                                              <!-- /.modal-content -->
+                                            </div>
+                                            <!-- /.modal-dialog -->
+                                          </form>
+                                        </div>
+                                        <!-- /.modal-END -->
+
+                                        <!-- modal-dialog-hapus -->
+                                        <div class="modal fade" id="modal-hapus-<?php echo $value->id_dampak;?>">
+                                          <form action="<?php echo base_url();?>dampak_risiko/delete/<?php echo $value->id_dampak;?>" method="post">
+                                            <div class="modal-dialog">
+                                              <div class="modal-content bg-info">
+                                                <div class="modal-header">
+                                                  <h4 class="modal-title">Apakah anda yakin akan menghapus data berikut :</h4>
+                                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span></button>
+                                                </div>
+                                                <div class="modal-body" >
+
+
                                                         <div class="row">
-                                                            <div class="col-md-12 text-right">
-                                                                <button class="btn btn-primary" type="submit">Submit</button>
-                                                                <button class="btn btn-default modal-dismiss">Cancel</button>
+                                                            <div class="col-md-1">
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                              <label>Dampak</label>
+                                                            </div>
+                                                            <div class="col-md-1">
+                                                              :
+                                                            </div>
+                                                            <div class="col-md-5">
+                                                                <?php echo $value->dampak; ?>
                                                             </div>
                                                         </div>
-                                                    </footer>
-                                                    </form>
-                                                </section>
+                                                </div>
+                                                <div class="modal-footer justify-content-between">
+                                                  <button type="button" class="btn btn-outline-light" data-dismiss="modal">Close</button>
+                                                  <button type="submit" class="btn btn-outline-light">Hapus</button>
+                                                </div>
+                                              </div>
+                                              <!-- /.modal-content -->
                                             </div>
+                                            <!-- /.modal-dialog -->
+                                          </form>
+                                        </div>
+
                                 </tr>
                             <?php
                             }
@@ -132,7 +170,8 @@
                 </div>
                 </div>
             </div>
-        </section>
+          </div>
+        </div>
     </div>
 
 </div>
