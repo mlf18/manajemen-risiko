@@ -2,6 +2,14 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Manajemen_risiko extends CI_Controller {
+	public function __construct(){
+			parent::__construct();
+			if($this->session->userdata('login') != true){
+					 redirect(base_url("login"));
+			}
+	}
+
+
 	public function index()
 	{
         // $user_id = $_SESSION ['ses_userId'];
@@ -14,6 +22,9 @@ class Manajemen_risiko extends CI_Controller {
 						'units' => $units,
             'manajemen_risiko'=>$manajemen_risiko
         );
+
+		//print_r($this->session);
+
 		$this->load->view('index',$data);
     }
 
@@ -69,7 +80,7 @@ class Manajemen_risiko extends CI_Controller {
         // exit;
         $laporan = $this->laporan_model->get(array('id_manajemen_risiko'=>$this->input->post('id_manajemen_risiko')));
         if($laporan){
-            $this->laporan_model->update($this->input->post('id_manajemen_risiko'),$this->input->post());    
+            $this->laporan_model->update($this->input->post('id_manajemen_risiko'),$this->input->post());
         }else{
             $this->laporan_model->create($this->input->post());
         }

@@ -39,8 +39,10 @@
                   <?php
                       foreach ($manajemen_risiko as $key => $value) {
                   ?>
+                      <?php
+                      if ($value->id_unit == $this->session->userdata('ses_id_unit')) {?>
                       <tr>
-                          <td><?php echo $key+1;?></td>
+                          <td><?php echo $key+1;?> | </td>
                           <td width="50%"><?php echo $value->nama_unit?></td>
                           <td><?php echo $value->tahun;?></td>
                           <td class="text-center"><a href="<?php echo base_url();?>index.php/sasaran_organisasi/index/<?php echo $value->id_manajemen_risiko;?>" class="btn btn-sm btn-success"><i class="fa fa-search"></i> Lihat</a></td>
@@ -143,6 +145,9 @@
                           <!-- /.modal hapus -->
                       </tr>
                       <?php } ?>
+                    <?php
+                      }
+                    ?>
                   </tbody>
               </table>
           </div>
