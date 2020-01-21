@@ -20,7 +20,7 @@ class Benturan_kepentingan extends CI_Controller {
             'content'=>'benturan_kepentingan_form.php',
             'aksi'=>'Tambah',
             'bk'=>$bk,
-            'url'=>base_url().'index.php/benturan_kepentingan/save'
+            'url'=>base_url().'benturan_kepentingan/save'
         );
         $this->load->view('index.php',$data);
     }
@@ -32,13 +32,22 @@ class Benturan_kepentingan extends CI_Controller {
         if(count($id_unit) > 0){
             $id_unit = $id_unit->id_unit;
         }else{
-            $id_unit=99;
+            $id_unit=$this->session->userdata('ses_id_unit');
         }
         $data['id_unit']=$id_unit;
         // return print_r($data);
         $this->benturan_kepentingan_model->create($data);
         return redirect(base_url().'index.php/benturan_kepentingan');
     }
+
+    public function saveEdit(){
+        $data = $this->input->post();
+        $id_unit=$this->session->userdata('ses_id_unit');
+        $data['id_unit']=$id_unit;
+        $this->benturan_kepentingan_model->update($data['id_benturan_kepentingan'],$data);
+        return redirect(base_url().'index.php/benturan_kepentingan');
+    }
+
     public function edit($id){
         $bk = $this->benturan_kepentingan_model->get(array('id_benturan_kepentingan'=>$id));
         if(count($bk) > 0){
@@ -49,8 +58,15 @@ class Benturan_kepentingan extends CI_Controller {
         $data = array(
             'content'=>'benturan_kepentingan_form.php',
             'aksi'=>'Tambah',
-            'bk'=>$bk
+            'bk'=>$bk,
+            'url'=>base_url().'benturan_kepentingan/saveEdit'
         );
         $this->load->view('index.php',$data);
     }
+
+    public function delete($id){
+        $this->benturan_kepentingan_model->delete($id);
+        return redirect(base_url()."benturan_kepentingan");
+    }
+
 }

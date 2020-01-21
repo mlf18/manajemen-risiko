@@ -24,6 +24,11 @@
                     </div>
                     <div class="card-body">
                         <form action="<?php echo $url;?>" method="post">
+                          <?php if(isset($bk->id_benturan_kepentingan)){
+                              echo "<input type='hidden' name= 'id_benturan_kepentingan' value='$bk->id_benturan_kepentingan'>";
+                          }
+
+                          ?>
                             <div class="form-group row">
                                 <div class="col-3">Tahun</div>
                                 <div class="col-9">
@@ -37,8 +42,9 @@
                                                     }else{
                                                         echo '<option value='.$i.'>'.$i.'</option>';
                                                     }
+                                                }else{
+                                                  echo '<option value='.$i.'>'.$i.'</option>';
                                                 }
-                                                echo '<option value='.$i.'>'.$i.'</option>';
                                             }
                                         ?>
                                     </select>

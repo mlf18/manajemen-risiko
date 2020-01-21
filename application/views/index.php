@@ -36,8 +36,11 @@
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
-
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
+      </li>
     </ul>
+
 
     <!-- SEARCH FORM -->
     <form class="form-inline ml-3">
@@ -80,7 +83,7 @@
           <img src="<?= base_url("assets/AdminLTE-master/")?>dist/img/profil_pic.png" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block"><?php print_r($this->session->userdata('ses_userName'))?></a>
+          <a href="#" class="d-block"><?php print_r($this->session->userdata('ses_nama'))?></a>
         </div>
       </div>
 
@@ -99,7 +102,7 @@
           </li>
           <li class="nav-header" style="color:#6ab2ff; text-decoration:bold">MR & BENTURAN KEPENTINGAN</li>
           <li class="nav-item has-treeview">
-            <a href="<?php echo base_url();?>index.php/manajemen_risiko/" class="nav-link">
+            <a href="<?php echo base_url();?>manajemen_risiko/" class="nav-link">
               <i class="nav-icon fas fa-chart-pie"></i>
               <p>
                 Manajemen Risiko
@@ -107,7 +110,7 @@
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="<?php echo base_url();?>index.php/manajemen_risiko/benturan_kepentingan" class="nav-link">
+            <a href="<?php echo base_url();?>benturan_kepentingan" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
                 Benturan Kepentingan
