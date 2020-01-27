@@ -44,12 +44,12 @@
               </div>
               <div class="card-body">
 
-
                 <div class="col-md-12">
                     <div style="overflow-x:auto;">
                       <form action="<?= base_url()?>index.php/rencana_tindak_lanjut/save" method="post" enctype="multipart/form-data">
                       <div class="col-md-12 text-right">
                           <button type="submit" class="btn btn-success">Simpan</button>
+                          <a href="<?php echo base_url("assets/images/RTP.png") ?>" class="btn btn-warning" target="_blank" style="color:white">Lihat Panduan </a>
                           <a href="<?php echo base_url();?>index.php/rencana_tindak_lanjut/print_rtl/<?php echo $id_mr;?>" class="btn btn-primary" target="_blank">Print</a>
                       </div>
                         <br/>

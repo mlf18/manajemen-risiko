@@ -55,6 +55,7 @@
                         <div class="row">
                             <div class="col-md-12 text-right">
                                 <button class="btn btn-success" type="submit">Submit</button>
+                                <a href="<?php echo base_url("assets/images/analisis_risiko.png") ?>" class="btn btn-warning" target="_blank" style="color:white">Lihat Panduan </a>
                                 <a href="<?php echo base_url();?>index.php/analisis_risiko/print_analisis/<?php echo $id_mr;?>" class="btn btn-primary" target="_blank">Print</a>
 
                             </div>
