@@ -104,8 +104,8 @@
                                     ?>
                                     <td><textarea name="<?= $value->id_risiko ?>[perbaikanPengendalian]" class="form-control" rows="10" cols="30"><?php echo count($rtl) > 0 ? $rtl[0]->perbaikan_pengendalian:'';?></textarea></td>
                                     <td>
-                                      Dari : <input type="month" name="<?= $value->id_risiko ?>[dari]" style="vertical-align:center;line-height: 20px;" class="form-control" value="<?php echo count($rtl) > 0 ? $rtl[0]->mulai:'';?>"><br>
-                                      Sampai : <input type="month" name="<?= $value->id_risiko ?>[sampai]" style="vertical-align:center;line-height: 20px;" class="form-control" value="<?php echo count($rtl) > 0 ? $rtl[0]->selesai:'';?>">
+                                      Dari : <input type="month" name="<?= $value->id_risiko ?>[dari]" style="vertical-align:center;line-height: 20px;" class="form-control" value="<?php echo count($rtl) > 0 ? strtotime($rtl[0]->mulai) > 1262304000 ? date("Y-m",strtotime($rtl[0]->mulai)):'':'';?>"><br>
+                                      Sampai : <input type="month" name="<?= $value->id_risiko ?>[sampai]" style="vertical-align:center;line-height: 20px;" class="form-control" value="<?php echo count($rtl) > 0 ? strtotime($rtl[0]->selesai) > 1262304000 ? date("Y-m",strtotime($rtl[0]->selesai)):'':'';?>">
                                     </td>
                                     <td><textarea name="<?= $value->id_risiko ?>[pembiayaan]"  class="form-control"  rows="10" cols="30"><?php echo count($rtl) > 0 ? $rtl[0]->pembiayaan:'';?></textarea></td>
                                     <td><textarea name="<?= $value->id_risiko ?>[keterangan]"  class="form-control"  rows="10" cols="30"><?php echo count($rtl) > 0 ? $rtl[0]->ket:'';?></textarea></td>
