@@ -76,7 +76,7 @@ class Manajemen_risiko extends CI_Controller {
     }
 
     public function savelaporan(){
-        print_r($this->input->post());
+        // print_r($this->input->post());
         // exit;
         $laporan = $this->laporan_model->get(array('id_manajemen_risiko'=>$this->input->post('id_manajemen_risiko')));
         if($laporan){
@@ -84,6 +84,7 @@ class Manajemen_risiko extends CI_Controller {
         }else{
             $this->laporan_model->create($this->input->post());
         }
+        return redirect(base_url()."index.php/manajemen_risiko/printlaporan/".$this->input->post('id_manajemen_risiko'));
     }
     public function save(){
         // $user_id = $_SESSION ['ses_userId'];
