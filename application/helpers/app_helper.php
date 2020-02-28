@@ -129,6 +129,7 @@ function levelDampak($lv){
 
 function tgl_indo($tanggal){
 	$bulan = array (
+        0=>'',
 		1 =>   'Januari',
 		'Februari',
 		'Maret',
@@ -147,6 +148,6 @@ function tgl_indo($tanggal){
 	// variabel pecahkan 0 = tanggal
 	// variabel pecahkan 1 = bulan
 	// variabel pecahkan 2 = tahun
- 
+    
 	return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
 }

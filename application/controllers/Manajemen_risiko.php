@@ -80,7 +80,7 @@ class Manajemen_risiko extends CI_Controller {
         // exit;
         $laporan = $this->laporan_model->get(array('id_manajemen_risiko'=>$this->input->post('id_manajemen_risiko')));
         if($laporan){
-            $this->laporan_model->update($this->input->post('id_manajemen_risiko'),$this->input->post());
+            $this->laporan_model->update($laporan[0]->id_laporan,$this->input->post());
         }else{
             $this->laporan_model->create($this->input->post());
         }

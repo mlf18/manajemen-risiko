@@ -109,7 +109,7 @@
                                     </td>
                                     <td><textarea name="<?= $value->id_risiko ?>[pembiayaan]"  class="form-control"  rows="10" cols="30"><?php echo count($rtl) > 0 ? $rtl[0]->pembiayaan:'';?></textarea></td>
                                     <td><textarea name="<?= $value->id_risiko ?>[keterangan]"  class="form-control"  rows="10" cols="30"><?php echo count($rtl) > 0 ? $rtl[0]->ket:'';?></textarea></td>
-                                    <td><textarea name="<?= $value->id_risiko ?>[keterangan]"  class="form-control"  rows="10" cols="30"><?php echo count($rtl) > 0 ? $rtl[0]->pemilik_risiko:'';?></textarea></td>
+                                    <td><textarea name="<?= $value->id_risiko ?>[pemilik_risiko]"  class="form-control"  rows="10" cols="30"><?php echo count($rtl) > 0 ? $rtl[0]->pemilik_risiko:'';?></textarea></td>
                                   </tr>
                               <?php
                                 $i++;

@@ -45,7 +45,8 @@ class Rencana_tindak_lanjut extends CI_Controller {
 								'selesai'=>$value['sampai']!=''?date("Y/m/d",strtotime($value['sampai']."-01")):NULL,
 								'pembiayaan'=>$value['pembiayaan'],
 								'ket'=>$value['keterangan'],
-							'id_risiko'=>$value['id_risiko']));
+								'pemilik_risiko'=>$value['pemilik_risiko'],
+								'id_risiko'=>$value['id_risiko']));
 						}else{
 							$this->rtl_model->update($rtl[0]->id_rtl,array(
 								'perbaikan_pengendalian'=>$value['perbaikanPengendalian'],
@@ -53,7 +54,8 @@ class Rencana_tindak_lanjut extends CI_Controller {
 								'selesai'=>$value['sampai']!=''?date("Y/m/d",strtotime($value['sampai']."-01")):NULL,
 								'pembiayaan'=>$value['pembiayaan'],
 								'ket'=>$value['keterangan'],
-							'id_risiko'=>$value['id_risiko']));
+								'pemilik_risiko'=>$value['pemilik_risiko'],
+								'id_risiko'=>$value['id_risiko']));
 						}
 						// print_r($key);
 						// print_r("<br>");

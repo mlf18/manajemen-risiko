@@ -11,6 +11,8 @@ class Login extends CI_Controller {
 		$ldap = $this->user_model->ldap_login();
 		if($ldap){
 			$query = $this->user_model->getUserEmail($this->input->post('username'));
+			var_dump($query);
+			exit;
 			if(!$query){
 				$this->session->set_flashdata('gagalLogin', 'Hubungi admin karena data anda belum diupdate di server kami');
 				redirect(base_url('login'));
