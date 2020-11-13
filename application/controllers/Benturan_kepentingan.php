@@ -13,6 +13,15 @@ class Benturan_kepentingan extends CI_Controller {
         );
         $this->load->view('index.php',$data);
     }
+	
+	public function download(){
+        $bk = $this->benturan_kepentingan_model->joinUnit();
+        $data = array(
+            'bks'=>$bk,
+            'content'=>'benturan_kepentingan.php'
+        );
+        $this->load->view('excel_bk.php',$data);
+    }
 
     public function tambah(){
         $bk = null;

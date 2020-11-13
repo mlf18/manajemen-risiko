@@ -28,6 +28,24 @@ class Rencana_tindak_lanjut extends CI_Controller {
             'content'=>'rtp_risiko_2.php'
 		);
 		$this->load->view('print_rtp.php',$data);
+	}
+	
+	public function download_rtl($id_mr=null)
+	{
+				$risiko = $this->risiko_model->get_rtp_resiko_by_unit($id_mr);
+				foreach ($risiko as $key => $value) {
+					# code...
+					$risiko[$key]->pengendalian = $this->pengendalian_model->get(array('id_risiko'=>$value->id_risiko));
+					$risiko[$key]->dampak = $this->dampak_model->get(array('id_risiko'=>$value->id_risiko));
+					$rtl = $this->rtl_model->get(array('id_risiko'=>$value->id_risiko));
+					$risiko[$key]->rtl = count($rtl) > 0 ? $rtl[0] : [];
+				}
+				$data =array(
+						'id_mr'=>$id_mr,
+						'risikos'=>$risiko,
+            'content'=>'rtp_risiko_2.php'
+		);
+		$this->load->view('excel_rtp.php',$data);
     }
 
     public function save(){
@@ -45,7 +63,8 @@ class Rencana_tindak_lanjut extends CI_Controller {
 								'selesai'=>$value['sampai']!=''?date("Y/m/d",strtotime($value['sampai']."-01")):NULL,
 								'pembiayaan'=>$value['pembiayaan'],
 								'ket'=>$value['keterangan'],
-							'id_risiko'=>$value['id_risiko']));
+								'pemilik_risiko'=>$value['pemilik_risiko'],
+								'id_risiko'=>$value['id_risiko']));
 						}else{
 							$this->rtl_model->update($rtl[0]->id_rtl,array(
 								'perbaikan_pengendalian'=>$value['perbaikanPengendalian'],
@@ -53,7 +72,8 @@ class Rencana_tindak_lanjut extends CI_Controller {
 								'selesai'=>$value['sampai']!=''?date("Y/m/d",strtotime($value['sampai']."-01")):NULL,
 								'pembiayaan'=>$value['pembiayaan'],
 								'ket'=>$value['keterangan'],
-							'id_risiko'=>$value['id_risiko']));
+								'pemilik_risiko'=>$value['pemilik_risiko'],
+								'id_risiko'=>$value['id_risiko']));
 						}
 						// print_r($key);
 						// print_r("<br>");

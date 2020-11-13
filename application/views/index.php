@@ -69,7 +69,7 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="<?= base_url("assets/AdminLTE-master/")?>index3.html" class="brand-link">
+    <a href="<?= base_url()?>" class="brand-link">
       <img src="<?= base_url("assets/")?>images/logo_isma.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
       <span class="brand-text font-weight-light">ISMA</span>
@@ -92,8 +92,8 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item has-treeview menu-open">
-            <a href="#" class="nav-link active">
+          <li class="nav-item">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -102,7 +102,7 @@
           </li>
           <li class="nav-header" style="color:#6ab2ff; text-decoration:bold">MR & BENTURAN KEPENTINGAN</li>
           <li class="nav-item has-treeview">
-            <a href="<?php echo base_url();?>manajemen_risiko/" class="nav-link">
+            <a href="<?php echo base_url();?>manajemen_risiko/" class="nav-link <?php if($this->uri->segment(1)=="manajemen_risiko"){echo "active";}?>">
               <i class="nav-icon fas fa-chart-pie"></i>
               <p>
                 Manajemen Risiko
@@ -110,10 +110,18 @@
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="<?php echo base_url();?>benturan_kepentingan" class="nav-link">
+            <a href="<?php echo base_url();?>benturan_kepentingan" class="nav-link <?php if($this->uri->segment(1)=="benturan_kepentingan"){echo "active";}?>">
               <i class="nav-icon fas fa-edit"></i>
               <p>
                 Benturan Kepentingan
+              </p>
+            </a>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="<?php echo base_url()?>login/logout" class="nav-link">
+              <i class="nav-icon fas fa-sign-out-alt"></i>
+              <p>
+                Logout
               </p>
             </a>
           </li>
@@ -210,6 +218,7 @@
 <script src="<?= base_url("assets/AdminLTE-master/")?>dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?= base_url("assets/AdminLTE-master/")?>dist/js/demo.js"></script>
+<script src="<?=base_url()?>assets/AdminLTE-master/plugins/textboxio/textboxio.js"></script>
 <?php if(function_exists("custom_footer")){
 		custom_footer();
 }?>

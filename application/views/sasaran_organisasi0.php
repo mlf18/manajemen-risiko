@@ -343,14 +343,14 @@
                                                                                                         <div class="form-group mt-lg">
                                                                                                             <label class="col-sm-3 control-label">Sisa Risiko</label>
                                                                                                             <div class="col-sm-9">
-                                                                                                                <input type="text" name="sisa_risiko" class="form-control" placeholder="Sisa Risiko">
+                                                                                                                <input type="text" name="sisa_risiko" class="form-control" placeholder="Sisa Risiko" value="<?php echo $rvalue->sisa_risiko;?>">
                                                                                                             </div>
                                                                                                         </div>
 
                                                                                                       </div>
                                                                                                       <div class="modal-footer justify-content-between">
                                                                                                         <button type="button" class="btn btn-outline-light" data-dismiss="modal">Close</button>
-                                                                                                        <button type="submit" class="btn btn-outline-light">Tambah</button>
+                                                                                                        <button type="submit" class="btn btn-outline-light">Edit</button>
                                                                                                       </div>
                                                                                                     </div>
                                                                                                     <!-- /.modal-content -->

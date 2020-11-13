@@ -11,6 +11,8 @@ class Login extends CI_Controller {
 		$ldap = $this->user_model->ldap_login();
 		if($ldap){
 			$query = $this->user_model->getUserEmail($this->input->post('username'));
+			//var_dump($query);
+			//exit;
 			if(!$query){
 				$this->session->set_flashdata('gagalLogin', 'Hubungi admin karena data anda belum diupdate di server kami');
 				redirect(base_url('login'));
@@ -21,7 +23,7 @@ class Login extends CI_Controller {
 			$this->session->set_userdata('ses_id',$data['nip']);
 			$this->session->set_userdata('ses_nama',$data['nama']);
 			$this->session->set_userdata('ses_unit',$data['nama_unit']);
-			$this->session->set_userdata('ses_id_unit',$data['unit_id']);	
+			$this->session->set_userdata('ses_id_unit',$data['unit_id']);
 			$this->session->set_userdata('user_id',$data['user_id']);
 			redirect(base_url('manajemen_risiko/'));
 		}else{
@@ -49,10 +51,12 @@ class Login extends CI_Controller {
 	}
 	function logout(){
 		$this->session->unset_userdata('login');
-		$this->session->unset_userdata('user_id');
 		$this->session->unset_userdata('akses');
 		$this->session->unset_userdata('ses_id');
 		$this->session->unset_userdata('ses_nama');
+		$this->session->unset_userdata('ses_unit');
+		$this->session->unset_userdata('ses_id_unit');
+		$this->session->unset_userdata('user_id');
 		redirect(base_url());
 	}
 }

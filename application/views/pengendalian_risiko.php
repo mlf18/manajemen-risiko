@@ -1,74 +1,63 @@
-<header class="page-header">
-    <h2>Manajemen Risiko</h2>
-
-    <div class="right-wrapper pull-right" style="margin-right:12px;">
-        <ol class="breadcrumbs">
-            <li>
-                <a href="<?php echo base_url();?>">
-                    <i class="fa fa-home"></i>
-                </a>
-            </li>
-            <li><span>Dashboard</span></li>
-            <li><span>Manajemen Risiko</span></li>
-            <li><span>Sasaran Organisasi</span></li>
-            <li><span>Indikator Sasaran</span></li>
-            <li><span>Risiko</span></li>
-            <li><span>Pengendalian</span></li>
+<!-- Content Header (Page header) -->
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1 class="m-0 text-dark">Pengendalian Risiko</h1>
+      </div><!-- /.col -->
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="<?= base_url()?>">Home</a></li>
+          <li class="breadcrumb-item active">Pengendalian Risiko</li>
         </ol>
-
-    </div>
-</header>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+  </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
 
 <!-- start: page -->
-<div class="row">
-    <div class="col-md-12 col-lg-12 col-xl-12">
-        <section class="panel">
-            <div class="panel-heading">
-                <h4>Pengendalian Risiko</h4>
-            </div>
-            <div class="panel-body">
-                <div class="row">
-                    <div class="col-md-12 text-right" style="margin-bottom:12px;">
-                    <a class="modal-with-form btn btn-success" href="#addForm"><i class="fa fa-plus"></i></a>
-                        <div id="addForm" class="modal-block modal-block-primary mfp-hide">
-                            <section class="panel">
-                                <header class="panel-heading">
-                                    <h2 class="panel-title">Tambah Pengendalian</h2>
-                                </header>
-                                <form id="demo-form" class="form-horizontal mb-lg" method="post" action="<?php echo base_url();?>index.php/pengendalian_risiko/save" enctype="multipart/form-data">
-                                <input type="hidden" name="id_risiko" value="<?php echo $id_risiko;?>">
-                                <div class="panel-body">
-                                        <div class="form-group mt-lg">
-                                            <label class="col-sm-3 control-label">Pengendalian</label>
-                                            <div class="col-sm-9">
-                                                <div class="row">
-                                                    <div class="col-sm-12">
-                                                        <input type="text" name="pengendalian[]" class="form-control" placeholder="Pengendalian" required="" pattern=".{1,}">
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-sm-12">
-                                                        <div id="formTambahan"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-sm-12"><button class="btn btn-defult btn-sm" type="button" id="btnTDampak"><i class="fa fa-plus"></i></button></div>
-                                                </div>
-                                            </div>
-                                        </div>
+<div class="content">
+    <div class="container-fluid">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-body">
+                <div class="col-md-12 text-right" style="margin-bottom:12px;">
+                    <a class="modal-with-form btn btn-success" data-toggle="modal" data-target="#modal-tambah"><i class="fa fa-plus"></i></a>
+					<a class="modal-with-form btn btn-primary"  href="<?= base_url().'index.php/sasaran_organisasi/index/'.$id_mr[0]->id_manajemen_risiko?>">Daftar Risiko Risiko</a>
+                    <div class="modal fade" id="modal-tambah">
+                      <form id="demo-form" class="form-horizontal mb-lg" method="post" action="<?php echo base_url();?>pengendalian_risiko/save" enctype="multipart/form-data">
+                        <input type="hidden" name="id_risiko" value="<?php echo $id_risiko;?>">
+                        <div class="modal-dialog">
+                          <div class="modal-content bg-info">
+                            <div class="modal-header">
+                              <h4 class="modal-title">Tambah Pengendalian</h4>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span></button>
+                            </div>
+                            <div class="modal-body">
+                              <div class="form-group mt-lg">
+                                  Pengendalian
 
-                                </div>
-                                <footer class="panel-footer">
-                                    <div class="row">
-                                        <div class="col-md-12 text-right">
-                                            <button class="btn btn-primary">Submit</button>
-                                            <button class="btn btn-default modal-dismiss">Cancel</button>
-                                        </div>
-                                    </div>
-                                </footer>
-                                </form>
-                            </section>
+                                    <input type="text" name="pengendalian[]" class="form-control" placeholder="Pengendalian" required="" pattern=".{1,}">
+
+                                          <div id="formTambahan"></div>
+
+                                  <div class="row">
+                                      <div class="col-sm-12"><button class="btn btn-defult btn-sm" type="button" id="btnTDampak"><i class="fa fa-plus"></i></button></div>
+                                  </div>
+                              </div>
+                            </div>
+                            <div class="modal-footer justify-content-between">
+                              <button type="button" class="btn btn-outline-light" data-dismiss="modal">Close</button>
+                              <button type="submit" class="btn btn-outline-light">Tambah</button>
+                            </div>
+                          </div>
+                          <!-- /.modal-content -->
                         </div>
+                        <!-- /.modal-dialog -->
+                      </form>
+                    </div>
                     </div>
                 </div>
                 <div class="row">
@@ -91,37 +80,75 @@
                                     <td><?php echo $key+1;?></td>
                                     <td><?php echo $value->pengendalian;?></td>
                                     <td class="text-center">
-                                        <a  class="modal-with-form mb-xs mt-xs mr-xs btn btn-warning" href="#editForm-<?php echo $value->id_pengendalian;?>"><i class="fa fa-pencil"></i></a>
-                                        <form action="<?php echo base_url();?>index.php/pengendalian_risiko/delete/<?php echo $value->id_pengendalian;?>" method="post">
-                                        <input type="hidden" name="id_pengendalian" value="<?php echo $value->id_pengendalian;?>">
-                                            <button type="submit" class="mb-xs mt-xs mr-xs btn btn-danger"><i class="fa fa-trash-o"></i></button></td>
-                                        </form>
-                                            <div id="editForm-<?php echo $value->id_pengendalian;?>" class="modal-block modal-block-primary mfp-hide">
-                                                <section class="panel">
-                                                    <header class="panel-heading">
-                                                        <h2 class="panel-title">Edit Pengendalian</h2>
-                                                    </header>
-                                                    <form id="demo-form-<?php echo $value->id_pengendalian;?>" class="form-horizontal mb-lg" method="post" action="<?php echo base_url();?>index.php/pengendalian_risiko/update/<?php echo $value->id_pengendalian;?>" enctype="multipart/form-data">
-                                                    <div class="panel-body">
-                                                            <div class="form-group mt-lg">
-                                                                <label class="col-sm-3 control-label">Pengendalian</label>
-                                                                <div class="col-sm-9">
-                                                                    <input type="text" name="pengendalian" class="form-control" placeholder="Pengendalian" required="" value="<?php echo $value->pengendalian;?>">
-                                                                </div>
-                                                            </div>
+                                        <a  class="btn btn-warning" data-toggle="modal" data-target="#editForm-<?php echo $value->id_pengendalian?>"><i class="fas fa-edit"></i> </a>
+                                        <a  class="btn btn-danger" data-toggle="modal" data-target="#hapusForm-<?php echo $value->id_pengendalian?>" style="color:white"><i class="fa fa-exclamation-triangle"></i> </a>
 
-                                                    </div>
-                                                    <footer class="panel-footer">
-                                                        <div class="row">
-                                                            <div class="col-md-12 text-right">
-                                                                <button class="btn btn-primary" type="submit">Submit</button>
-                                                                <button class="btn btn-default modal-dismiss">Cancel</button>
-                                                            </div>
-                                                        </div>
-                                                    </footer>
-                                                    </form>
-                                                </section>
+                                        <div class="modal fade" id="editForm-<?php echo $value->id_pengendalian ?>">
+                                          <form id="demo-form-<?php echo $value->id_pengendalian?>" class="form-horizontal mb-lg" method="post" action="<?php echo base_url().'index.php/pengendalian_risiko/update/' . $value->id_pengendalian ?>" enctype="multipart/form-data">
+                                            <div class="modal-dialog">
+                                              <div class="modal-content bg-info">
+                                                <div class="modal-header">
+                                                  <h4 class="modal-title">Edit Pengendalian</h4>
+                                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="form-group mt-lg">
+                                                      <label class="col-sm-3 control-label">Pengendalian</label>
+                                                      <div class="row">
+                                                          <input type="text" name="pengendalian" class="form-control" placeholder="Pengendalian" required="" value="<?php echo $value->pengendalian;?>">
+                                                      </div>
+                                                      </div>
+                                                  </div>
+                                                <div class="modal-footer justify-content-between">
+                                                  <button type="button" class="btn btn-outline-light" data-dismiss="modal">Close</button>
+                                                  <button type="submit" class="btn btn-outline-light">Save changes</button>
+                                                </div>
+                                              </div>
+                                              <!-- /.modal-content -->
                                             </div>
+                                            <!-- /.modal-dialog -->
+                                          </form>
+                                        </div>
+                                        <!-- /.modal edit -->
+
+                                        <!-- modal Hapus -->
+                                        <div class="modal fade" id="hapusForm-<?php echo $value->id_pengendalian;?>">
+                                          <form action="<?php echo base_url();?>index.php/pengendalian_risiko/delete/<?php echo $value->id_pengendalian;?>" method="post">
+                                          <input type="hidden" name="id_pengendalian" value="<?php echo $value->id_pengendalian;?>">
+                                            <div class="modal-dialog">
+                                              <div class="modal-content bg-info">
+                                                <div class="modal-header">
+                                                  <h4 class="modal-title">Apakah anda yakin akan menghapus data berikut :</h4>
+                                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span></button>
+                                                </div>
+                                                <div class="modal-body" >
+                                                  <div class="row">
+                                                      <div class="col-md-1">
+                                                      </div>
+                                                      <div class="col-md-4">
+                                                        <label>Pengendalian : </label>
+                                                      </div>
+                                                      <div class="col-md-1">
+                                                        :
+                                                      </div>
+                                                      <div class="col-md-5">
+                                                          <?php echo $value->pengendalian?>
+                                                      </div>
+                                                  </div>
+                                                </div>
+                                                <div class="modal-footer justify-content-between">
+                                                  <button type="button" class="btn btn-outline-light" data-dismiss="modal">Close</button>
+                                                  <button type="submit" class="btn btn-outline-light">Hapus</button>
+                                                </div>
+                                              </div>
+                                              <!-- /.modal-content -->
+                                            </div>
+                                            <!-- /.modal-dialog -->
+                                          </form>
+                                        </div>
+                                        <!-- /.modal hapus -->
                                 </tr>
                             <?php
                             }
@@ -132,7 +159,7 @@
                 </div>
                 </div>
             </div>
-        </section>
+        </div>
     </div>
 
 </div>

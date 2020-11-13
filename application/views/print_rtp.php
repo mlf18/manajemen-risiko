@@ -49,9 +49,9 @@
                     <?php
                         if($value->besaran_risiko > 12){
                         echo '<td class="text-center" style="background:red;color:white">'.$value->besaran_risiko.'</td>';
-                        }elseif($value->besaran_risiko > 4){
+                        }elseif($value->besaran_risiko > 4 && $value->besaran_risiko <= 12){
                         echo '<td class="text-center" style="background:yellow">'.$value->besaran_risiko.'</td>';
-                        }elseif($value->besaran_risiko > 0){
+                        }elseif($value->besaran_risiko > 0 && $value->besaran_risiko <= 4){
                         echo '<td class="text-center" style="background:grey;color:white">'.$value->besaran_risiko.'</td>';
                         }else{
                         echo '<td class="text-center"> - </td>';
@@ -64,9 +64,9 @@
                     }?>
                     </td>
                     <td><?= isset($value->rtl->perbaikan_pengendalian)?$value->rtl->perbaikan_pengendalian:''?></td>
-                    <td><?= isset($value->rtl->mulai)? 'Dari : '.$value->rtl->mulai:''?><br><?= isset($value->rtl->selesai)? 'Sampai : '.$value->rtl->selesai:''?></td>
+                    <td><?= isset($value->rtl->mulai) && strtotime($value->rtl->mulai) > 0? 'Dari : '.$value->rtl->mulai:''?><br><?= isset($value->rtl->selesai) && strtotime($value->rtl->selesai)>0? 'Sampai : '.$value->rtl->selesai:''?></td>
                     <td><?= isset($value->rtl->pembiayaan)?$value->rtl->pembiayaan:''?></td>
-                    <td><?= isset($value->rtl->keterangan)?$value->rtl->keterangan:''?></td>
+                    <td><?= isset($value->rtl->ket)?$value->rtl->ket:''?></td>
                     <td><?= isset($value->rtl->pemilik_risiko)?$value->rtl->pemilik_risiko:''?></td>
                 </tr>
             <?php

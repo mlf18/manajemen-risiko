@@ -5,10 +5,12 @@ class Dampak_risiko extends CI_Controller {
 
     public function index($id){
         $dampak = $this->dampak_model->get(array('id_risiko'=>$id));
+		$id_mr = $this->dampak_model->getIdManajemenRisiko(array('risiko.id_risiko'=>$id));
         $data =array(
             'content'=>'dampak_risiko.php',
             'id_risiko'=>$id,
-            'dampak'=>$dampak
+            'dampak'=>$dampak,
+			'id_mr'=>$id_mr
         );
 		$this->load->view('index',$data);
     }
@@ -33,7 +35,7 @@ class Dampak_risiko extends CI_Controller {
     }
 
     public function delete($id){
-        $id = $this->input->post('id_dampak');
+        echo $id;
         $dampak = $this->dampak_model->get(array('id_dampak'=>$id));
         print_r($dampak);
         if (count($dampak) > 0){
@@ -41,4 +43,6 @@ class Dampak_risiko extends CI_Controller {
             return redirect(base_url().'index.php/dampak_risiko/index/'.$dampak[0]->id_risiko);
         }
     }
+	
+	
 }

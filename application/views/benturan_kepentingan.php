@@ -23,8 +23,9 @@
                 </div>
                 <div class="card-body">
                     <div class="row">
-                        <div class="offset-11 py-1">
+                        <div class="offset-10 py-1">
                             <a href="<?php echo base_url();?>benturan_kepentingan/tambah" class="btn btn-sm btn-success"><i class="nav-icon fas fa-plus"></i>Tambah</a>
+							<a href="<?php echo base_url();?>benturan_kepentingan/download" class="btn btn-sm btn-primary"><i class="nav-icon fas fa-download"></i>Download</a>
                         </div>
                     </div>
                     <div class="table-responsive">
@@ -42,10 +43,11 @@
                             </thead>
                             <tbody>
                             <?php
+							$i=1;
                             foreach ($bks as $key => $value) {
-                              if ($value->id_unit == $this->session->userdata('ses_id_unit')) {?>
+                              if ($value->id_unit == $this->session->userdata('ses_id_unit') or $this->session->userdata('ses_id_unit') == 8) {?>
                                 <tr>
-                                    <td><?=$key+1?></td>
+                                    <td><?=$i?></td>
                                     <td><?=$value->tahun?></td>
                                     <td><?=$value->nama_unit?></td>
                                     <td><?=$value->uraian?></td>
@@ -111,6 +113,7 @@
                                 </div>
                                 <!-- /.modal hapus -->
                             <?php
+							$i++;
                               }
                             }
                             ?>

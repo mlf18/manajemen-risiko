@@ -3,10 +3,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Pengendalian_risiko extends CI_Controller {
     public function index($id){
         $pengendalian = $this->pengendalian_model->get(array('id_risiko'=>$id));
+		$id_mr = $this->pengendalian_model->getIdManajemenRisiko(array('risiko.id_risiko'=>$id));
         $data =array(
             'content'=>'pengendalian_risiko.php',
             'id_risiko'=>$id,
-            'pengendalian'=>$pengendalian
+            'pengendalian'=>$pengendalian,
+			'id_mr'=>$id_mr
         );
 		$this->load->view('index',$data);
     }

@@ -55,8 +55,9 @@
                         <div class="row">
                             <div class="col-md-12 text-right">
                                 <button class="btn btn-success" type="submit">Submit</button>
+                                <a href="<?php echo base_url("assets/images/analisis_risiko.png") ?>" class="btn btn-warning" target="_blank" style="color:white">Lihat Panduan </a>
                                 <a href="<?php echo base_url();?>index.php/analisis_risiko/print_analisis/<?php echo $id_mr;?>" class="btn btn-primary" target="_blank">Print</a>
-
+                                <a href="<?php echo base_url();?>index.php/analisis_risiko/download_analisis/<?php echo $id_mr;?>" class="btn btn-success" target="_blank">Download</a>
                             </div>
                         </div>
                         <div class="table-responsive">
@@ -66,7 +67,7 @@
                                     <tr >
                                         <th class="text-center" rowspan="2">No</th>
                                         <th class="text-center" colspan="4">Identifikasi</th>
-                                        <th class="text-center" colspan="5">Hasil Analisis</th>
+                                        <th class="text-center" colspan="3">Hasil Analisis</th>
                                     </tr>
                                     <tr >
                                         <th class="text-center">Pernyataan Risiko</th>
@@ -109,11 +110,11 @@
                                         <td class="text-center"><?php $besaran_risiko = $value->level_dampak * $value->level_kemungkinan; echo $besaran_risiko ?></td>
                                         <?php
                                           if($besaran_risiko > 12){
-                                            echo '<td class="text-center" style="background:red;color:white">Risiko Tinggi</td>';
-                                          }elseif($besaran_risiko > 4){
-                                            echo '<td class="text-center" style="background:yellow; color:black">Risiko Sedang</td>';
-                                          }elseif($besaran_risiko > 0){
-                                            echo '<td class="text-center" style="background:grey;color:white">Risiko Rendah</td>';
+                                            echo '<td class="text-center" style="background-color:red;color:white">Risiko Tinggi</td>';
+                                          }elseif($besaran_risiko > 4 && $besaran_risiko <= 12){
+                                            echo '<td class="text-center" style="background-color:yellow; color:black">Risiko Sedang</td>';
+                                          }elseif($besaran_risiko > 0 && $besaran_risiko <= 4){
+                                            echo '<td class="text-center" style="background-color:grey;color:black">Risiko Rendah</td>';
                                           }else{
                                             echo '<td class="text-center"> - </td>';
                                           }

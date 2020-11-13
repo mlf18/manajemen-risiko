@@ -67,15 +67,21 @@
                     <td><?=tipeRisiko($risiko->tipe)?></td>
                     <td><?=$risiko->penyebab?></td>
                     <td>
-                        <?php foreach($risiko->dampak as $dampak){
-                            echo $dampak->dampak;
+                        <?php 
+						$no =1;
+						foreach($risiko->dampak as $dampak){
+                            echo $no.'. '.$dampak->dampak;
                             echo "<br>";
+							$no+=1;
                         }?>
                     </td>
                     <td>
-                        <?php foreach($risiko->pengendalian as $pengendalian){
-                            echo $pengendalian->pengendalian;
+                        <?php 
+						$no =1;
+						foreach($risiko->pengendalian as $pengendalian){
+                            echo $no.'. '.$pengendalian->pengendalian;
                             echo "<br>";
+							$no+=1;
                         }?>
                     </td>
                     <td><?=$risiko->sisa_risiko?></td>

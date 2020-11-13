@@ -38,4 +38,12 @@ class Dampak_model extends CI_Model {
             return false;
         }
     }
+	public function getIdManajemenRisiko($id_risiko){
+        $this->db->select('sasaran_organisasi.id_manajemen_risiko');
+        $this->db->join('indikator_organisasi', 'indikator_organisasi.id_indikator_organisasi = risiko.id_indikator_organisasi','left');;
+        $this->db->join('sasaran_organisasi', 'indikator_organisasi.id_sasaran_organisasi = sasaran_organisasi.id_sasaran_organisasi','left');
+		$this->db->where($id_risiko);
+        $query = $this->db->get('risiko');
+        return $query->result();
+    }
 }

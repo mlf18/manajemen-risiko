@@ -54,14 +54,14 @@
                 <td class="text-center"><?php $besaran_risiko = $value->level_dampak * $value->level_kemungkinan; echo $besaran_risiko ?></td>
                 <?php
                     if($besaran_risiko > 12){
-                    echo '<td class="text-center" style="background:red;color:white">Risiko Tinggi</td>';
-                    }elseif($besaran_risiko > 4){
-                    echo '<td class="text-center" style="background:yellow">Risiko Sedang</td>';
-                    }elseif($besaran_risiko > 0){
-                    echo '<td class="text-center" style="background:grey;color:white">Risiko Rendah</td>';
-                    }else{
-                    echo '<td class="text-center"> - </td>';
-                    }
+                        echo '<td class="text-center" style="background-color:red;color:white">Risiko Tinggi</td>';
+                      }elseif($besaran_risiko > 4 && $besaran_risiko <= 12){
+                        echo '<td class="text-center" style="background-color:yellow; color:black">Risiko Sedang</td>';
+                      }elseif($besaran_risiko > 0 && $besaran_risiko <= 4){
+                        echo '<td class="text-center" style="background-color:grey;color:black">Risiko Rendah</td>';
+                      }else{
+                        echo '<td class="text-center"> - </td>';
+                      }
                 ?>
             </tr>
             <?php

@@ -44,13 +44,14 @@
               </div>
               <div class="card-body">
 
-
                 <div class="col-md-12">
                     <div style="overflow-x:auto;">
                       <form action="<?= base_url()?>index.php/rencana_tindak_lanjut/save" method="post" enctype="multipart/form-data">
                       <div class="col-md-12 text-right">
                           <button type="submit" class="btn btn-success">Simpan</button>
+                          <a href="<?php echo base_url("assets/images/RTP.png") ?>" class="btn btn-warning" target="_blank" style="color:white">Lihat Panduan </a>
                           <a href="<?php echo base_url();?>index.php/rencana_tindak_lanjut/print_rtl/<?php echo $id_mr;?>" class="btn btn-primary" target="_blank">Print</a>
+                          <a href="<?php echo base_url();?>index.php/rencana_tindak_lanjut/download_rtl/<?php echo $id_mr;?>" class="btn btn-success" target="_blank">Download</a>
                       </div>
                         <br/>
                         <table class="table table-bordered table-hover bg-info" style="width:250%;max-width:250%;">
@@ -82,10 +83,10 @@
                                     <?php
                                       if($value->besaran_risiko > 12){
                                         echo '<td class="text-center" style="background:red;color:white">'.$value->besaran_risiko.'</td>';
-                                      }elseif($value->besaran_risiko > 4){
+                                      }elseif($value->besaran_risiko > 4 && $value->besaran_risiko <= 12){
                                         echo '<td class="text-center" style="background:yellow">'.$value->besaran_risiko.'</td>';
-                                      }elseif($value->besaran_risiko > 0){
-                                        echo '<td class="text-center" style="background:grey;color:white">'.$value->besaran_risiko.'</td>';
+                                      }elseif($value->besaran_risiko > 0 && $value->besaran_risiko <= 4){
+                                        echo '<td class="text-center" style="background:grey;color:black">'.$value->besaran_risiko.'</td>';
                                       }else{
                                         echo '<td class="text-center"> - </td>';
                                       }
@@ -104,12 +105,12 @@
                                     ?>
                                     <td><textarea name="<?= $value->id_risiko ?>[perbaikanPengendalian]" class="form-control" rows="10" cols="30"><?php echo count($rtl) > 0 ? $rtl[0]->perbaikan_pengendalian:'';?></textarea></td>
                                     <td>
-                                      Dari : <input type="month" name="<?= $value->id_risiko ?>[dari]" style="vertical-align:center;line-height: 20px;" class="form-control" value="<?php echo count($rtl) > 0 ? $rtl[0]->mulai:'';?>"><br>
-                                      Sampai : <input type="month" name="<?= $value->id_risiko ?>[sampai]" style="vertical-align:center;line-height: 20px;" class="form-control" value="<?php echo count($rtl) > 0 ? $rtl[0]->selesai:'';?>">
+                                      Dari : <input type="month" name="<?= $value->id_risiko ?>[dari]" style="vertical-align:center;line-height: 20px;" class="form-control" value="<?php echo count($rtl) > 0 ? strtotime($rtl[0]->mulai) > 1262304000 ? date("Y-m",strtotime($rtl[0]->mulai)):'':'';?>"><br>
+                                      Sampai : <input type="month" name="<?= $value->id_risiko ?>[sampai]" style="vertical-align:center;line-height: 20px;" class="form-control" value="<?php echo count($rtl) > 0 ? strtotime($rtl[0]->selesai) > 1262304000 ? date("Y-m",strtotime($rtl[0]->selesai)):'':'';?>">
                                     </td>
                                     <td><textarea name="<?= $value->id_risiko ?>[pembiayaan]"  class="form-control"  rows="10" cols="30"><?php echo count($rtl) > 0 ? $rtl[0]->pembiayaan:'';?></textarea></td>
                                     <td><textarea name="<?= $value->id_risiko ?>[keterangan]"  class="form-control"  rows="10" cols="30"><?php echo count($rtl) > 0 ? $rtl[0]->ket:'';?></textarea></td>
-                                    <td><textarea name="<?= $value->id_risiko ?>[keterangan]"  class="form-control"  rows="10" cols="30"><?php echo count($rtl) > 0 ? $rtl[0]->pemilik_risiko:'';?></textarea></td>
+                                    <td><textarea name="<?= $value->id_risiko ?>[pemilik_risiko]"  class="form-control"  rows="10" cols="30"><?php echo count($rtl) > 0 ? $rtl[0]->pemilik_risiko:'';?></textarea></td>
                                   </tr>
                               <?php
                                 $i++;

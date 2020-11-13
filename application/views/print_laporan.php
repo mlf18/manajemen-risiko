@@ -93,7 +93,7 @@
                                 </tr>
                                 <tr>
                                     <td style="vertical-align: text-top;">2)</td>
-                                    <td>Peraturan Menteri Pendayagunaan Aparatur Negara dan Reformasi Birokrasi Nomor xx Tahun 2019 tentang Manajemen Risiko di Lingkungan Kementerian Pendayagunaan Aparatur Negara dan Reformasi Birokrasi.</td>
+                                    <td>Peraturan Menteri Pendayagunaan Aparatur Negara dan Reformasi Birokrasi Nomor 19 Tahun 2017 tentang Manajemen Risiko di Lingkungan Kementerian Pendayagunaan Aparatur Negara dan Reformasi Birokrasi.</td>
                                 </tr>
                             </table>
                         </td>
@@ -123,7 +123,7 @@
                     </tr>
                     <tr>
                         <td></td>
-                        <td>Telah dilakukan pemetaan risiko atas seluruh/sebagian tujuan/sasaran yang ingin dicapai. Tujuan/sasaran kegiatan yang belum dilakukan pemetaan risiko adalah: <?php echo $laporan ? $laporan[0]->tujuan_sasaran:''?> Data pemetaan risiko terlampir pada petunjuk teknis identifikasi, analisis risiko dan evaluasi risiko.</td>
+                        <td><?php echo $laporan ? $laporan[0]->tujuan_sasaran:''?></td>
                     </tr>
                     <tr>
                         <td width="2%">b.</td>
@@ -131,7 +131,7 @@
                     </tr>
                     <tr>
                         <td width="2%"></td>
-                        <td>Telah dikembangkan opsi rencana tindak pengendalian untuk mengelola risiko dan dilakukan monitoring atas progresnya. Data RTP dan progress terlampir pada petunjuk teknis penerapan risiko.</td>
+                        <td><?php echo $laporan ? $laporan[0]->pemetaan_rtp:''?></td>
                     </tr>
                 </table>
             </td>
@@ -143,13 +143,6 @@
         <tr>
             <td></td>
             <td><?php echo $laporan ? $laporan[0]->simpulan:''?></td>
-        </tr>
-    </table>
-    <table width="100%">
-        <tr>
-            <td>
-                <p style="text-indent:50px;">Demikian kami sampaikan, atas perhatian dan kerjasamanya, kami mengucapkan terimakasih</p>
-            </td>
         </tr>
     </table>
     <table width="100%">

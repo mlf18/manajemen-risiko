@@ -129,6 +129,7 @@ function levelDampak($lv){
 
 function tgl_indo($tanggal){
 	$bulan = array (
+		0=>'',
 		1 =>   'Januari',
 		'Februari',
 		'Maret',
